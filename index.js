@@ -2,7 +2,7 @@ const getAbsolute = (digit) => {
   return Math.abs(digit);
 };
 
-function sumDigits(number) {
+const sumDigits = (number) => {
   let total = 0;
   getAbsolute(number)
     .toString()
@@ -12,4 +12,6 @@ function sumDigits(number) {
       total += digit;
     });
   return total;
-}
+};
+
+const roundToNext5 = (n) => Math.ceil(n / 5) * 5;
