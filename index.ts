@@ -28,3 +28,8 @@ const reverseLetter = (str: string): string => {
   });
   return reversedString.join("");
 };
+
+const removeUrlAnchor = (url: string): string => {
+  const index = url.indexOf("#");
+  return index === -1 ? url : url.slice(0, index);
+};
