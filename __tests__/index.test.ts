@@ -1,0 +1,1 @@
+import { getAbsolute } from "../index";

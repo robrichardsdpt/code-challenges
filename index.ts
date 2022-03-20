@@ -1,9 +1,9 @@
-const getAbsolute = (digit: number): number => {
+export const getAbsolute = (digit: number): number => {
   return Math.abs(digit);
 };
 
-const sumDigits = (number: number): number => {
-  let total = 0;
+export const sumDigits = (number: number): number => {
+  let total: number = 0;
   getAbsolute(number)
     .toString()
     .split("")
@@ -14,14 +14,14 @@ const sumDigits = (number: number): number => {
   return total;
 };
 
-const roundToNext5 = (n: number): number => Math.ceil(n / 5) * 5;
+export const roundToNext5 = (n: number): number => Math.ceil(n / 5) * 5;
 
-const sortByLength = (array: Array<string>): Array<string> => {
+export const sortByLength = (array: Array<string>): Array<string> => {
   return array.sort((a: string, b: string) => a.length - b.length);
 };
 
-const reverseLetter = (str: string): string => {
-  let reversedString = [];
+export const reverseLetter = (str: string): string => {
+  let reversedString: Array<string> = [];
   const strArray = str.split("");
   strArray.forEach((char) => {
     if (/[a-zA-Z]/.test(char)) reversedString.unshift(char);
@@ -29,13 +29,13 @@ const reverseLetter = (str: string): string => {
   return reversedString.join("");
 };
 
-const removeUrlAnchor = (url: string): string => {
-  const index = url.indexOf("#");
+export const removeUrlAnchor = (url: string): string => {
+  const index: number = url.indexOf("#");
   return index === -1 ? url : url.slice(0, index);
 };
 
-const findCapitalIndexArray = (word: string): Array<number> => {
-  const indexArray = [];
+export const findCapitalIndexArray = (word: string): Array<number> => {
+  const indexArray: Array<number> = [];
   [...word].forEach((e, i) => {
     if (/[A-Z]/.test(e)) indexArray.push(i);
   });
