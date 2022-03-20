@@ -33,3 +33,11 @@ const removeUrlAnchor = (url: string): string => {
   const index = url.indexOf("#");
   return index === -1 ? url : url.slice(0, index);
 };
+
+const findCapitalIndexArray = (word: string): Array<number> => {
+  const indexArray = [];
+  [...word].forEach((e, i) => {
+    if (/[A-Z]/.test(e)) indexArray.push(i);
+  });
+  return indexArray;
+};
