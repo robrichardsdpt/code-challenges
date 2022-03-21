@@ -1,4 +1,4 @@
-const merge = (left: Array<number>, right: Array<number>): Array<number> => {
+const _merge = (left: Array<number>, right: Array<number>): Array<number> => {
   let arr = [];
   // Break out of loop if any one of the array gets empty
   while (left.length && right.length) {
@@ -24,5 +24,5 @@ export const mergeSort = (arr: Array<number>): Array<number> => {
   }
 
   const left = arr.splice(0, midpoint);
-  return merge(mergeSort(left), mergeSort(arr));
+  return _merge(mergeSort(left), mergeSort(arr));
 };
