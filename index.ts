@@ -1,10 +1,10 @@
-export const getAbsolute = (digit: number): number => {
+const _getAbsolute = (digit: number): number => {
   return Math.abs(digit);
 };
 
 export const sumDigits = (number: number): number => {
   let total: number = 0;
-  getAbsolute(number)
+  _getAbsolute(number)
     .toString()
     .split("")
     .forEach((char: string) => {
