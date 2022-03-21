@@ -1,4 +1,22 @@
-import { sumDigits, sortByLength } from "../index";
+import { sumDigits, sortByLength, roundToNext5 } from "../index";
+
+describe("testing roundToNext5", () => {
+  test("roundToNext5 takes positive number and returns appropriate value", () => {
+    expect(roundToNext5(321)).toBe(325);
+  });
+
+  test("roundToNext5 takes negative number and returns appropriate value", () => {
+    expect(roundToNext5(-321)).toBe(-320);
+  });
+
+  test("roundToNext5 takes 0 and returns appropriate value", () => {
+    expect(roundToNext5(0)).toBe(0);
+  });
+
+  test("roundToNext5 takes 5 and returns appropriate value", () => {
+    expect(roundToNext5(5)).toBe(5);
+  });
+});
 
 describe("testing sumDigits", () => {
   test("sumDigits takes each digit of positive number and returns appropriate value", () => {
