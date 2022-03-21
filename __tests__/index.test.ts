@@ -1,4 +1,10 @@
-import { sumDigits, sortByLength, reverseLetter, roundToNext5 } from "../index";
+import {
+  removeUrlAnchor,
+  sumDigits,
+  sortByLength,
+  reverseLetter,
+  roundToNext5,
+} from "../index";
 
 describe("testing roundToNext5", () => {
   test("roundToNext5 takes positive number and returns appropriate value", () => {
@@ -73,5 +79,21 @@ describe("testing sortByLength", () => {
 
   test("sortByLength takes each string in array and returns appropriately sorted array", () => {
     expect(sortByLength(["0", "2", "4"])).toStrictEqual(["0", "2", "4"]);
+  });
+});
+
+describe("testing removeUrlAnchor", () => {
+  test("removeUrlAnchor takes string and returns appropriately sorted array", () => {
+    expect(removeUrlAnchor("www.google.com")).toBe("www.google.com");
+  });
+
+  test("removeUrlAnchor takes empty string and returns empty array", () => {
+    expect(removeUrlAnchor("")).toBe("");
+  });
+
+  test("removeUrlAnchor takes string with anchor and returns appropriately sorted array", () => {
+    expect(removeUrlAnchor("www.google.com/search/#result")).toBe(
+      "www.google.com/search/"
+    );
   });
 });
