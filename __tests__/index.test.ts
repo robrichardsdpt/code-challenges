@@ -1,4 +1,4 @@
-import { sumDigits, sortByLength, roundToNext5 } from "../index";
+import { sumDigits, sortByLength, reverseLetter, roundToNext5 } from "../index";
 
 describe("testing roundToNext5", () => {
   test("roundToNext5 takes positive number and returns appropriate value", () => {
@@ -15,6 +15,24 @@ describe("testing roundToNext5", () => {
 
   test("roundToNext5 takes 5 and returns appropriate value", () => {
     expect(roundToNext5(5)).toBe(5);
+  });
+});
+
+describe("testing reverseLetter", () => {
+  test("reverseLetter takes String with a number and returns appropriate value", () => {
+    expect(reverseLetter("oll3eh")).toBe("hello");
+  });
+
+  test("reverseLetter takes empty string and returns appropriate value", () => {
+    expect(reverseLetter("")).toBe("");
+  });
+
+  test("reverseLetter takes string and returns appropriate value", () => {
+    expect(reverseLetter("gnirtS")).toBe("String");
+  });
+
+  test("reverseLetter takes a string of numbers and returns appropriate value", () => {
+    expect(reverseLetter("54321")).toBe("");
   });
 });
 
