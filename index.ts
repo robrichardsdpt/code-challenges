@@ -41,3 +41,20 @@ export const findCapitalIndexArray = (word: string): Array<number> => {
   });
   return indexArray;
 };
+
+export const isPalindrome = (number: number): boolean => {
+  const numString = number.toString();
+  let start = 0;
+  let end = numString.length - 1;
+
+  if (numString[0] === "-") return false;
+
+  while (start <= end) {
+    if (numString[start] !== numString[end]) {
+      return false;
+    }
+    start++;
+    end--;
+  }
+  return true;
+};

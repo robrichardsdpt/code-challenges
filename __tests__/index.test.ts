@@ -5,6 +5,7 @@ import {
   reverseLetter,
   roundToNext5,
   findCapitalIndexArray,
+  isPalindrome,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -118,5 +119,27 @@ describe("testing findCapitalIndexArray", () => {
     expect(
       findCapitalIndexArray("www.google.com/search/#result")
     ).toStrictEqual([]);
+  });
+});
+
+describe("testing isPalindrome", () => {
+  test("isPalindrome takes 121 and returns appropriate true", () => {
+    expect(isPalindrome(121)).toBe(true);
+  });
+
+  test("isPalindrome takes 1221 and returns true", () => {
+    expect(isPalindrome(1221)).toBe(true);
+  });
+
+  test("isPalindrome takes -1221 and returns false", () => {
+    expect(isPalindrome(-1221)).toBe(false);
+  });
+
+  test("isPalindrome takes 1 and returns true", () => {
+    expect(isPalindrome(1)).toBe(true);
+  });
+
+  test("isPalindrome takes 123 and returns false", () => {
+    expect(isPalindrome(123)).toBe(false);
   });
 });
