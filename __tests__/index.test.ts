@@ -4,6 +4,7 @@ import {
   sortByLength,
   reverseLetter,
   roundToNext5,
+  findCapitalIndexArray,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -83,17 +84,39 @@ describe("testing sortByLength", () => {
 });
 
 describe("testing removeUrlAnchor", () => {
-  test("removeUrlAnchor takes string and returns appropriately sorted array", () => {
+  test("removeUrlAnchor takes string and returns appropriate string", () => {
     expect(removeUrlAnchor("www.google.com")).toBe("www.google.com");
   });
 
-  test("removeUrlAnchor takes empty string and returns empty array", () => {
+  test("removeUrlAnchor takes empty string and returns empty string", () => {
     expect(removeUrlAnchor("")).toBe("");
   });
 
-  test("removeUrlAnchor takes string with anchor and returns appropriately sorted array", () => {
+  test("removeUrlAnchor takes string with anchor and returns appropriate string", () => {
     expect(removeUrlAnchor("www.google.com/search/#result")).toBe(
       "www.google.com/search/"
     );
+  });
+});
+
+describe("testing findCapitalIndexArray", () => {
+  test("findCapitalIndexArray takes string and returns appropriate array", () => {
+    expect(findCapitalIndexArray("CaMeLcAsE")).toStrictEqual([0, 2, 4, 6, 8]);
+  });
+
+  test("findCapitalIndexArray takes empty string and returns empty array", () => {
+    expect(findCapitalIndexArray("")).toStrictEqual([]);
+  });
+
+  test("findCapitalIndexArray takes string with numbers and returns appropriate array", () => {
+    expect(findCapitalIndexArray("The9ShouldNotError")).toStrictEqual([
+      0, 4, 10, 13,
+    ]);
+  });
+
+  test("findCapitalIndexArray takes string with no capital letters and returns appropriate array", () => {
+    expect(
+      findCapitalIndexArray("www.google.com/search/#result")
+    ).toStrictEqual([]);
   });
 });
