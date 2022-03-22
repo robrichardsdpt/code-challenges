@@ -1,3 +1,5 @@
+import { string } from "yargs";
+
 const _merge = (left: Array<number>, right: Array<number>): Array<number> => {
   let arr = [];
   // Break out of loop if any one of the array gets empty
@@ -38,4 +40,20 @@ export const bubbleSort = (arr: Array<number>): Array<number> => {
     }
   }
   return arr;
+};
+
+export const sortWordsAndNumbers = (
+  arr: Array<number | string>
+): Array<number | string> => {
+  const stringArr = [];
+  const numArr = [];
+
+  arr.forEach((item: string | number) =>
+    typeof item === "string" ? stringArr.push(item) : numArr.push(item)
+  );
+
+  return [
+    ...numArr.sort((a, b) => a - b),
+    ...stringArr.sort((a, b) => (a.toLowerCase() < b.toLowerCase() ? -1 : 1)),
+  ];
 };
