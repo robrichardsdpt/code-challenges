@@ -1,5 +1,3 @@
-import { string } from "yargs";
-
 const _merge = (left: Array<number>, right: Array<number>): Array<number> => {
   let arr = [];
   // Break out of loop if any one of the array gets empty
