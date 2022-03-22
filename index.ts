@@ -76,3 +76,7 @@ export const letterEncrypt = (letter: string): string => {
       return "invalid input";
   }
 };
+
+export const negateOddNumbers = (arr: Array<number>): Array<number> => {
+  return arr.map((num) => (num % 2 != 0 ? -num : num));
+};

@@ -7,6 +7,7 @@ import {
   findCapitalIndexArray,
   isPalindrome,
   letterEncrypt,
+  negateOddNumbers,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -174,5 +175,19 @@ describe("testing letterEncrypt", () => {
 
   test("letterEncrypt takes string with anchor and returns invalid input", () => {
     expect(letterEncrypt("H")).toBe("invalid input");
+  });
+});
+
+describe("testing negateOddNumbers", () => {
+  test("negateOddNumbers takes positive number, turns negative and returns appropriate value", () => {
+    expect(negateOddNumbers([3, 2, 1, 0])).toStrictEqual([-3, 2, -1, 0]);
+  });
+
+  test("negateOddNumbers takes negative number, turns positive and returns appropriate value", () => {
+    expect(negateOddNumbers([-3, 2, 1, 0])).toStrictEqual([3, 2, -1, 0]);
+  });
+
+  test("negateOddNumbers takes empty array and returns appropriate value", () => {
+    expect(negateOddNumbers([])).toStrictEqual([]);
   });
 });
