@@ -8,6 +8,7 @@ import {
   isPalindrome,
   letterEncrypt,
   negateOddNumbers,
+  returnOnlyEvenPositiveNumbers,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -189,5 +190,19 @@ describe("testing negateOddNumbers", () => {
 
   test("negateOddNumbers takes empty array and returns appropriate value", () => {
     expect(negateOddNumbers([])).toStrictEqual([]);
+  });
+});
+
+describe("testing returnOnlyEvenPositiveNumbers", () => {
+  test("returnOnlyEvenPositiveNumbers takes array with values and returns appropriate value", () => {
+    expect(returnOnlyEvenPositiveNumbers([3, 2, 1, 0])).toStrictEqual([2, 0]);
+  });
+
+  test("returnOnlyEvenPositiveNumbers takes array with values and returns appropriate value", () => {
+    expect(returnOnlyEvenPositiveNumbers([-3, -2, 1, 0])).toStrictEqual([0]);
+  });
+
+  test("returnOnlyEvenPositiveNumbers takes empty array and returns appropriate value", () => {
+    expect(returnOnlyEvenPositiveNumbers([])).toStrictEqual([]);
   });
 });
