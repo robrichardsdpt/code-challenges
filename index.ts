@@ -58,3 +58,21 @@ export const isPalindrome = (number: number): boolean => {
   }
   return true;
 };
+
+export const letterEncrypt = (letter: string): string => {
+  switch (letter) {
+    case "A":
+    case "D":
+      return "F";
+    case "B":
+      return "D";
+    case "C":
+      return "E";
+    case "E":
+      return "G";
+    case "F":
+      return "B";
+    default:
+      return "invalid input";
+  }
+};

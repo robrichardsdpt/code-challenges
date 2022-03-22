@@ -6,6 +6,7 @@ import {
   roundToNext5,
   findCapitalIndexArray,
   isPalindrome,
+  letterEncrypt,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -141,5 +142,37 @@ describe("testing isPalindrome", () => {
 
   test("isPalindrome takes 123 and returns false", () => {
     expect(isPalindrome(123)).toBe(false);
+  });
+});
+
+describe("testing letterEncrypt", () => {
+  test("letterEncrypt takes A and returns appropriate string", () => {
+    expect(letterEncrypt("A")).toBe("F");
+  });
+  test("letterEncrypt takes B and returns appropriate string", () => {
+    expect(letterEncrypt("B")).toBe("D");
+  });
+  test("letterEncrypt takes C and returns appropriate string", () => {
+    expect(letterEncrypt("C")).toBe("E");
+  });
+  test("letterEncrypt takes D and returns appropriate string", () => {
+    expect(letterEncrypt("D")).toBe("F");
+  });
+  test("letterEncrypt takes E and returns appropriate string", () => {
+    expect(letterEncrypt("E")).toBe("G");
+  });
+  test("letterEncrypt takes F and returns appropriate string", () => {
+    expect(letterEncrypt("F")).toBe("B");
+  });
+  test("letterEncrypt takes A and returns appropriate string", () => {
+    expect(letterEncrypt("A")).toBe("F");
+  });
+
+  test("letterEncrypt takes empty string and returns invalid input", () => {
+    expect(letterEncrypt("")).toBe("invalid input");
+  });
+
+  test("letterEncrypt takes string with anchor and returns invalid input", () => {
+    expect(letterEncrypt("H")).toBe("invalid input");
   });
 });
