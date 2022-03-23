@@ -57,6 +57,10 @@ export const matchTwoTypedStringsAlt = (
   return true;
 };
 
+// assume only receives lowercase
+// can receive lowercase letters and numnbers
+// need to address when empty string passed
+// need to address when string is only 1 in length
 export const longestLowercaseSubstringWithoutRepeat = (str: string): number => {
   let i1 = 0;
   let i2 = 1;
