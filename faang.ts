@@ -57,7 +57,7 @@ export const matchTwoTypedStringsAlt = (
   return true;
 };
 
-export const longestSubstringWithoutRepeat = (str: string): number => {
+export const longestLowercaseSubstringWithoutRepeat = (str: string): number => {
   let i1 = 0;
   let i2 = 1;
   let previousLetter = str[i1];
