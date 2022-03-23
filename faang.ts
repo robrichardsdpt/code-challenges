@@ -97,25 +97,18 @@ export const longestLowercaseSubstringWithoutTwoInARow = (
 
 export const longestLowercaseSubstringWithoutRepeat = (str: string): number => {
   if (str.length <= 1) return str.length;
-  let i1 = 0;
-  let i2 = 1;
+  let left = 0;
   const charMap = {};
-  charMap[str[i1]] = i1;
-  let longestStringLength = 1;
+  let longestStringLength = 0;
 
-  while (i1 <= str.length - 1 && i2 <= str.length - 1) {
-    if (charMap[str[i2]] != undefined) {
-      let currentStringLength = i2 - i1;
-      i1 = i2;
-      charMap[str[i2]] = i2;
-      i2++;
-      if (currentStringLength > longestStringLength) {
-        longestStringLength = currentStringLength;
-      }
-    } else {
-      charMap[str[i2]] = i2;
-      i2++;
+  for (let right = 0; right < str.length; right++) {
+    const currentChar = str[right];
+    const prevSeenChar = charMap[currentChar];
+    if (prevSeenChar >= left) {
+      left = prevSeenChar + 1;
     }
+    charMap[currentChar] = right;
+    longestStringLength = Math.max(longestStringLength, right - left + 1);
   }
 
   return longestStringLength;
