@@ -1,4 +1,8 @@
-import { matchTwoTypedStrings, matchTwoTypedStringsAlt } from "../faang";
+import {
+  matchTwoTypedStrings,
+  matchTwoTypedStringsAlt,
+  longestSubstringWithoutRepeat,
+} from "../faang";
 
 describe("testing binarySearch", () => {
   test("matchTwoTypedStrings takes 2 strings with backspace but are equal returning true", () => {
@@ -57,5 +61,35 @@ describe("testing matchTwoTypedStringsAlt", () => {
 
   test("matchTwoTypedStringsAlt takes 2 strings with backspace that leave empty returning true", () => {
     expect(matchTwoTypedStringsAlt("##", "c#")).toBe(true);
+  });
+});
+
+describe("testing longestSubstringWithoutRepeat", () => {
+  test("longestSubstringWithoutRepeat takes abccda returning 3", () => {
+    expect(longestSubstringWithoutRepeat("abccda")).toBe(3);
+  });
+
+  test("longestSubstringWithoutRepeat takes hello returning 3", () => {
+    expect(longestSubstringWithoutRepeat("hello")).toBe(3);
+  });
+
+  test("longestSubstringWithoutRepeat takes cccccc returning 1", () => {
+    expect(longestSubstringWithoutRepeat("cccccc")).toBe(1);
+  });
+
+  test("longestSubstringWithoutRepeat takes empty string returning 0", () => {
+    expect(longestSubstringWithoutRepeat("")).toBe(0);
+  });
+
+  test("longestSubstringWithoutRepeat takes acHoo returning 4", () => {
+    expect(longestSubstringWithoutRepeat("achoo")).toBe(4);
+  });
+
+  test("longestSubstringWithoutRepeat takes ahhhh returning 2", () => {
+    expect(longestSubstringWithoutRepeat("ahhhh")).toBe(2);
+  });
+
+  test("longestSubstringWithoutRepeat takes 122334, returning 2", () => {
+    expect(longestSubstringWithoutRepeat("122334")).toBe(2);
   });
 });

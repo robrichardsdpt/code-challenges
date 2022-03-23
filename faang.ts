@@ -56,3 +56,34 @@ export const matchTwoTypedStringsAlt = (
   }
   return true;
 };
+
+export const longestSubstringWithoutRepeat = (str: string): number => {
+  let i1 = 0;
+  let i2 = 1;
+  let previousLetter = str[i1];
+  let longestStringLength = 0;
+  let currentStringLength = 1;
+
+  if (str.length <= 1) return str.length;
+
+  while (i1 < str.length - 1 && i2 < str.length - 1) {
+    if (str[i2] === previousLetter) {
+      i1 = i2;
+      previousLetter = str[i2];
+      i2++;
+      if (currentStringLength > longestStringLength) {
+        longestStringLength = currentStringLength;
+      }
+      currentStringLength = 1;
+    } else {
+      currentStringLength++;
+      previousLetter = str[i2];
+      i2++;
+      if (currentStringLength > longestStringLength) {
+        longestStringLength = currentStringLength;
+      }
+    }
+  }
+
+  return longestStringLength;
+};
