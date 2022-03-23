@@ -70,7 +70,7 @@ export const longestLowercaseSubstringWithoutRepeat = (str: string): number => {
 
   if (str.length <= 1) return str.length;
 
-  while (i1 < str.length - 1 && i2 < str.length - 1) {
+  while (i1 <= str.length - 1 && i2 <= str.length - 1) {
     if (str[i2] === previousLetter) {
       i1 = i2;
       previousLetter = str[i2];

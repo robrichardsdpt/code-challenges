@@ -4,7 +4,7 @@ import {
   longestLowercaseSubstringWithoutRepeat,
 } from "../faang";
 
-describe("testing binarySearch", () => {
+describe("testing matchTwoTypedStrings", () => {
   test("matchTwoTypedStrings takes 2 strings with backspace but are equal returning true", () => {
     expect(matchTwoTypedStrings("hello", "hee#llo")).toBe(true);
   });
@@ -91,5 +91,8 @@ describe("testing longestLowercaseSubstringWithoutRepeat", () => {
 
   test("longestLowercaseSubstringWithoutRepeat takes 122334, returning 2", () => {
     expect(longestLowercaseSubstringWithoutRepeat("122334")).toBe(2);
+  });
+  test("longestLowercaseSubstringWithoutRepeat takes 11, returning 1", () => {
+    expect(longestLowercaseSubstringWithoutRepeat("11")).toBe(1);
   });
 });
