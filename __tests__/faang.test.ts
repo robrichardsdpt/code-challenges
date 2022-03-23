@@ -1,6 +1,7 @@
 import {
   matchTwoTypedStrings,
   matchTwoTypedStringsAlt,
+  longestLowercaseSubstringWithoutTwoInARow,
   longestLowercaseSubstringWithoutRepeat,
 } from "../faang";
 
@@ -64,9 +65,42 @@ describe("testing matchTwoTypedStringsAlt", () => {
   });
 });
 
+describe("testing longestLowercaseSubstringWithoutTwoInARow", () => {
+  test("longestLowercaseSubstringWithoutTwoInARow takes abccda returning 3", () => {
+    expect(longestLowercaseSubstringWithoutTwoInARow("abccda")).toBe(3);
+  });
+
+  test("longestLowercaseSubstringWithoutTwoInARow takes hello returning 3", () => {
+    expect(longestLowercaseSubstringWithoutTwoInARow("hello")).toBe(3);
+  });
+
+  test("longestLowercaseSubstringWithoutTwoInARow takes cccccc returning 1", () => {
+    expect(longestLowercaseSubstringWithoutTwoInARow("cccccc")).toBe(1);
+  });
+
+  test("longestLowercaseSubstringWithoutTwoInARow takes empty string returning 0", () => {
+    expect(longestLowercaseSubstringWithoutTwoInARow("")).toBe(0);
+  });
+
+  test("longestLowercaseSubstringWithoutTwoInARow takes achoo returning 4", () => {
+    expect(longestLowercaseSubstringWithoutTwoInARow("achoo")).toBe(4);
+  });
+
+  test("longestLowercaseSubstringWithoutTwoInARow takes ahhhh returning 2", () => {
+    expect(longestLowercaseSubstringWithoutTwoInARow("ahhhh")).toBe(2);
+  });
+
+  test("longestLowercaseSubstringWithoutTwoInARow takes 122334, returning 2", () => {
+    expect(longestLowercaseSubstringWithoutTwoInARow("122334")).toBe(2);
+  });
+  test("longestLowercaseSubstringWithoutTwoInARow takes 11, returning 1", () => {
+    expect(longestLowercaseSubstringWithoutTwoInARow("11")).toBe(1);
+  });
+});
+
 describe("testing longestLowercaseSubstringWithoutRepeat", () => {
-  test("longestLowercaseSubstringWithoutRepeat takes abccda returning 3", () => {
-    expect(longestLowercaseSubstringWithoutRepeat("abccda")).toBe(3);
+  test("longestLowercaseSubstringWithoutRepeat takes abcabc returning 3", () => {
+    expect(longestLowercaseSubstringWithoutRepeat("abcabc")).toBe(3);
   });
 
   test("longestLowercaseSubstringWithoutRepeat takes hello returning 3", () => {
@@ -81,16 +115,16 @@ describe("testing longestLowercaseSubstringWithoutRepeat", () => {
     expect(longestLowercaseSubstringWithoutRepeat("")).toBe(0);
   });
 
-  test("longestLowercaseSubstringWithoutRepeat takes acHoo returning 4", () => {
-    expect(longestLowercaseSubstringWithoutRepeat("achoo")).toBe(4);
+  test("longestLowercaseSubstringWithoutRepeat takes hachoo returning 3", () => {
+    expect(longestLowercaseSubstringWithoutRepeat("hachoo")).toBe(3);
   });
 
   test("longestLowercaseSubstringWithoutRepeat takes ahhhh returning 2", () => {
     expect(longestLowercaseSubstringWithoutRepeat("ahhhh")).toBe(2);
   });
 
-  test("longestLowercaseSubstringWithoutRepeat takes 122334, returning 2", () => {
-    expect(longestLowercaseSubstringWithoutRepeat("122334")).toBe(2);
+  test("longestLowercaseSubstringWithoutRepeat takes 212334, returning 2", () => {
+    expect(longestLowercaseSubstringWithoutRepeat("212334")).toBe(2);
   });
   test("longestLowercaseSubstringWithoutRepeat takes 11, returning 1", () => {
     expect(longestLowercaseSubstringWithoutRepeat("11")).toBe(1);

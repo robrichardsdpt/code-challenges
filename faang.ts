@@ -61,7 +61,10 @@ export const matchTwoTypedStringsAlt = (
 // can receive lowercase letters and numnbers
 // need to address when empty string passed
 // need to address when string is only 1 in length
-export const longestLowercaseSubstringWithoutRepeat = (str: string): number => {
+// terminates at two in a row
+export const longestLowercaseSubstringWithoutTwoInARow = (
+  str: string
+): number => {
   let i1 = 0;
   let i2 = 1;
   let previousLetter = str[i1];
@@ -86,6 +89,32 @@ export const longestLowercaseSubstringWithoutRepeat = (str: string): number => {
       if (currentStringLength > longestStringLength) {
         longestStringLength = currentStringLength;
       }
+    }
+  }
+
+  return longestStringLength;
+};
+
+export const longestLowercaseSubstringWithoutRepeat = (str: string): number => {
+  if (str.length <= 1) return str.length;
+  let i1 = 0;
+  let i2 = 1;
+  const charMap = {};
+  charMap[str[i1]] = i1;
+  let longestStringLength = 1;
+
+  while (i1 <= str.length - 1 && i2 <= str.length - 1) {
+    if (charMap[str[i2]] != undefined) {
+      let currentStringLength = i2 - i1;
+      i1 = i2;
+      charMap[str[i2]] = i2;
+      i2++;
+      if (currentStringLength > longestStringLength) {
+        longestStringLength = currentStringLength;
+      }
+    } else {
+      charMap[str[i2]] = i2;
+      i2++;
     }
   }
 
