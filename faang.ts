@@ -1,4 +1,4 @@
-const removeHashes = (string: string): string => {
+const handleHashes = (string: string): string => {
   const stringArray = [];
   string
     .split("")
@@ -14,5 +14,5 @@ const removeHashes = (string: string): string => {
 //  # acts as back space
 // empty strings ok
 export const matchTwoTypedStrings = (str1: string, str2: string): boolean => {
-  return removeHashes(str1) === removeHashes(str2);
+  return handleHashes(str1) === handleHashes(str2);
 };
