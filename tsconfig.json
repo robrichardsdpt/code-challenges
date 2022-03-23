@@ -1,5 +1,8 @@
 {
-  "target": "esnext",
-  "module": "commonjs",
-  "esModuleInterop": "true"
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "es6",
+    "module": "commonjs",
+    "esModuleInterop": true
+  }
 }
