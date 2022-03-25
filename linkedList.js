@@ -96,6 +96,44 @@ class LinkedList {
     }
     return "No values found or removed";
   }
+
+  traverseToIndex(number) {
+    if (number === 0) {
+      return this.head;
+    }
+    if (number > this.size - 1) {
+      return `number is larger than the indexes of list:  Please enter value between 0 and ${
+        this.size - 1
+      }`;
+    }
+
+    let current = this.head;
+    let itemCounter = 0;
+    while (itemCounter !== number) {
+      current = current.next;
+      itemCounter++;
+    }
+    return current;
+  }
+
+  reverseTheList() {
+    if (this.head === null || this.head.next === null) {
+      return this;
+    }
+    const previousHeadNode = this.head;
+    while (previousHeadNode.next !== null) {
+      let currentNode = previousHeadNode.next;
+      previousHeadNode.next = currentNode.next;
+      this.unshift(currentNode.data);
+      currentNode = null;
+      this.size--;
+    }
+    return this;
+  }
 }
 
 let list = new LinkedList();
+list.push(3);
+list.push(2);
+list.push(1);
+list.push(0);
