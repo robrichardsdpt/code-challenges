@@ -3,6 +3,7 @@ import {
   matchTwoTypedStringsAlt,
   longestLowercaseSubstringWithoutTwoInARow,
   longestLowercaseSubstringWithoutRepeat,
+  moreComplexPalindrome,
 } from "../faang";
 
 describe("testing matchTwoTypedStrings", () => {
@@ -128,5 +129,40 @@ describe("testing longestLowercaseSubstringWithoutRepeat", () => {
   });
   test("longestLowercaseSubstringWithoutRepeat takes 11, returning 1", () => {
     expect(longestLowercaseSubstringWithoutRepeat("11")).toBe(1);
+  });
+});
+
+describe("testing moreComplexPalindrome", () => {
+  test("moreComplexPalindrome takes string with all letters that is not a palindrome returning false", () => {
+    expect(moreComplexPalindrome("hello")).toBe(false);
+  });
+
+  test("moreComplexPalindrome takes takes string with letters and numbers that is not a palindrome returning false", () => {
+    expect(moreComplexPalindrome("3e1")).toBe(false);
+  });
+  test("moreComplexPalindrome takes string with all numbers that is a palindrome and returns true", () => {
+    expect(moreComplexPalindrome("12321")).toBe(true);
+  });
+
+  test("moreComplexPalindrome takes string with mixed lower and upper case letters that is palindrome and returns true", () => {
+    expect(moreComplexPalindrome("helloOLLEH")).toBe(true);
+  });
+
+  test("moreComplexPalindrome takes empty string returning true", () => {
+    expect(moreComplexPalindrome("")).toBe(true);
+  });
+
+  test("moreComplexPalindrome takes mixed strings that is a palindrome returning true", () => {
+    expect(moreComplexPalindrome("12aA21")).toBe(true);
+  });
+
+  test("moreComplexPalindrome takes complex string that has characters that are not alphanumeric and returns true", () => {
+    expect(moreComplexPalindrome("A man, a plan... A canal: Panama")).toBe(
+      true
+    );
+  });
+
+  test("moreComplexPalindrome takes string of all nonalphanumeric characters and returns true", () => {
+    expect(moreComplexPalindrome("##!.?")).toBe(true);
   });
 });

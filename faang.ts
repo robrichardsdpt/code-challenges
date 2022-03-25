@@ -113,3 +113,23 @@ export const longestLowercaseSubstringWithoutRepeat = (str: string): number => {
 
   return longestStringLength;
 };
+
+// user can input numbers, letters, characters and spaces
+export const moreComplexPalindrome = (str: string): boolean => {
+  const newStrArr = str
+    .toLowerCase()
+    .split("")
+    .filter((char) => /[a-z0-9]/.test(char));
+
+  let left = 0;
+  let right = newStrArr.length - 1;
+
+  while (left <= right) {
+    if (newStrArr[left] !== newStrArr[right]) {
+      return false;
+    }
+    left++;
+    right--;
+  }
+  return true;
+};
