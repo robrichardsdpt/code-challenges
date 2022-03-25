@@ -1,4 +1,4 @@
-class ListNode {
+export class ListNode {
   data: number;
   next: ListNode | null;
   constructor(data: number) {
@@ -16,6 +16,7 @@ export class LinkedList {
   }
 
   findTail(): ListNode {
+    if (this.size <= 1) return this.head;
     let current = this.head;
     while (current.next !== null) {
       current = current.next;
