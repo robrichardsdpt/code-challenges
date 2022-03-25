@@ -1,4 +1,6 @@
-import { LinkedList } from "../linkedList";
+import { LinkedList, ListNode } from "../linkedList";
+
+let newNode = new ListNode(6);
 
 let emptyList = new LinkedList();
 
@@ -16,6 +18,21 @@ reversedList.push(0);
 reversedList.push(1);
 reversedList.push(2);
 reversedList.push(3);
+
+describe("testing ListNode", () => {
+  test("ListNode is as expected after creation", () => {
+    expect(newNode.data === 6);
+    expect(newNode.next === null);
+  });
+
+  test("Adding ListNode to .next does what you would expect", () => {
+    let addedNode = new ListNode(5);
+    newNode.next = addedNode;
+    expect(newNode.next === addedNode);
+    expect(newNode.next.data === addedNode.data);
+    expect(addedNode.next === null);
+  });
+});
 
 describe("testing LinkedList", () => {
   test("LinkedList findTail function finds tail of linkedList", () => {
