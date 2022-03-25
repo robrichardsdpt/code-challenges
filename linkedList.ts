@@ -1,11 +1,15 @@
 class ListNode {
-  constructor(data) {
+  data: number;
+  next: ListNode | null;
+  constructor(data: number) {
     this.data = data;
     this.next = null;
   }
 }
 
-class LinkedList {
+export class LinkedList {
+  head: ListNode | null;
+  size: number;
   constructor(head = null) {
     this.head = head;
     this.size = 0;
@@ -17,7 +21,7 @@ class LinkedList {
     }
     return current;
   }
-  push(value) {
+  push(value: number) {
     let newNode = new ListNode(value);
     if (this.head === null) {
       this.head = newNode;
@@ -50,7 +54,7 @@ class LinkedList {
     return this.size;
   }
 
-  unshift(value) {
+  unshift(value: number) {
     let newNode = new ListNode(value);
     newNode.next = this.head;
     this.head = newNode;
@@ -74,14 +78,14 @@ class LinkedList {
     this.size--;
     return this.size;
   }
-  removeFirstValue(value) {
+  removeFirstValue(value: number) {
     if (this.head === null) {
       return "nothing to remove";
     }
     if (this.head.data === value) {
       return this.shift();
     }
-    let previousNode;
+    let previousNode: ListNode;
     let current = this.head;
 
     while (current) {
@@ -97,7 +101,7 @@ class LinkedList {
     return "No values found or removed";
   }
 
-  traverseToIndex(number) {
+  traverseToIndex(number: number) {
     if (number === 0) {
       return this.head;
     }
