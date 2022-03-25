@@ -173,12 +173,12 @@ describe("testing almostAPalindromeOrIsOne", () => {
     expect(almostAPalindromeOrIsOne("hello")).toBe(false);
   });
 
-  test("almostAPalindromeOrIsOne takes takes string with letters and numbers that is not a palindrome but is off by one returning true", () => {
-    expect(almostAPalindromeOrIsOne("3e1")).toBe(true);
+  test("almostAPalindromeOrIsOne takes takes string with letters and numbers that is not a palindrome and can not make one by removing one returning false", () => {
+    expect(almostAPalindromeOrIsOne("3e1")).toBe(false);
   });
 
-  test("almostAPalindromeOrIsOne takes takes string with numbers that is not a palindrome but is off by one returning true", () => {
-    expect(almostAPalindromeOrIsOne("321")).toBe(true);
+  test("almostAPalindromeOrIsOne takes takes string with numbers that is not a palindrome and can not make one by removing one returning false", () => {
+    expect(almostAPalindromeOrIsOne("321")).toBe(false);
   });
 
   test("almostAPalindromeOrIsOne takes takes string with numbers that is not a palindrome but is off by two returning false", () => {
@@ -186,11 +186,11 @@ describe("testing almostAPalindromeOrIsOne", () => {
   });
 
   test("almostAPalindromeOrIsOne takes takes string with letters that is not a palindrome but is off by one returning true", () => {
-    expect(almostAPalindromeOrIsOne("race a car")).toBe(true);
+    expect(almostAPalindromeOrIsOne("raceacar")).toBe(true);
   });
 
-  test("almostAPalindromeOrIsOne takes takes string with letters that is not a palindrome but is off by two returning false", () => {
-    expect(almostAPalindromeOrIsOne("race as a car")).toBe(false);
+  test("almostAPalindromeOrIsOne takes takes string with letters that is not a palindrome but is off by one returning false", () => {
+    expect(almostAPalindromeOrIsOne("race as a car")).toBe(true);
   });
 
   test("almostAPalindromeOrIsOne takes string with all numbers that is a palindrome and returns true", () => {

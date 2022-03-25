@@ -137,17 +137,35 @@ export const moreComplexPalindrome = (str: string): boolean => {
   return true;
 };
 
+const isValidSubPalindrome = (
+  str: string,
+  left: number,
+  right: number
+): boolean => {
+  while (left < right) {
+    if (str[left] !== str[right]) {
+      return false;
+    }
+    left++;
+    right--;
+  }
+  return true;
+};
+
+// can remove one character and it is a palindrome
+// if is a palindrome is true
 export const almostAPalindromeOrIsOne = (str: string): boolean => {
   str = str.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
 
-  let letterRemovalCounter = 0,
-    left = 0,
+  let left = 0,
     right = str.length - 1;
 
   while (left < right) {
     if (str[left] !== str[right]) {
-      if (letterRemovalCounter === 1) return false;
-      letterRemovalCounter++;
+      return (
+        isValidSubPalindrome(str, left + 1, right) ||
+        isValidSubPalindrome(str, left, right + 1)
+      );
     }
     left++;
     right--;
