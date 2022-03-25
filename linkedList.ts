@@ -107,9 +107,18 @@ export class LinkedList {
     return "No values found or removed";
   }
 
-  traverseToIndex(number: number): ListNode | string {
-    if (number === 0) {
-      return this.head;
+  traverseToIndex(number: number): string {
+    if (this.size === 0) {
+      return "this list has no values";
+    }
+    if (number < 0) {
+      return `number is too small:  Please enter value between 0 and ${
+        this.size - 1
+      }`;
+    }
+
+    if (number === 1) {
+      return `The head value is ${this.head.data}`;
     }
     if (number > this.size - 1) {
       return `number is larger than the indexes of list:  Please enter value between 0 and ${
@@ -123,7 +132,7 @@ export class LinkedList {
       current = current.next;
       itemCounter++;
     }
-    return current;
+    return `The current value at index ${number} is ${current.data}`;
   }
 
   reverseTheList(): LinkedList {
@@ -142,6 +151,7 @@ export class LinkedList {
   }
 }
 
+// creates a new linked list with 3->2->1->0
 let list = new LinkedList();
 list.push(3);
 list.push(2);

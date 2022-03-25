@@ -19,6 +19,16 @@ reversedList.push(1);
 reversedList.push(2);
 reversedList.push(3);
 
+let traversalList = new LinkedList();
+traversalList.push(1);
+traversalList.push(2);
+traversalList.push(3);
+traversalList.push(4);
+traversalList.push(5);
+traversalList.push(6);
+traversalList.push(7);
+traversalList.push(8);
+
 describe("testing ListNode", () => {
   test("ListNode is as expected after creation", () => {
     expect(newNode.data).toBe(6);
@@ -129,5 +139,27 @@ describe("testing LinkedList", () => {
       "removed head node and size is now 0"
     );
     expect(emptyList.size).toBe(0);
+  });
+
+  test("traverseToIndex test when the index sent through is correct and appropriate value returned", () => {
+    expect(traversalList.traverseToIndex(2)).toBe(
+      "The current value at index 2 is 3"
+    );
+  });
+
+  test("traverseToIndex test when the index sent through is too large and user prompted", () => {
+    expect(traversalList.traverseToIndex(12)).toBe(
+      "number is larger than the indexes of list:  Please enter value between 0 and 7"
+    );
+  });
+
+  test("traverseToIndex test when the index sent through is too small and user prompted", () => {
+    expect(traversalList.traverseToIndex(-2)).toBe(
+      "number is too small:  Please enter value between 0 and 7"
+    );
+  });
+
+  test("traverseToIndex test when the index sent through is too small and user prompted", () => {
+    expect(emptyList.traverseToIndex(2)).toBe("this list has no values");
   });
 });
