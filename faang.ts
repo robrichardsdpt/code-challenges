@@ -164,7 +164,7 @@ export const almostAPalindromeOrIsOne = (str: string): boolean => {
     if (str[left] !== str[right]) {
       return (
         isValidSubPalindrome(str, left + 1, right) ||
-        isValidSubPalindrome(str, left, right + 1)
+        isValidSubPalindrome(str, left, right - 1)
       );
     }
     left++;
