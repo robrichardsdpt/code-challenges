@@ -14,14 +14,16 @@ export class LinkedList {
     this.head = head;
     this.size = 0;
   }
-  findTail() {
+
+  findTail(): ListNode {
     let current = this.head;
     while (current.next !== null) {
       current = current.next;
     }
     return current;
   }
-  push(value: number) {
+
+  push(value: number): number {
     let newNode = new ListNode(value);
     if (this.head === null) {
       this.head = newNode;
@@ -33,7 +35,8 @@ export class LinkedList {
     this.size++;
     return this.size;
   }
-  pop() {
+
+  pop(): number {
     if (this.head === null) return this.size;
 
     if (this.head.next === null) {
@@ -42,7 +45,7 @@ export class LinkedList {
       return this.size;
     }
 
-    let previousNode;
+    let previousNode: ListNode;
     let current = this.head;
     while (current.next !== null) {
       previousNode = current;
@@ -54,7 +57,7 @@ export class LinkedList {
     return this.size;
   }
 
-  unshift(value: number) {
+  unshift(value: number): number {
     let newNode = new ListNode(value);
     newNode.next = this.head;
     this.head = newNode;
@@ -62,7 +65,7 @@ export class LinkedList {
     return this.size;
   }
 
-  shift() {
+  shift(): number {
     if (this.head === null) {
       return this.size;
     }
@@ -78,12 +81,14 @@ export class LinkedList {
     this.size--;
     return this.size;
   }
-  removeFirstValue(value: number) {
+
+  removeFirstValue(value: number): string | number {
     if (this.head === null) {
       return "nothing to remove";
     }
     if (this.head.data === value) {
-      return this.shift();
+      this.shift();
+      return `removed head node and size is now ${this.size}`;
     }
     let previousNode: ListNode;
     let current = this.head;
@@ -101,7 +106,7 @@ export class LinkedList {
     return "No values found or removed";
   }
 
-  traverseToIndex(number: number) {
+  traverseToIndex(number: number): ListNode | string {
     if (number === 0) {
       return this.head;
     }
@@ -120,7 +125,7 @@ export class LinkedList {
     return current;
   }
 
-  reverseTheList() {
+  reverseTheList(): LinkedList {
     if (this.head === null || this.head.next === null) {
       return this;
     }

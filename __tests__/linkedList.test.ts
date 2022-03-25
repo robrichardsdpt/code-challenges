@@ -1,5 +1,7 @@
 import { LinkedList } from "../linkedList";
 
+let emptyList = new LinkedList();
+
 let newList = new LinkedList();
 newList.push(3);
 newList.push(2);
