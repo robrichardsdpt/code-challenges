@@ -21,66 +21,88 @@ reversedList.push(3);
 
 describe("testing ListNode", () => {
   test("ListNode is as expected after creation", () => {
-    expect(newNode.data === 6);
-    expect(newNode.next === null);
+    expect(newNode.data).toBe(6);
+    expect(newNode.next).toBe(null);
   });
 
   test("Adding ListNode to .next does what you would expect", () => {
     let addedNode = new ListNode(5);
     newNode.next = addedNode;
-    expect(newNode.next === addedNode);
-    expect(newNode.next.data === addedNode.data);
-    expect(addedNode.next === null);
+    expect(newNode.next).toBe(addedNode);
+    expect(newNode.next.data).toBe(addedNode.data);
+    expect(addedNode.next).toBe(null);
   });
 });
 
 describe("testing LinkedList", () => {
   test("LinkedList findTail function finds tail of linkedList", () => {
-    expect(newList.findTail().data === 0);
-    expect(reversedList.findTail().data === 3);
+    expect(newList.findTail().data).toBe(0);
+    expect(reversedList.findTail().data).toBe(3);
   });
 
   test("LinkedList findTail function finds tail of linkedList with next value of null", () => {
-    expect(newList.findTail().next === null);
-    expect(reversedList.findTail().next === null);
+    expect(newList.findTail().next).toBe(null);
+    expect(reversedList.findTail().next).toBe(null);
   });
 
   test("LinkedList findTail function finds tail of empty linkedList", () => {
-    expect(emptyList.findTail() === null);
+    expect(emptyList.findTail()).toBe(null);
   });
 
   test("LinkedList findTail function finds tail of linkedList with only one node (head)", () => {
     const node = listWithOneItem.head;
-    expect(listWithOneItem.findTail() === node);
+    expect(listWithOneItem.findTail()).toBe(node);
   });
 
   test("LinkedList reverse function sets up data the way it should for emptyList", () => {
     emptyList.reverseTheList();
-    expect(emptyList.head === null);
+    expect(emptyList.head).toBe(null);
   });
 
   test("LinkedList reverse function sets up data the way it should for list with one item", () => {
     const previousHead = listWithOneItem.head;
     listWithOneItem.reverseTheList();
-    expect(listWithOneItem.head === previousHead);
+    expect(listWithOneItem.head).toBe(previousHead);
   });
 
   test("LinkedList reverse function sets up data the way it should", () => {
     newList.reverseTheList();
-    expect(newList.findTail().data === reversedList.head.data);
-    expect(newList.head.data === 0);
-    expect(reversedList.findTail().data === newList.head.data);
+    expect(newList.findTail().data).toBe(3);
+    expect(newList.head.data).toBe(0);
   });
 
   test("LinkedList push function number and returns appropriate value", () => {
     newList.push(-1);
-    expect(newList.size === 5);
-    expect(newList.findTail().data === -1);
+    expect(newList.size).toBe(5);
+    expect(newList.findTail().data).toBe(-1);
   });
 
   test("LinkedList unshift function number and returns appropriate value", () => {
     newList.unshift(9);
-    expect(newList.size === 6);
-    expect(newList.head.data === 9);
+    expect(newList.size).toBe(6);
+    expect(newList.head.data).toBe(9);
+  });
+
+  test("LinkedList shift function number and returns appropriate value", () => {
+    const newHeadForList = newList.head.next.data;
+    newList.shift();
+    expect(newList.size).toBe(5);
+    expect(newList.head.data).toBe(newHeadForList);
+  });
+
+  test("LinkedList shift function number on empty list and returns appropriate value", () => {
+    emptyList.shift();
+    expect(emptyList.size).toBe(0);
+    expect(emptyList.head).toBe(null);
+  });
+
+  test("LinkedList shift function number on list with one value and returns appropriate value", () => {
+    expect(emptyList.size).toBe(0);
+
+    emptyList.push(5);
+    expect(emptyList.size).toBe(1);
+    emptyList.shift();
+    expect(emptyList.size).toBe(0);
+    expect(emptyList.head).toBe(null);
   });
 });
