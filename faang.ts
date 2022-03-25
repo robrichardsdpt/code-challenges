@@ -115,6 +115,8 @@ export const longestLowercaseSubstringWithoutRepeat = (str: string): number => {
 };
 
 // user can input numbers, letters, characters and spaces
+// only letters and numbers count for palindrome
+// any non alpha numeric characters are not included in check function
 export const moreComplexPalindrome = (str: string): boolean => {
   const newStrArr = str
     .toLowerCase()
