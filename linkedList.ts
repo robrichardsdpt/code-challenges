@@ -83,7 +83,7 @@ export class LinkedList {
     return this.size;
   }
 
-  removeFirstValue(value: number): string | number {
+  removeFirstValue(value: number): string {
     if (this.head === null) {
       return "nothing to remove";
     }

@@ -105,4 +105,29 @@ describe("testing LinkedList", () => {
     expect(emptyList.size).toBe(0);
     expect(emptyList.head).toBe(null);
   });
+
+  test("removeFirstValue removes the appropriate value", () => {
+    expect(newList.removeFirstValue(2)).toBe(
+      "removed node with 2 and reduced list to 4 nodes"
+    );
+    expect(newList.size).toBe(4);
+  });
+
+  test("removeFirstValue prompts the user if the empty list is empty", () => {
+    expect(emptyList.removeFirstValue(2)).toBe("nothing to remove");
+    expect(emptyList.size).toBe(0);
+  });
+
+  test("removeFirstValue prompts the user if the value was not found and not removed", () => {
+    expect(newList.removeFirstValue(21)).toBe("No values found or removed");
+    expect(newList.size).toBe(4);
+  });
+
+  test("removeFirstValue prompts the user if the value was the head and removed", () => {
+    emptyList.push(5);
+    expect(emptyList.removeFirstValue(5)).toBe(
+      "removed head node and size is now 0"
+    );
+    expect(emptyList.size).toBe(0);
+  });
 });
