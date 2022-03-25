@@ -136,3 +136,21 @@ export const moreComplexPalindrome = (str: string): boolean => {
   }
   return true;
 };
+
+export const almostAPalindromeOrIsOne = (str: string): boolean => {
+  str = str.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
+
+  let letterRemovalCounter = 0,
+    left = 0,
+    right = str.length - 1;
+
+  while (left < right) {
+    if (str[left] !== str[right]) {
+      if (letterRemovalCounter === 1) return false;
+      letterRemovalCounter++;
+    }
+    left++;
+    right--;
+  }
+  return true;
+};

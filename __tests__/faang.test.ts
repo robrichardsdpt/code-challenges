@@ -4,6 +4,7 @@ import {
   longestLowercaseSubstringWithoutTwoInARow,
   longestLowercaseSubstringWithoutRepeat,
   moreComplexPalindrome,
+  almostAPalindromeOrIsOne,
 } from "../faang";
 
 describe("testing matchTwoTypedStrings", () => {
@@ -164,5 +165,57 @@ describe("testing moreComplexPalindrome", () => {
 
   test("moreComplexPalindrome takes string of all nonalphanumeric characters and returns true", () => {
     expect(moreComplexPalindrome("##!.?")).toBe(true);
+  });
+});
+
+describe("testing almostAPalindromeOrIsOne", () => {
+  test("almostAPalindromeOrIsOne takes string with all letters that is not a palindrome returning false", () => {
+    expect(almostAPalindromeOrIsOne("hello")).toBe(false);
+  });
+
+  test("almostAPalindromeOrIsOne takes takes string with letters and numbers that is not a palindrome but is off by one returning true", () => {
+    expect(almostAPalindromeOrIsOne("3e1")).toBe(true);
+  });
+
+  test("almostAPalindromeOrIsOne takes takes string with numbers that is not a palindrome but is off by one returning true", () => {
+    expect(almostAPalindromeOrIsOne("321")).toBe(true);
+  });
+
+  test("almostAPalindromeOrIsOne takes takes string with numbers that is not a palindrome but is off by two returning false", () => {
+    expect(almostAPalindromeOrIsOne("32154")).toBe(false);
+  });
+
+  test("almostAPalindromeOrIsOne takes takes string with letters that is not a palindrome but is off by one returning true", () => {
+    expect(almostAPalindromeOrIsOne("race a car")).toBe(true);
+  });
+
+  test("almostAPalindromeOrIsOne takes takes string with letters that is not a palindrome but is off by two returning false", () => {
+    expect(almostAPalindromeOrIsOne("race as a car")).toBe(false);
+  });
+
+  test("almostAPalindromeOrIsOne takes string with all numbers that is a palindrome and returns true", () => {
+    expect(almostAPalindromeOrIsOne("12321")).toBe(true);
+  });
+
+  test("almostAPalindromeOrIsOne takes string with mixed lower and upper case letters that is palindrome and returns true", () => {
+    expect(almostAPalindromeOrIsOne("helloOLLEH")).toBe(true);
+  });
+
+  test("almostAPalindromeOrIsOne takes empty string returning true", () => {
+    expect(almostAPalindromeOrIsOne("")).toBe(true);
+  });
+
+  test("almostAPalindromeOrIsOne takes mixed strings that is a palindrome returning true", () => {
+    expect(almostAPalindromeOrIsOne("12aA21")).toBe(true);
+  });
+
+  test("almostAPalindromeOrIsOne takes complex string that has characters that are not alphanumeric and returns true", () => {
+    expect(almostAPalindromeOrIsOne("A man, a plan... A canal: Panama")).toBe(
+      true
+    );
+  });
+
+  test("almostAPalindromeOrIsOne takes string of all nonalphanumeric characters and returns true", () => {
+    expect(almostAPalindromeOrIsOne("##!.?")).toBe(true);
   });
 });
