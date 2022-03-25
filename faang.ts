@@ -118,16 +118,17 @@ export const longestLowercaseSubstringWithoutRepeat = (str: string): number => {
 // only letters and numbers count for palindrome
 // any non alpha numeric characters are not included in check function
 export const moreComplexPalindrome = (str: string): boolean => {
-  const newStrArr = str
+  str = str
     .toLowerCase()
     .split("")
-    .filter((char) => /[a-z0-9]/.test(char));
+    .filter((char) => /[a-z0-9]/.test(char))
+    .join("");
 
   let left = 0;
-  let right = newStrArr.length - 1;
+  let right = str.length - 1;
 
   while (left <= right) {
-    if (newStrArr[left] !== newStrArr[right]) {
+    if (str[left] !== str[right]) {
       return false;
     }
     left++;
