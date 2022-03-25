@@ -127,7 +127,7 @@ export class LinkedList {
   }
 
   reverseTheList(): LinkedList {
-    if (this.head === null || this.head.next === null) {
+    if (this.size <= 1) {
       return this;
     }
     const previousHeadNode = this.head;

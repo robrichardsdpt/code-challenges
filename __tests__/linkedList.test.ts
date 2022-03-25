@@ -37,6 +37,17 @@ describe("testing LinkedList", () => {
     expect(listWithOneItem.findTail() === node);
   });
 
+  test("LinkedList reverse function sets up data the way it should for emptyList", () => {
+    emptyList.reverseTheList();
+    expect(emptyList.head === null);
+  });
+
+  test("LinkedList reverse function sets up data the way it should for list with one item", () => {
+    const previousHead = listWithOneItem.head;
+    listWithOneItem.reverseTheList();
+    expect(listWithOneItem.head === previousHead);
+  });
+
   test("LinkedList reverse function sets up data the way it should", () => {
     newList.reverseTheList();
     expect(newList.findTail().data === reversedList.head.data);
