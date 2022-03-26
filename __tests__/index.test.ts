@@ -153,21 +153,27 @@ describe("testing letterEncrypt", () => {
   test("letterEncrypt takes A and returns appropriate string", () => {
     expect(letterEncrypt("A")).toBe("F");
   });
+
   test("letterEncrypt takes B and returns appropriate string", () => {
     expect(letterEncrypt("B")).toBe("D");
   });
+
   test("letterEncrypt takes C and returns appropriate string", () => {
     expect(letterEncrypt("C")).toBe("E");
   });
+
   test("letterEncrypt takes D and returns appropriate string", () => {
     expect(letterEncrypt("D")).toBe("F");
   });
+
   test("letterEncrypt takes E and returns appropriate string", () => {
     expect(letterEncrypt("E")).toBe("G");
   });
+
   test("letterEncrypt takes F and returns appropriate string", () => {
     expect(letterEncrypt("F")).toBe("B");
   });
+
   test("letterEncrypt takes A and returns appropriate string", () => {
     expect(letterEncrypt("A")).toBe("F");
   });
@@ -227,15 +233,19 @@ describe("testing returnUpperOrLowerCase", () => {
   test("returnUpperOrLowerCase on VaLuE and returns VALUE", () => {
     expect(returnUpperOrLowerCase("VaLuE")).toEqual("VALUE");
   });
+
   test("returnUpperOrLowerCase on vaLue and returns value", () => {
     expect(returnUpperOrLowerCase("vaLue")).toEqual("value");
   });
+
   test("returnUpperOrLowerCase on value and returns value", () => {
     expect(returnUpperOrLowerCase("value")).toEqual("value");
   });
+
   test("returnUpperOrLowerCase on VALUE and returns VALUE", () => {
     expect(returnUpperOrLowerCase("VALUE")).toEqual("VALUE");
   });
+
   test("returnUpperOrLowerCase on '' and returns ''", () => {
     expect(returnUpperOrLowerCase("")).toEqual("");
   });
