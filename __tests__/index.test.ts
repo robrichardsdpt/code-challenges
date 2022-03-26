@@ -11,6 +11,7 @@ import {
   returnOnlyEvenPositiveNumbers,
   arrayValuesSmallEnough,
   returnUpperOrLowerCase,
+  isAnagram,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -252,5 +253,26 @@ describe("testing returnUpperOrLowerCase", () => {
 
   test("returnUpperOrLowerCase on VAlu and returns valu", () => {
     expect(returnUpperOrLowerCase("VAlu")).toEqual("valu");
+  });
+});
+
+describe("isAnagram", () => {
+  test("isAnagram takes oelhl and Hello and returns true", () => {
+    expect(isAnagram("oelhl", "Hello")).toBe(true);
+  });
+  test("isAnagram takes feetof and ToFfEe and returns true", () => {
+    expect(isAnagram("feetof", "ToFfEe")).toBe(true);
+  });
+  test("isAnagram takes feetol and ToFfEe and returns false", () => {
+    expect(isAnagram("feetol", "ToFfEe")).toBe(false);
+  });
+  test("isAnagram takes happy and angry and returns false", () => {
+    expect(isAnagram("happy", "angry")).toBe(false);
+  });
+  test("isAnagram receives two empty strings and returns true", () => {
+    expect(isAnagram("", "")).toBe(true);
+  });
+  test("isAnagram receives one empty string and value and returns false", () => {
+    expect(isAnagram("", "value")).toBe(false);
   });
 });

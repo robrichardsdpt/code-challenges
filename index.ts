@@ -106,3 +106,22 @@ export const returnUpperOrLowerCase = (s: string): string => {
     ? s.toLowerCase()
     : s.toUpperCase();
 };
+
+export const isAnagram = (str1: string, str2: string): boolean => {
+  if (str1.length !== str2.length) return false;
+  let str1CharMap = {};
+  str1
+    .toLowerCase()
+    .split("")
+    .forEach((char) => {
+      !str1CharMap[char] ? (str1CharMap[char] = 1) : str1CharMap[char]++;
+    });
+
+  for (let char of str2.toLowerCase()) {
+    if (str1CharMap[char] === undefined) return false;
+    if (str1CharMap[char] === 0) return false;
+    if (str1CharMap[char] > 0) str1CharMap[char]--;
+  }
+
+  return true;
+};
