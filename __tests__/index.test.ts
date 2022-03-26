@@ -10,6 +10,7 @@ import {
   negateOddNumbers,
   returnOnlyEvenPositiveNumbers,
   arrayValuesSmallEnough,
+  returnUpperOrLowerCase,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -219,5 +220,27 @@ describe("testing arrayValuesSmallEnough", () => {
 
   test("arrayValuesSmallEnough takes empty array and returns true", () => {
     expect(arrayValuesSmallEnough([], 5)).toEqual(true);
+  });
+});
+
+describe("testing returnUpperOrLowerCase", () => {
+  test("returnUpperOrLowerCase on VaLuE and returns VALUE", () => {
+    expect(returnUpperOrLowerCase("VaLuE")).toEqual("VALUE");
+  });
+  test("returnUpperOrLowerCase on vaLue and returns value", () => {
+    expect(returnUpperOrLowerCase("vaLue")).toEqual("value");
+  });
+  test("returnUpperOrLowerCase on value and returns value", () => {
+    expect(returnUpperOrLowerCase("value")).toEqual("value");
+  });
+  test("returnUpperOrLowerCase on VALUE and returns VALUE", () => {
+    expect(returnUpperOrLowerCase("VALUE")).toEqual("VALUE");
+  });
+  test("returnUpperOrLowerCase on '' and returns ''", () => {
+    expect(returnUpperOrLowerCase("")).toEqual("");
+  });
+
+  test("returnUpperOrLowerCase on VAlu and returns valu", () => {
+    expect(returnUpperOrLowerCase("VAlu")).toEqual("valu");
   });
 });

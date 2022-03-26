@@ -93,3 +93,16 @@ export const arrayValuesSmallEnough = (
 ): boolean => {
   return array.filter((item) => item > limit).length === 0;
 };
+
+export const returnUpperOrLowerCase = (s: string): string => {
+  let lowerCaseCounter = 0,
+    upperCaseCounter = 0;
+
+  [...s].forEach((char) =>
+    /[a-z]/.test(char) ? lowerCaseCounter++ : upperCaseCounter++
+  );
+
+  return lowerCaseCounter >= upperCaseCounter
+    ? s.toLowerCase()
+    : s.toUpperCase();
+};
