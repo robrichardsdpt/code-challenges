@@ -162,4 +162,16 @@ describe("testing LinkedList", () => {
   test("traverseToIndex test when the index sent through is too small and user prompted", () => {
     expect(emptyList.traverseToIndex(2)).toBe("this list has no values");
   });
+
+  test("LinkedList pop function on empty list and returns appropriate value", () => {
+    emptyList.pop();
+    expect(emptyList.size).toBe(0);
+    expect(emptyList.findTail()).toBe(null);
+  });
+
+  test("LinkedList pop function on full list and returns appropriate value", () => {
+    traversalList.pop();
+    expect(traversalList.size).toBe(7);
+    expect(traversalList.findTail().data).toBe(7);
+  });
 });
