@@ -86,3 +86,10 @@ export const returnOnlyEvenPositiveNumbers = (
 ): Array<number> => {
   return arr.filter((num) => num % 2 === 0 && num >= 0);
 };
+
+export const arrayValuesSmallEnough = (
+  array: Array<number>,
+  limit: number
+): boolean => {
+  return array.filter((item) => item > limit).length === 0;
+};

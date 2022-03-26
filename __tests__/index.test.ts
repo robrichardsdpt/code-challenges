@@ -9,6 +9,7 @@ import {
   letterEncrypt,
   negateOddNumbers,
   returnOnlyEvenPositiveNumbers,
+  arrayValuesSmallEnough,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -204,5 +205,19 @@ describe("testing returnOnlyEvenPositiveNumbers", () => {
 
   test("returnOnlyEvenPositiveNumbers takes empty array and returns appropriate value", () => {
     expect(returnOnlyEvenPositiveNumbers([])).toStrictEqual([]);
+  });
+});
+
+describe("testing arrayValuesSmallEnough", () => {
+  test("arrayValuesSmallEnough takes array with values lower than limit and returns true", () => {
+    expect(arrayValuesSmallEnough([3, 2, 1, 0], 4)).toEqual(true);
+  });
+
+  test("arrayValuesSmallEnough  takes array with a value higher than limit and returns false", () => {
+    expect(arrayValuesSmallEnough([-3, 7, 1, 0], 5)).toEqual(false);
+  });
+
+  test("arrayValuesSmallEnough takes empty array and returns true", () => {
+    expect(arrayValuesSmallEnough([], 5)).toEqual(true);
   });
 });
