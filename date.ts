@@ -25,4 +25,16 @@ export const wasItTheWeekend = (date: string): boolean => {
   return dayInt === 0 || dayInt === 6;
 };
 
+export const didThePersonHaveOff = (
+  dateQuery: string,
+  daysOffArray: Array<Date>
+): boolean => {
+  if (wasItTheWeekend(dateQuery)) return true;
+  const dateString = new Date(dateQuery).toDateString();
+
+  if (daysOffArray.map((item) => item.toDateString()).includes(dateString))
+    return true;
+  return false;
+};
+
 // percent of time worked in interval problem

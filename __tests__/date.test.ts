@@ -1,16 +1,20 @@
-import { isDateRangeInRange, wasItTheWeekend } from "../date";
+import {
+  isDateRangeInRange,
+  wasItTheWeekend,
+  didThePersonHaveOff,
+} from "../date";
 
 describe("isDateRangeInRange tests", () => {
   test("isDateRangeInRange receives date interval outside (before) the range and returns false", () => {
     expect(
       isDateRangeInRange(
         {
-          startDate: new Date("3 / 12 / 2018"),
-          endDate: new Date("3 / 20 / 2019"),
+          startDate: new Date("3/12/2018"),
+          endDate: new Date("3/20/2019"),
         },
         {
-          startDate: new Date("1 / 12 / 2018"),
-          endDate: new Date("1 / 20 / 2018"),
+          startDate: new Date("1/12/2018"),
+          endDate: new Date("1/20/2018"),
         }
       )
     ).toBe(false);
@@ -19,12 +23,12 @@ describe("isDateRangeInRange tests", () => {
     expect(
       isDateRangeInRange(
         {
-          startDate: new Date("3 / 12 / 2018"),
-          endDate: new Date("3 / 20 / 2019"),
+          startDate: new Date("3/12/2018"),
+          endDate: new Date("3/20/2019"),
         },
         {
-          startDate: new Date("1 / 12 / 2020"),
-          endDate: new Date("1 / 20 / 2020"),
+          startDate: new Date("1/12/2020"),
+          endDate: new Date("1/20/2020"),
         }
       )
     ).toBe(false);
@@ -33,12 +37,12 @@ describe("isDateRangeInRange tests", () => {
     expect(
       isDateRangeInRange(
         {
-          startDate: new Date("3 / 12 / 2018"),
-          endDate: new Date("3 / 20 / 2019"),
+          startDate: new Date("3/12/2018"),
+          endDate: new Date("3/20/2019"),
         },
         {
-          startDate: new Date("4 / 12 / 2018"),
-          endDate: new Date("6 / 20 / 2018"),
+          startDate: new Date("4/12/2018"),
+          endDate: new Date("6/20/2018"),
         }
       )
     ).toBe(true);
@@ -47,12 +51,12 @@ describe("isDateRangeInRange tests", () => {
     expect(
       isDateRangeInRange(
         {
-          startDate: new Date("3 / 12 / 2018"),
+          startDate: new Date("3/12/2018"),
           endDate: null,
         },
         {
-          startDate: new Date("1 / 12 / 2020"),
-          endDate: new Date("3 / 24 / 2021"),
+          startDate: new Date("1/12/2020"),
+          endDate: new Date("3/24/2021"),
         }
       )
     ).toBe(true);
@@ -61,12 +65,12 @@ describe("isDateRangeInRange tests", () => {
     expect(
       isDateRangeInRange(
         {
-          startDate: new Date("3 / 12 / 2018"),
+          startDate: new Date("3/12/2018"),
           endDate: null,
         },
         {
-          startDate: new Date("1 / 12 / 2018"),
-          endDate: new Date("3 / 21 / 2018"),
+          startDate: new Date("1/12/2018"),
+          endDate: new Date("3/21/2018"),
         }
       )
     ).toBe(true);
@@ -75,12 +79,12 @@ describe("isDateRangeInRange tests", () => {
     expect(
       isDateRangeInRange(
         {
-          startDate: new Date("3 / 12 / 2018"),
-          endDate: new Date("3 / 13 / 2019"),
+          startDate: new Date("3/12/2018"),
+          endDate: new Date("3/13/2019"),
         },
         {
-          startDate: new Date("1 / 12 / 2018"),
-          endDate: new Date("3 / 21 / 2020"),
+          startDate: new Date("1/12/2018"),
+          endDate: new Date("3/21/2020"),
         }
       )
     ).toBe(true);
@@ -89,12 +93,12 @@ describe("isDateRangeInRange tests", () => {
     expect(
       isDateRangeInRange(
         {
-          startDate: new Date("3 / 12 / 2018"),
-          endDate: new Date("3 / 13 / 2019"),
+          startDate: new Date("3/12/2018"),
+          endDate: new Date("3/13/2019"),
         },
         {
-          startDate: new Date("5 / 12 / 2018"),
-          endDate: new Date("3 / 21 / 2020"),
+          startDate: new Date("5/12/2018"),
+          endDate: new Date("3/21/2020"),
         }
       )
     ).toBe(true);
@@ -116,5 +120,30 @@ describe("wasItTheWeekend tests", () => {
   });
   test("wasItTheWeekend finds Friday based on date and returns false", () => {
     expect(wasItTheWeekend("3/25/2022")).toBe(false);
+  });
+});
+
+const dayOff1 = new Date("3/28/2022");
+const dayOff2 = new Date("3/31/2022");
+const daysOff = [dayOff1, dayOff2];
+
+describe("didThePersonHaveOff tests", () => {
+  test("didThePersonHaveOff finds Sunday based on date and returns true", () => {
+    expect(didThePersonHaveOff("3/27/2022", daysOff)).toBe(true);
+  });
+  test("didThePersonHaveOff finds day off based on date and returns true", () => {
+    expect(didThePersonHaveOff("3/28/2022", daysOff)).toBe(true);
+  });
+  test("didThePersonHaveOff finds day worked based on date and returns false", () => {
+    expect(didThePersonHaveOff("3/29/2022", daysOff)).toBe(false);
+  });
+  test("didThePersonHaveOff finds day worked based on date and returns false", () => {
+    expect(didThePersonHaveOff("3/30/2022", daysOff)).toBe(false);
+  });
+  test("didThePersonHaveOff finds day off based on date and returns true", () => {
+    expect(didThePersonHaveOff("3/31/2022", daysOff)).toBe(true);
+  });
+  test("didThePersonHaveOff finds Saturday based on date and returns true", () => {
+    expect(didThePersonHaveOff("4/2/2022", daysOff)).toBe(true);
   });
 });
