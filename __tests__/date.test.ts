@@ -157,48 +157,53 @@ const dateInterval: DateRangeObject = {
   endDate: new Date("1/16/2022"),
 };
 
-const temporaryResponsibilities: Array<ResponsibilityObj> = [
-  {
-    dateInterval: {
-      startDate: new Date("1/15/2022"),
-      endDate: new Date("1/15/2022"),
+const getTemporaryResponsibilities = (): Array<ResponsibilityObj> => {
+  return [
+    {
+      dateInterval: {
+        startDate: new Date("1/15/2022"),
+        endDate: new Date("1/15/2022"),
+      },
+      coaching: 67,
+      admin: 33,
     },
-    coaching: 67,
-    admin: 33,
-  },
-  {
-    dateInterval: {
-      startDate: new Date("1/17/2022"),
-      endDate: new Date("1/30/2022"),
+    {
+      dateInterval: {
+        startDate: new Date("1/17/2022"),
+        endDate: new Date("1/30/2022"),
+      },
+      coaching: 80,
+      admin: 20,
     },
-    coaching: 80,
-    admin: 20,
-  },
-  {
-    dateInterval: {
-      startDate: new Date("2/15/2022"),
-      endDate: new Date("2/15/2022"),
+    {
+      dateInterval: {
+        startDate: new Date("2/15/2022"),
+        endDate: new Date("2/15/2022"),
+      },
+      coaching: 50,
+      admin: 50,
     },
-    coaching: 50,
-    admin: 50,
-  },
-];
+  ];
+};
 
-const employeeObject: EmployeeResponsibilityObj = {
-  name: "Great Coach",
-  baselineResponsibility: {
-    dateInterval: {
-      startDate: new Date("1/1/2022"),
-      endDate: null,
+const getEmployeeObject = (): EmployeeResponsibilityObj => {
+  return {
+    name: "Great Coach",
+    baselineResponsibility: {
+      dateInterval: {
+        startDate: new Date("1/1/2022"),
+        endDate: null,
+      },
+      coaching: 75,
+      admin: 25,
     },
-    coaching: 75,
-    admin: 25,
-  },
-  temporary: [],
+    temporary: [],
+  };
 };
 
 describe("employeeResponsibilityPercentage tests", () => {
-  test("employeeResponsibilityPercentage finds 33% admin/67% coaching based on dates provided with no temp values for coach", () => {
+  test("employeeResponsibilityPercentage finds 25% admin/75% coaching based on dates provided with no temp values for coach", () => {
+    const employeeObject = getEmployeeObject();
     const results = {
       dateInterval: dateInterval,
       coaching: employeeObject.baselineResponsibility.coaching,
@@ -210,7 +215,8 @@ describe("employeeResponsibilityPercentage tests", () => {
   });
 
   test("employeeResponsibilityPercentage finds 26% admin/74% coaching based on dates provided  with temp list", () => {
-    employeeObject.temporary = temporaryResponsibilities;
+    const employeeObject = getEmployeeObject();
+    employeeObject.temporary = getTemporaryResponsibilities();
     const results = {
       dateInterval: {
         startDate: new Date("1/15/2022"),
@@ -228,7 +234,8 @@ describe("employeeResponsibilityPercentage tests", () => {
   });
 
   test("employeeResponsibilityPercentage finds 29% admin/71% coaching based on dates provided with one temp range", () => {
-    employeeObject.temporary = temporaryResponsibilities;
+    const employeeObject = getEmployeeObject();
+    employeeObject.temporary = getTemporaryResponsibilities();
     const results = {
       dateInterval: dateInterval,
       coaching: 71,
@@ -240,7 +247,8 @@ describe("employeeResponsibilityPercentage tests", () => {
   });
 
   test("employeeResponsibilityPercentage finds 50% admin/50% coaching based on dates provided one temp range for one day and therefore baseline not factored", () => {
-    employeeObject.temporary = temporaryResponsibilities;
+    const employeeObject = getEmployeeObject();
+    employeeObject.temporary = getTemporaryResponsibilities();
     const results = {
       dateInterval: {
         startDate: new Date("2/15/2022"),
@@ -259,7 +267,8 @@ describe("employeeResponsibilityPercentage tests", () => {
   });
 
   test("employeeResponsibilityPercentage finds 0% admin/0% coaching based on dates provided not falling in range of employment", () => {
-    employeeObject.temporary = temporaryResponsibilities;
+    const employeeObject = getEmployeeObject();
+    employeeObject.temporary = getTemporaryResponsibilities();
     const results = {
       dateInterval: {
         startDate: new Date("12/15/2021"),
@@ -277,7 +286,8 @@ describe("employeeResponsibilityPercentage tests", () => {
   });
 
   test("employeeResponsibilityPercentage finds 0% admin/0% coaching based on dates provided not falling in range of employment", () => {
-    employeeObject.temporary = temporaryResponsibilities;
+    const employeeObject = getEmployeeObject();
+    employeeObject.temporary = getTemporaryResponsibilities();
     employeeObject.baselineResponsibility.dateInterval.endDate = new Date(
       "3/23/2022"
     );
@@ -293,6 +303,27 @@ describe("employeeResponsibilityPercentage tests", () => {
       employeeResponsibilityPercentage(employeeObject, {
         startDate: new Date("3/25/2022"),
         endDate: new Date("3/29/2022"),
+      })
+    ).toStrictEqual(results);
+  });
+
+  test("employeeResponsibilityPercentage finds 22.5% admin/77.5% coaching based on dates provided with one temp range", () => {
+    const employeeObject = getEmployeeObject();
+    employeeObject.temporary = getTemporaryResponsibilities();
+
+    const results = {
+      dateInterval: {
+        startDate: new Date("1/27/2022"),
+        endDate: new Date("2/3/2022"),
+      },
+      coaching: 77.5,
+      admin: 22.5,
+    };
+
+    expect(
+      employeeResponsibilityPercentage(employeeObject, {
+        startDate: new Date("1/27/2022"),
+        endDate: new Date("2/3/2022"),
       })
     ).toStrictEqual(results);
   });

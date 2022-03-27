@@ -1,3 +1,21 @@
+// 0 is Sunday 6 is Friday based on .getDay() function
+export const wasItTheWeekend = (date: string): boolean => {
+  const dayInt = new Date(date).getDay();
+  return dayInt === 0 || dayInt === 6;
+};
+
+export const didThePersonHaveOff = (
+  dateQuery: string,
+  daysOffArray: Array<Date>
+): boolean => {
+  if (wasItTheWeekend(dateQuery)) return true;
+  const dateString = new Date(dateQuery).toDateString();
+
+  if (daysOffArray.map((item) => item.toDateString()).includes(dateString))
+    return true;
+  return false;
+};
+
 export type DateRangeObject = {
   startDate: Date;
   endDate: Date | null;
@@ -17,24 +35,6 @@ export const isDateRangeInRange = (
     return false;
   }
   return true;
-};
-
-// 0 is Sunday 6 is Friday based on .getDay() function
-export const wasItTheWeekend = (date: string): boolean => {
-  const dayInt = new Date(date).getDay();
-  return dayInt === 0 || dayInt === 6;
-};
-
-export const didThePersonHaveOff = (
-  dateQuery: string,
-  daysOffArray: Array<Date>
-): boolean => {
-  if (wasItTheWeekend(dateQuery)) return true;
-  const dateString = new Date(dateQuery).toDateString();
-
-  if (daysOffArray.map((item) => item.toDateString()).includes(dateString))
-    return true;
-  return false;
 };
 
 export type ResponsibilityObj = {
@@ -88,11 +88,17 @@ export const employeeResponsibilityPercentage = (
 
   temporary.forEach((item) => {
     const { dateInterval, coaching, admin } = item;
+
     if (isDateRangeInRange(inputDateRange, dateInterval)) {
       dateInterval.endDate =
-        dateInterval.endDate.getDate() <= inputDateRange.endDate.getDate()
+        dateInterval.endDate.getTime() < inputDateRange.endDate.getTime()
           ? dateInterval.endDate
           : inputDateRange.endDate;
+      dateInterval.startDate =
+        dateInterval.startDate.getTime() < inputDateRange.startDate.getTime()
+          ? inputDateRange.startDate
+          : dateInterval.startDate;
+
       const timeInTemporaryResponsibility = getTotalTimeInRange(dateInterval);
       totalTimeInBaselineResponsibility -= timeInTemporaryResponsibility;
       totalCoachingResponsibilityPerDay +=
