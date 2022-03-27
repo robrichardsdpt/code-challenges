@@ -18,3 +18,11 @@ export const isDateRangeInRange = (
   }
   return true;
 };
+
+// 0 is Sunday 6 is Friday based on .getDay() function
+export const wasItTheWeekend = (date: string): boolean => {
+  const dayInt = new Date(date).getDay();
+  return dayInt === 0 || dayInt === 6;
+};
+
+// percent of time worked in interval problem

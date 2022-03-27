@@ -1,4 +1,4 @@
-import { isDateRangeInRange } from "../date";
+import { isDateRangeInRange, wasItTheWeekend } from "../date";
 
 describe("isDateRangeInRange tests", () => {
   test("isDateRangeInRange receives date interval outside (before) the range and returns false", () => {
@@ -98,5 +98,23 @@ describe("isDateRangeInRange tests", () => {
         }
       )
     ).toBe(true);
+  });
+});
+
+describe("wasItTheWeekend tests", () => {
+  test("wasItTheWeekend finds Sunday based on date and returns true", () => {
+    expect(wasItTheWeekend("3/27/2022")).toBe(true);
+  });
+  test("wasItTheWeekend finds Saturday based on date and returns true", () => {
+    expect(wasItTheWeekend("3/26/2022")).toBe(true);
+  });
+  test("wasItTheWeekend finds Monday based on date and returns false", () => {
+    expect(wasItTheWeekend("3/28/2022")).toBe(false);
+  });
+  test("wasItTheWeekend finds Wednesday based on date and returns false", () => {
+    expect(wasItTheWeekend("3/30/2022")).toBe(false);
+  });
+  test("wasItTheWeekend finds Friday based on date and returns false", () => {
+    expect(wasItTheWeekend("3/25/2022")).toBe(false);
   });
 });
