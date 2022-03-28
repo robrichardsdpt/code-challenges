@@ -1,29 +1,20 @@
 const _merge = (left: Array<number>, right: Array<number>): Array<number> => {
+  // result arr
   let arr = [];
-  // Break out of loop if any one of the array gets empty
   while (left.length && right.length) {
-    // Pick the smaller among the smallest element of left and right sub arrays
-    if (left[0] < right[0]) {
-      arr.push(left.shift());
-    } else {
-      arr.push(right.shift());
-    }
+    left[0] < right[0] ? arr.push(left.shift()) : arr.push(right.shift());
   }
-
-  // Concatenating the leftover elements
-  // (in case we didn't go through the entire left or right array)
+  // concat
   return [...arr, ...left, ...right];
 };
 
 export const mergeSort = (arr: Array<number>): Array<number> => {
-  const midpoint = arr.length / 2;
-
-  // Base case or terminating case
-  if (arr.length < 2) {
-    return arr;
-  }
-
-  const left = arr.splice(0, midpoint);
+  // base case
+  if (arr.length <= 1) return arr;
+  // establish mid point to split arrays into 2
+  const midPoint = arr.length / 2;
+  const left = arr.splice(0, midPoint);
+  // perform merge function on both halves of array
   return _merge(mergeSort(left), mergeSort(arr));
 };
 
