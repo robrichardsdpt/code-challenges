@@ -125,3 +125,15 @@ export const isAnagram = (str1: string, str2: string): boolean => {
 
   return true;
 };
+
+export const validParentheses = (str: string): boolean => {
+  let openParentheses = 0;
+
+  for (let char of str) {
+    if (char === "(") openParentheses++;
+    if (char === ")" && openParentheses === 0) return false;
+    if (char === ")" && openParentheses !== 0) openParentheses--;
+  }
+
+  return openParentheses === 0;
+};

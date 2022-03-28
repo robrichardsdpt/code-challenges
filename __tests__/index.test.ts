@@ -12,6 +12,7 @@ import {
   arrayValuesSmallEnough,
   returnUpperOrLowerCase,
   isAnagram,
+  validParentheses,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -274,5 +275,41 @@ describe("isAnagram", () => {
   });
   test("isAnagram receives one empty string and value and returns false", () => {
     expect(isAnagram("", "value")).toBe(false);
+  });
+});
+
+describe("validParentheses", () => {
+  test("validParentheses receives a string with valid Parentheses and returns true", () => {
+    expect(validParentheses("Hello, my name is Rob (I am new)")).toBe(true);
+  });
+  test("validParentheses receives a string with multiple Parentheses but valid and returns true", () => {
+    expect(
+      validParentheses(
+        "Hello (Hi), my name is Rob (I am new). (This is the first(and only) time that I have been here)"
+      )
+    ).toBe(true);
+  });
+
+  test("validParentheses receives a string with multiple Parentheses but invalid and returns false", () => {
+    expect(
+      validParentheses(
+        "Hello (Hi), my name )is Rob (I am new). (This is the first(and only) time that I have been here)"
+      )
+    ).toBe(false);
+  });
+  test("validParentheses receives a string without Parentheses and returns true", () => {
+    expect(validParentheses("Hi my name is Rob")).toBe(true);
+  });
+  test("validParentheses receives a string with one closing Parentheses and returns false", () => {
+    expect(validParentheses("Hi my name ) is Rob")).toBe(false);
+  });
+  test("validParentheses receives a string with one open Parentheses and returns false", () => {
+    expect(validParentheses("Hi my name ( is Rob")).toBe(false);
+  });
+  test("validParentheses receives a string with equal Parentheses and returns true", () => {
+    expect(validParentheses("((()())(()))")).toBe(true);
+  });
+  test("validParentheses receives a string with unequal Parentheses and returns false", () => {
+    expect(validParentheses("((()())(())))")).toBe(false);
   });
 });
