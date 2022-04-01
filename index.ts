@@ -137,3 +137,63 @@ export const validParentheses = (str: string): boolean => {
 
   return openParentheses === 0;
 };
+
+// common prefix for each string
+// if no common prefix return ''
+// can be any amount of arrays
+export const longestCommonPrefix = (arr: Array<string>): string => {
+  let commonPrefix = arr[0] ? arr[0] : "";
+
+  for (let i = 1; i <= arr.length - 1; i++) {
+    for (let j = 0; j <= arr[i].length; j++) {
+      if (arr[i][j] !== commonPrefix[j]) {
+        commonPrefix = commonPrefix.slice(0, j);
+      }
+    }
+  }
+  return commonPrefix;
+};
+
+export const isValidBracketting = (str: string): boolean => {
+  let map = new Map();
+  map.set("{", "}");
+  map.set("(", ")");
+  map.set("[", "]");
+  let b = [];
+  for (let i = 0; i < str.length; i++) {
+    if (map.has(str[i])) {
+      b.push(str[i]);
+    } else {
+      let pop = b.pop();
+      if (map.get(pop) !== str[i]) {
+        return false;
+      }
+    }
+  }
+  return b.length === 0;
+};
+
+let indexWhereNeedleIsInHaystack = (
+  haystack: string,
+  needle: string
+): number => {
+  if (!needle) return 0;
+  if (!haystack) return -1;
+  if (haystack.length < needle.length) return -1;
+
+  let ni = 0;
+  let hi = 0;
+
+  while (hi < haystack.length && ni < needle.length) {
+    if (haystack[hi] === needle[ni]) {
+      ++hi;
+      ++ni;
+    } else {
+      hi = ++hi - ni;
+      ni = 0;
+    }
+  }
+  if (ni === needle.length) return hi - ni;
+
+  return -1;
+};
