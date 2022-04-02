@@ -197,3 +197,8 @@ let indexWhereNeedleIsInHaystack = (
 
   return -1;
 };
+
+function autocomplete(input, dictionary) {
+  const inputRegEx = new RegExp(input);
+  return dictionary.filter((item) => inputRegEx.test(item)).slice(0, 5);
+}
