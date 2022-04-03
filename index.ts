@@ -258,3 +258,9 @@ export const findOdd = (A: Array<number>): number => {
   }
   return 0;
 };
+
+export const findMaxSubstringConsonantValues = (word: string): number =>
+  word
+    .split(/[uoiea]/)
+    .map((s) => s.split("").reduce((acc, c) => acc + (c.charCodeAt(0) - 96), 0))
+    .sort((a, b) => b - a)[0];
