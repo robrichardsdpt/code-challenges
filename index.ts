@@ -221,3 +221,26 @@ export const highestRank = (arr: Array<number>): number => {
   }
   return maxKey;
 };
+
+export const looseChange = (cents: number): Object => {
+  const coinMap = { Nickels: 0, Pennies: 0, Dimes: 0, Quarters: 0 };
+  cents = Math.floor(cents);
+  if (cents >= 25) {
+    coinMap["Quarters"] = Math.floor(cents / 25);
+    cents = cents - 25 * coinMap["Quarters"];
+  }
+  if (cents >= 10) {
+    coinMap["Dimes"] = Math.floor(cents / 10);
+    cents = cents - 10 * coinMap["Dimes"];
+  }
+  if (cents >= 5) {
+    coinMap["Nickels"] = Math.floor(cents / 5);
+    cents = cents - 5 * coinMap["Nickels"];
+  }
+
+  if (cents >= 1) {
+    coinMap["Pennies"] = Math.floor(cents / 1);
+    cents = cents - 1 * coinMap["Pennies"];
+  }
+  return coinMap;
+};
