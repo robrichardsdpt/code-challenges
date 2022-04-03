@@ -244,3 +244,17 @@ export const looseChange = (cents: number): Object => {
   }
   return coinMap;
 };
+
+interface NumberObject {
+  [key: string]: number;
+}
+export const findOdd = (A: Array<number>): number => {
+  const numMap: NumberObject = {};
+  A.forEach((item) => {
+    numMap[item] = numMap[item] ? (numMap[item] += 1) : 1;
+  });
+  for (const [key, value] of Object.entries(numMap)) {
+    if (value % 2 !== 0) return parseInt(key);
+  }
+  return 0;
+};
