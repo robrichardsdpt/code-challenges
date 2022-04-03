@@ -284,3 +284,11 @@ export const fibonacciRecursive = (num: number): number => {
 };
 
 console.log(fibonacci(5) === fibonacciRecursive(5));
+
+export const chained = (functions: Array<Function>): Function => {
+  return (b) => {
+    return functions.reduce((b, f: Function) => {
+      return f(b);
+    }, b);
+  };
+};
