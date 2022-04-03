@@ -277,3 +277,10 @@ export const fibonacci = (num: number): number => {
   }
   return b;
 };
+
+export const fibonacciRecursive = (num: number): number => {
+  if (num <= 1) return 1;
+  return fibonacciRecursive(num - 1) + fibonacciRecursive(num - 2);
+};
+
+console.log(fibonacci(5) === fibonacciRecursive(5));
