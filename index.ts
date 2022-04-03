@@ -173,7 +173,7 @@ export const isValidBracketting = (str: string): boolean => {
   return b.length === 0;
 };
 
-let indexWhereNeedleIsInHaystack = (
+export const indexWhereNeedleIsInHaystack = (
   haystack: string,
   needle: string
 ): number => {
@@ -198,7 +198,10 @@ let indexWhereNeedleIsInHaystack = (
   return -1;
 };
 
-function autocomplete(input, dictionary) {
+export const autocomplete = (
+  input: string,
+  dictionary: Array<string>
+): Array<string> => {
   const inputRegEx = new RegExp(input);
   return dictionary.filter((item) => inputRegEx.test(item)).slice(0, 5);
-}
+};
