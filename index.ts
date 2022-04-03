@@ -205,3 +205,19 @@ export const autocomplete = (
   const inputRegEx = new RegExp(input);
   return dictionary.filter((item) => inputRegEx.test(item)).slice(0, 5);
 };
+
+export const highestRank = (arr: Array<number>): number => {
+  const map = {};
+  let max = 0,
+    maxKey = 0;
+  arr.forEach((item) => {
+    map[item] = map[item] ? (map[item] += 1) : 1;
+  });
+  for (const key in map) {
+    if (map[key] >= max && parseInt(key) > maxKey) {
+      max = map[key];
+      maxKey = parseInt(key);
+    }
+  }
+  return maxKey;
+};
