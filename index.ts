@@ -292,3 +292,33 @@ export const chained = (functions: Array<Function>): Function => {
     }, b);
   };
 };
+
+export const diamond = (l: number): string => {
+  if (l < 0) return null;
+  if (l % 2 === 0) return null;
+
+  let space = " ";
+  let star = "*";
+  let i = 1;
+  let k: number;
+  let n = 0;
+  let diam = "";
+
+  while (i <= l) {
+    k = (l - i) / 2;
+    diam += space.repeat(k) + star.repeat(i) + "\n";
+    i = i + 2;
+  }
+
+  while (i >= l) {
+    k = (i - l) / 2;
+    n = i - 4 * k;
+    if (n > 0) {
+      diam += space.repeat(k) + star.repeat(n) + "\n";
+    } else {
+      break;
+    }
+    i = i + 2;
+  }
+  return diam;
+};
