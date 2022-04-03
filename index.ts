@@ -264,3 +264,16 @@ export const findMaxSubstringConsonantValues = (word: string): number =>
     .split(/[uoiea]/)
     .map((s) => s.split("").reduce((acc, c) => acc + (c.charCodeAt(0) - 96), 0))
     .sort((a, b) => b - a)[0];
+
+export const fibonacci = (num: number): number => {
+  var a = 1,
+    b = 0,
+    temp: number;
+  while (num >= 0) {
+    temp = a;
+    a = a + b;
+    b = temp;
+    num--;
+  }
+  return b;
+};
