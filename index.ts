@@ -322,3 +322,19 @@ export const diamond = (l: number): string => {
   }
   return diam;
 };
+
+export const duplicateCount = (text: string): number => {
+  text = text.toLowerCase();
+  const charMap = {};
+  let duplicates = 0;
+  text.split("").forEach((char) => {
+    charMap[char] = charMap[char] ? charMap[char] + 1 : 1;
+  });
+  for (const [key, value] of Object.entries(charMap)) {
+    console.log(key, value);
+    if (value > 1) {
+      duplicates += 1;
+    }
+  }
+  return duplicates;
+};
