@@ -342,3 +342,9 @@ export const duplicateCount = (text: string): number => {
 export const roundToNextHalf = (num: number): number => {
   return Math.round(num / 0.5) * 0.5;
 };
+
+// []                                -->  "no one likes this"
+// ["Peter"]                         -->  "Peter likes this"
+// ["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+// ["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+// ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
