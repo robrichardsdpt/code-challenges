@@ -1,5 +1,6 @@
 export class HashTable {
   hashList: [number, string][][] = [[]];
+  numberOfItemsHashed: number = 0;
 
   createIndex(key: string): number {
     const index = Math.floor((key.length * key.charCodeAt(0)) % 7);
@@ -27,6 +28,7 @@ export class HashTable {
       });
       if (index === -1) {
         this.hashList[hashIndex].push([hashKey, value]);
+        this.numberOfItemsHashed += 1;
         console.log(`${key} set to ${value}`);
       } else {
         console.log(`value on ${key} already exists`);
@@ -34,6 +36,7 @@ export class HashTable {
     } else {
       this.hashList[hashIndex] = [];
       this.hashList[hashIndex].push([hashKey, value]);
+      this.numberOfItemsHashed += 1;
       console.log(`${key} set to ${value}`);
     }
   }
@@ -68,9 +71,12 @@ export class HashTable {
       const index = this.hashList[hashIndex].findIndex(
         (item) => item[0] === hashKey
       );
-      index === -1
-        ? this.hashList[hashIndex].push([hashKey, value])
-        : (this.hashList[hashIndex][index][1] = value);
+      if (index === -1) {
+        this.hashList[hashIndex].push([hashKey, value]);
+        this.numberOfItemsHashed += 1;
+      } else {
+        this.hashList[hashIndex][index][1] = value;
+      }
       response = `${key} now set to ${value}`;
     }
     console.log(response);
@@ -97,3 +103,4 @@ newHash.replace("kid", "hi");
 newHash.replace("cat", "purr");
 newHash.replace("", "bark");
 newHash.replace("dog", "");
+console.log(newHash.numberOfItemsHashed);
