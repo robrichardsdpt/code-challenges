@@ -6,9 +6,10 @@ export class HashTable {
     return index;
   }
   hashKey(key: string, hashIndex: number): number {
-    let stringCharCode = 0;
-    key.split("").forEach((item) => (stringCharCode += item.charCodeAt(0)));
-    return Math.floor(
+    let stringCharCode = key
+      .split("")
+      .reduce((total, item) => (total += item.charCodeAt(0)), 0);
+    return Math.round(
       (stringCharCode ** 2 + key.length * key.charCodeAt(0) * hashIndex) / 7
     );
   }
