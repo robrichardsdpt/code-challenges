@@ -2,19 +2,21 @@ export class HashTable {
   hashList: [number, string][][] = [[]];
 
   createIndex(key: string): number {
-    let index = 0;
-    key.split("").forEach((item) => (index += item.charCodeAt(0)));
+    const index = Math.floor((key.length * key.charCodeAt(0)) % 7);
     return index;
   }
   hashKey(key: string, hashIndex: number): number {
-    return Math.floor((key.length + key.charCodeAt(0) * hashIndex) % 7);
+    let stringCharCode = 0;
+    key.split("").forEach((item) => (stringCharCode += item.charCodeAt(0)));
+    return Math.floor(
+      (stringCharCode ** 2 + key.length * key.charCodeAt(0) * hashIndex) / 7
+    );
   }
 
   set(key: string, value: string) {
     console.log(this.hashList);
     const hashIndex = this.createIndex(key);
     const hashKey = this.hashKey(key, hashIndex);
-    console.log(hashIndex);
     if (this.hashList[hashIndex]) {
       const index = this.hashList[hashIndex].findIndex((item) => {
         return item[0] === hashKey;
