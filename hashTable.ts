@@ -15,7 +15,10 @@ export class HashTable {
   }
 
   set(key: string, value: string) {
-    console.log(this.hashList);
+    if (!key) {
+      console.log("Please enter valid key");
+      return;
+    }
     const hashIndex = this.createIndex(key);
     const hashKey = this.hashKey(key, hashIndex);
     if (this.hashList[hashIndex]) {
@@ -36,6 +39,11 @@ export class HashTable {
   }
 
   get(key: string) {
+    if (!key) {
+      console.log("Please enter valid key");
+      return;
+    }
+    console.log(this.hashList);
     const hashIndex = this.createIndex(key);
     const hashKey = this.hashKey(key, hashIndex);
     let response = "item not found";
@@ -43,6 +51,27 @@ export class HashTable {
       this.hashList[hashIndex].forEach((item) => {
         if (item[0] === hashKey) response = item[1];
       });
+    }
+    console.log(response);
+  }
+
+  replace(key: string, value: string) {
+    if (!key) {
+      console.log("Please enter valid key");
+      return;
+    }
+    console.log(this.hashList);
+    const hashIndex = this.createIndex(key);
+    const hashKey = this.hashKey(key, hashIndex);
+    let response = "item not found";
+    if (this.hashList[hashIndex]) {
+      const index = this.hashList[hashIndex].findIndex(
+        (item) => item[0] === hashKey
+      );
+      index === -1
+        ? this.hashList[hashIndex].push([hashKey, value])
+        : (this.hashList[hashIndex][index][1] = value);
+      response = `${key} now set to ${value}`;
     }
     console.log(response);
   }
@@ -60,3 +89,11 @@ newHash.get("rac");
 newHash.get("cat");
 newHash.get("dog");
 newHash.get("alligator");
+newHash.get("");
+newHash.set("", "hello");
+newHash.set("human", "");
+newHash.replace("dog", "bark");
+newHash.replace("kid", "hi");
+newHash.replace("cat", "purr");
+newHash.replace("", "bark");
+newHash.replace("dog", "");
