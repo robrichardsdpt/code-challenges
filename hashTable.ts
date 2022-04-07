@@ -1,37 +1,44 @@
 export class HashTable {
-  hashList: string[][][] = [[]];
+  hashList: [number, string][][] = [[]];
 
-  createHash(key: string): number {
-    return key.charCodeAt(0);
+  createIndex(key: string): number {
+    let index = 0;
+    key.split("").forEach((item) => (index += item.charCodeAt(0)));
+    return index;
+  }
+  hashKey(key: string, hashIndex: number): number {
+    return Math.floor((key.length + key.charCodeAt(0) * hashIndex) % 7);
   }
 
   set(key: string, value: string) {
     console.log(this.hashList);
-    const hashIndex = this.createHash(key);
+    const hashIndex = this.createIndex(key);
+    const hashKey = this.hashKey(key, hashIndex);
     console.log(hashIndex);
     if (this.hashList[hashIndex]) {
       const index = this.hashList[hashIndex].findIndex((item) => {
-        return item[0] === key;
+        return item[0] === hashKey;
       });
       if (index === -1) {
-        this.hashList[hashIndex].push([key, value]);
+        this.hashList[hashIndex].push([hashKey, value]);
         console.log(`${key} set to ${value}`);
       } else {
         console.log(`value on ${key} already exists`);
       }
     } else {
       this.hashList[hashIndex] = [];
-      this.hashList[hashIndex].push([key, value]);
+      this.hashList[hashIndex].push([hashKey, value]);
       console.log(`${key} set to ${value}`);
     }
   }
 
   get(key: string) {
-    const hashIndex = this.createHash(key);
+    const hashIndex = this.createIndex(key);
+    const hashKey = this.hashKey(key, hashIndex);
     let response = "item not found";
     if (this.hashList[hashIndex]) {
       this.hashList[hashIndex].forEach((item) => {
-        if (item[0] === key) response = item[1];
+        if (item[0] === hashKey) response = item[1];
       });
     }
     console.log(response);
@@ -46,6 +53,7 @@ newHash.set("car", "honk");
 newHash.set("bird", "chirp");
 newHash.get("bird");
 newHash.get("car");
+newHash.get("rac");
 newHash.get("cat");
 newHash.get("dog");
-newHash.get("aligator");
+newHash.get("alligator");
