@@ -1,4 +1,8 @@
 export class HashTable {
+  name: string = "";
+  constructor(name) {
+    this.name = name;
+  }
   hashList: [number, string][][] = [[]];
   numberOfItemsHashed: number = 0;
 
@@ -83,7 +87,7 @@ export class HashTable {
   }
 }
 
-const newHash = new HashTable();
+const newHash = new HashTable("my hash table");
 newHash.set("dog", "woof");
 newHash.set("cat", "meow");
 newHash.set("cat", "woof");
@@ -104,3 +108,4 @@ newHash.replace("cat", "purr");
 newHash.replace("", "bark");
 newHash.replace("dog", "");
 console.log(newHash.numberOfItemsHashed);
+console.log(newHash.name);
