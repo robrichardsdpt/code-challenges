@@ -132,3 +132,13 @@ Allowed in HTML forms: No
 
 - Shared proxy caches
   A shared cache is a cache that stores responses to be reused by more than one user. For example, an Internet Service Provider (ISP) or your company might have set up a web proxy as part of its local network infrastructure to serve many users so that popular resources are reused a number of times, reducing network traffic and latency.
+
+### MVC
+
+- Model-View-Controller is a pattern in software design commonly used to implement user interfaces, data, and controlling logic. It emphasizes a separation between the software's business logic and display. This "separation of concerns" provides for a better division of labor and improved maintenance. Some other design patterns are based on MVC, such as MVVM (Model-View-Viewmodel), MVP (Model-View-Presenter), and MVW (Model-View-Whatever).
+
+- The three parts of the MVC software-design pattern can be described as follows:
+
+Model: Manages data and business logic.
+View: Handles layout and display.
+Controller: Routes commands to the model and view parts.
