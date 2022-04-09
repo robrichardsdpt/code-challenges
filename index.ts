@@ -358,3 +358,11 @@ export const likeString = (arr: Array<string>): string => {
 };
 
 console.log(likeString(["Alex", "Jacob", "Mark", "Max"]));
+
+export const sortMyArrayOfStrings = (
+  stringArr: Array<string>
+): Array<string> => {
+  return stringArr.sort((a, b) => {
+    if (a.toLowerCase() < b.toLowerCase()) return -1;
+  });
+};
