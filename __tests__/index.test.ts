@@ -13,6 +13,7 @@ import {
   returnUpperOrLowerCase,
   isAnagram,
   validParentheses,
+  sortMyArrayOfStrings,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -311,5 +312,21 @@ describe("validParentheses", () => {
   });
   test("validParentheses receives a string with unequal Parentheses and returns false", () => {
     expect(validParentheses("((()())(())))")).toBe(false);
+  });
+});
+
+describe("testing sortMyArrayOfStrings", () => {
+  test("sortMyArrayOfStrings receives unsorted array of strings and returns appropriate value", () => {
+    expect(
+      sortMyArrayOfStrings(["hello", "I'm", "doing", "FINE"])
+    ).toStrictEqual(["doing", "FINE", "hello", "I'm"]);
+  });
+
+  test("sortMyArrayOfStrings receives empty array and returns empty array", () => {
+    expect(sortMyArrayOfStrings([])).toStrictEqual([]);
+  });
+
+  test("sortMyArrayOfStrings receives empty array and returns empty array", () => {
+    expect(sortMyArrayOfStrings(["Matt"])).toStrictEqual(["Matt"]);
   });
 });
