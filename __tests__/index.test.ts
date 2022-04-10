@@ -14,6 +14,7 @@ import {
   isAnagram,
   validParentheses,
   sortMyArrayOfStrings,
+  isIntArray,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -328,5 +329,30 @@ describe("testing sortMyArrayOfStrings", () => {
 
   test("sortMyArrayOfStrings receives empty array and returns empty array", () => {
     expect(sortMyArrayOfStrings(["Matt"])).toStrictEqual(["Matt"]);
+  });
+});
+
+describe("isIntArray function tests", () => {
+  test("receives integer array and returns true", () => {
+    expect(isIntArray([0, 1, 2, 3, 4, 5, 6])).toBeTruthy();
+  });
+  test("receives integer array with one float and returns false", () => {
+    expect(isIntArray([0, 1, 2, 3, 4, 5.2, 6])).toBeFalsy();
+  });
+
+  test("receives integer array with one NaN and returns false", () => {
+    expect(isIntArray([0, 1, 2, 3, 4, NaN, 6])).toBeFalsy();
+  });
+
+  test("receives null and returns false", () => {
+    expect(isIntArray(null)).toBeFalsy();
+  });
+
+  test("receives undefined and returns false", () => {
+    expect(isIntArray(undefined)).toBeFalsy();
+  });
+
+  test("receives empty array and returns true", () => {
+    expect(isIntArray([])).toBeTruthy();
   });
 });

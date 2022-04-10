@@ -369,6 +369,5 @@ export const sortMyArrayOfStrings = (
 
 export const isIntArray = (arr: Array<number>): boolean => {
   if (!arr) return false;
-
   return arr.every(Number.isInteger);
 };
