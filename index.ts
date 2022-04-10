@@ -395,3 +395,7 @@ export const uniqueInOrder = (iterable: Array<number>): Array<number> => {
   }
   return arr;
 };
+
+export const uniqueInOrderFilter = (iterable: Array<number>): Array<number> => {
+  return [...iterable].filter((a, i) => a !== iterable[i - 1]);
+};
