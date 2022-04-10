@@ -15,6 +15,8 @@ import {
   validParentheses,
   sortMyArrayOfStrings,
   isIntArray,
+  uniqueInOrder,
+  uniqueInOrderFilter,
 } from "../index";
 
 describe("testing roundToNext5", () => {

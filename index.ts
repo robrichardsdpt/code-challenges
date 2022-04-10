@@ -372,7 +372,9 @@ export const isIntArray = (arr: Array<number>): boolean => {
   return arr.every(Number.isInteger);
 };
 
-export const uniqueInOrder = (iterable: Array<number>): Array<number> => {
+export const uniqueInOrder = (
+  iterable: Array<number | string>
+): Array<number | string> => {
   let i1 = 0;
   let i2 = 0;
   let arr = [];
@@ -396,6 +398,8 @@ export const uniqueInOrder = (iterable: Array<number>): Array<number> => {
   return arr;
 };
 
-export const uniqueInOrderFilter = (iterable: Array<number>): Array<number> => {
+export const uniqueInOrderFilter = (
+  iterable: Array<number | string>
+): Array<number | string> => {
   return [...iterable].filter((a, i) => a !== iterable[i - 1]);
 };
