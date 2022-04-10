@@ -371,3 +371,27 @@ export const isIntArray = (arr: Array<number>): boolean => {
   if (!arr) return false;
   return arr.every(Number.isInteger);
 };
+
+export const uniqueInOrder = (iterable: Array<number>): Array<number> => {
+  let i1 = 0;
+  let i2 = 0;
+  let arr = [];
+
+  while (i2 < iterable.length) {
+    if (i2 === iterable.length - 1 && iterable[i1] !== iterable[i2]) {
+      arr.push(iterable[i1]);
+      arr.push(iterable[i2]);
+      i2 += 1;
+    } else if (i2 === iterable.length - 1 && iterable[i1] === iterable[i2]) {
+      arr.push(iterable[i1]);
+      i2 += 1;
+    } else if (iterable[i1] !== iterable[i2]) {
+      arr.push(iterable[i1]);
+      i1 = i2;
+      i2 += 1;
+    } else {
+      i2 += 1;
+    }
+  }
+  return arr;
+};
