@@ -358,3 +358,19 @@ describe("isIntArray function tests", () => {
     expect(isIntArray([])).toBeTruthy();
   });
 });
+
+describe("uniqueInOrder tests", () => {
+  test("uniqueInOrder takes array containing duplicate letters and numbers and returns appropriate array", () => {
+    expect(
+      uniqueInOrder(["A", "a", "B", "B", "B", 1, 1, 2, 2, 2, 2, 3])
+    ).toStrictEqual(["A", "a", "B", 1, 2, 3]);
+  });
+  test("uniqueInOrder takes empty array containing duplicate letters and returns empty array", () => {
+    expect(uniqueInOrder([])).toStrictEqual([]);
+  });
+  test("uniqueInOrder takes array containing duplicate letters and numbers and returns appropriate array", () => {
+    expect(
+      uniqueInOrder(["A", 1, "B", "B", "B", 1, 1, "A", 2, "a", 2, 3])
+    ).toStrictEqual(["A", 1, "B", 1, "A", 2, "a", 2, 3]);
+  });
+});
