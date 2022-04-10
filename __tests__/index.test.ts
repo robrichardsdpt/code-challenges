@@ -374,3 +374,19 @@ describe("uniqueInOrder tests", () => {
     ).toStrictEqual(["A", 1, "B", 1, "A", 2, "a", 2, 3]);
   });
 });
+
+describe("uniqueInOrderFilter tests", () => {
+  test("uniqueInOrderFilter takes array containing duplicate letters and numbers and returns appropriate array", () => {
+    expect(
+      uniqueInOrderFilter(["A", "a", "B", "B", "B", 1, 1, 2, 2, 2, 2, 3])
+    ).toStrictEqual(["A", "a", "B", 1, 2, 3]);
+  });
+  test("uniqueInOrderFilter takes empty array containing duplicate letters and returns empty array", () => {
+    expect(uniqueInOrderFilter([])).toStrictEqual([]);
+  });
+  test("uniqueInOrderFilter takes array containing duplicate letters and numbers and returns appropriate array", () => {
+    expect(
+      uniqueInOrderFilter(["A", 1, "B", "B", "B", 1, 1, "A", 2, "a", 2, 3])
+    ).toStrictEqual(["A", 1, "B", 1, "A", 2, "a", 2, 3]);
+  });
+});
