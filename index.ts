@@ -401,5 +401,5 @@ export const uniqueInOrder = (
 export const uniqueInOrderFilter = (
   iterable: Array<number | string>
 ): Array<number | string> => {
-  return [...iterable].filter((a, i) => a !== iterable[i - 1]);
+  return iterable.filter((a, i) => a !== iterable[i - 1]);
 };
