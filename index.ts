@@ -403,3 +403,26 @@ export const uniqueInOrderFilter = (
 ): Array<number | string> => {
   return [...iterable].filter((a, i) => a !== iterable[i - 1]);
 };
+
+type DevObject = {
+  firstName: string;
+  lastName: string;
+  country: string;
+  continent: string;
+  age: number;
+  language: string;
+};
+
+type LanguageResult = {
+  [key: string]: number;
+};
+
+export const countLanguages = (list: Array<DevObject>): LanguageResult => {
+  let langObj = {};
+  list.forEach((dev) =>
+    !langObj[dev.language]
+      ? (langObj[dev.language] = 1)
+      : langObj[dev.language]++
+  );
+  return langObj;
+};
