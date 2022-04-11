@@ -17,6 +17,8 @@ import {
   isIntArray,
   uniqueInOrder,
   uniqueInOrderFilter,
+  countLanguages,
+  DevObject,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -388,5 +390,70 @@ describe("uniqueInOrderFilter tests", () => {
     expect(
       uniqueInOrderFilter(["A", 1, "B", "B", "B", 1, 1, "A", 2, "a", 2, 3])
     ).toStrictEqual(["A", 1, "B", 1, "A", 2, "a", 2, 3]);
+  });
+});
+
+describe("countLanguages tests", () => {
+  test("countLanguages receives a valid object and returns appropriate count", () => {
+    const list: Array<DevObject> = [
+      {
+        firstName: "Rob",
+        lastName: "Richards",
+        country: "USA",
+        continent: "N. America",
+        age: 38,
+        language: "JS",
+      },
+      {
+        firstName: "Laura",
+        lastName: "Belavoir",
+        country: "Canada",
+        continent: "N. America",
+        age: 30,
+        language: "JS",
+      },
+      {
+        firstName: "Alex",
+        lastName: "Fermin",
+        country: "Colombia",
+        continent: "C. America",
+        age: 32,
+        language: "Dart",
+      },
+      {
+        firstName: "Roy",
+        lastName: "Wellington",
+        country: "USA",
+        continent: "N. America",
+        age: 25,
+        language: "Rust",
+      },
+      ,
+      {
+        firstName: "Colin",
+        lastName: "Lauver",
+        country: "USA",
+        continent: "N. America",
+        age: 38,
+        language: "C++",
+      },
+      {
+        firstName: "Sam",
+        lastName: "Mauldin",
+        country: "USA",
+        continent: "N. America",
+        age: 22,
+        language: "JS",
+      },
+    ];
+
+    const result = {
+      JS: 3,
+      Dart: 1,
+      Rust: 1,
+      "C++": 1,
+    };
+
+    expect(countLanguages(list)).toStrictEqual(result);
   });
 });

@@ -404,7 +404,7 @@ export const uniqueInOrderFilter = (
   return [...iterable].filter((a, i) => a !== iterable[i - 1]);
 };
 
-type DevObject = {
+export type DevObject = {
   firstName: string;
   lastName: string;
   country: string;
