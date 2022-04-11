@@ -456,4 +456,8 @@ describe("countLanguages tests", () => {
 
     expect(countLanguages(list)).toStrictEqual(result);
   });
+
+  test("countLanguages receives an empty object and returns appropriate object", () => {
+    expect(countLanguages([])).toStrictEqual({});
+  });
 });
