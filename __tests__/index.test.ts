@@ -19,6 +19,7 @@ import {
   uniqueInOrderFilter,
   countLanguages,
   DevObject,
+  maxSequence,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -459,5 +460,23 @@ describe("countLanguages tests", () => {
 
   test("countLanguages receives an empty object and returns appropriate object", () => {
     expect(countLanguages([])).toStrictEqual({});
+  });
+});
+
+describe("maxSequence tests", () => {
+  test("maxSequence takes array and returns appropriate value", () => {
+    expect(maxSequence([-3, 1, 100, 4, 15, 9, 30])).toEqual(159);
+  });
+  test("maxSequence takes array and returns appropriate value with trailing negative", () => {
+    expect(maxSequence([-3, 1, 100, 4, 15, 9, 30, -1])).toEqual(159);
+  });
+  test("maxSequence takes array and returns appropriate value", () => {
+    expect(maxSequence([2, 1, -3, 4, -1, 2, 1, -5, 4])).toEqual(6);
+  });
+  test("maxSequence takes empty array and returns appropriate value", () => {
+    expect(maxSequence([])).toEqual(0);
+  });
+  test("maxSequence takes array of all negative values and returns appropriate value", () => {
+    expect(maxSequence([-1, -1, -5, -3, -7, -4, -5, -6, -100, -4])).toEqual(0);
   });
 });
