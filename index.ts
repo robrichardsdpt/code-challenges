@@ -426,3 +426,15 @@ export const countLanguages = (list: Array<DevObject>): LanguageResult => {
   );
   return langObj;
 };
+
+export const maxSequence = (array: Array<number>): number => {
+  let currentSum = 0;
+  let largestSum = 0;
+
+  array.forEach((number) => {
+    currentSum = Math.max(0, currentSum + number);
+    largestSum = Math.max(largestSum, currentSum);
+  });
+
+  return largestSum;
+};
