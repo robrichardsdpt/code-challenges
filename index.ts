@@ -487,3 +487,9 @@ export const descendingOrder = (n: number): number => {
       .join("")
   );
 };
+
+export const isSquare = (n: number): boolean => {
+  if (n < 0) return false;
+
+  return Number.isInteger(Math.sqrt(n));
+};
