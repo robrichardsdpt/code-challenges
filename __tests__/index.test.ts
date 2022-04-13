@@ -20,6 +20,7 @@ import {
   countLanguages,
   DevObject,
   maxSequence,
+  encryptThis,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -478,5 +479,27 @@ describe("maxSequence tests", () => {
   });
   test("maxSequence takes array of all negative values and returns appropriate value", () => {
     expect(maxSequence([-1, -1, -5, -3, -7, -4, -5, -6, -100, -4])).toEqual(0);
+  });
+});
+
+describe("encryptThis tests", () => {
+  test("", () => {
+    expect(encryptThis("A")).toEqual("65");
+  });
+
+  test("", () => {
+    expect(encryptThis("A wise old owl lived in an oak")).toEqual(
+      "65 119esi 111dl 111lw 108dvei 105n 97n 111ka"
+    );
+  });
+
+  test("", () => {
+    expect(encryptThis("The more he saw the less he spoke")).toEqual(
+      "84eh 109ero 104e 115wa 116eh 108sse 104e 115eokp"
+    );
+  });
+
+  test("", () => {
+    expect(encryptThis("")).toEqual("");
   });
 });

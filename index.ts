@@ -446,6 +446,9 @@ export const maxSequence = (array: Array<number>): number => {
 // Keepin' it simple: There are no special characters in the input.
 
 export const encryptThis = (text: string): string => {
+  if (text.length === 0) {
+    return "";
+  }
   if (text.length === 1) {
     return `${text.charCodeAt(0)}`;
   }
