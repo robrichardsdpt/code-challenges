@@ -465,3 +465,9 @@ export const encryptThis = (text: string): string => {
     })
     .join(" ");
 };
+
+export const filter_list = (
+  l: Array<string | number>
+): Array<string | number> => {
+  return l.filter((item) => typeof item === "number");
+};
