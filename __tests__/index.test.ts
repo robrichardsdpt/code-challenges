@@ -524,3 +524,21 @@ describe("filterList tests", () => {
     expect(filterList([])).toStrictEqual([]);
   });
 });
+
+// describe("descendingList tests", () => {
+//   test("descendingList takes an integer and returns the appropriate value", () => {
+//     expect(descendingList(42145)).toEqual(54421);
+//   });
+
+//   test("filterList takes an integer and returns appropriate response", () => {
+//     expect(descendingList(145263)).toEqual(654321);
+//   });
+
+//   test("filterList takes an integer and returns appropriate response", () => {
+//     expect(descendingList(123456789)).toEqual(987654321);
+//   });
+
+//   test("filterList takes a null value and returns appropriate response", () => {
+//     expect(descendingList(null)).toEqual(null);
+//   });
+// });
