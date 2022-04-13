@@ -449,9 +449,6 @@ export const encryptThis = (text: string): string => {
   if (text.length === 0) {
     return "";
   }
-  if (text.length === 1) {
-    return `${text.charCodeAt(0)}`;
-  }
   return text
     .split(" ")
     .map((item) => {
