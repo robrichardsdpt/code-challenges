@@ -21,7 +21,7 @@ import {
   DevObject,
   maxSequence,
   encryptThis,
-  filter_list,
+  filterList,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -505,22 +505,22 @@ describe("encryptThis tests", () => {
   });
 });
 
-describe("filter_list tests", () => {
-  test("filter_list takes a list and returns the appropriate value", () => {
-    expect(filter_list([1, 2, "a", "b"])).toStrictEqual([1, 2]);
+describe("filterList tests", () => {
+  test("filterList takes a list and returns the appropriate value", () => {
+    expect(filterList([1, 2, "a", "b"])).toStrictEqual([1, 2]);
   });
 
-  test("filter_list takes full list and returns appropriate response", () => {
-    expect(filter_list([1, "a", "b", 0, 15])).toStrictEqual([1, 0, 15]);
+  test("filterList takes full list and returns appropriate response", () => {
+    expect(filterList([1, "a", "b", 0, 15])).toStrictEqual([1, 0, 15]);
   });
 
-  test("filter_list takes list and returns appropriate response", () => {
-    expect(filter_list([1, 2, "aasf", "1", "123", 123])).toStrictEqual([
+  test("filterList takes list and returns appropriate response", () => {
+    expect(filterList([1, 2, "aasf", "1", "123", 123])).toStrictEqual([
       1, 2, 123,
     ]);
   });
 
-  test("filter_list takes empty list and returns appropriate response", () => {
-    expect(filter_list([])).toStrictEqual([]);
+  test("filterList takes empty list and returns appropriate response", () => {
+    expect(filterList([])).toStrictEqual([]);
   });
 });
