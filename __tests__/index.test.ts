@@ -21,6 +21,7 @@ import {
   DevObject,
   maxSequence,
   encryptThis,
+  filter_list,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -501,5 +502,25 @@ describe("encryptThis tests", () => {
 
   test("encryptThis takes empty string and returns appropriate response", () => {
     expect(encryptThis("")).toEqual("");
+  });
+});
+
+describe("filter_list tests", () => {
+  test("filter_list takes a list and returns the appropriate value", () => {
+    expect(filter_list([1, 2, "a", "b"])).toStrictEqual([1, 2]);
+  });
+
+  test("filter_list takes full list and returns appropriate response", () => {
+    expect(filter_list([1, "a", "b", 0, 15])).toStrictEqual([1, 0, 15]);
+  });
+
+  test("filter_list takes list and returns appropriate response", () => {
+    expect(filter_list([1, 2, "aasf", "1", "123", 123])).toStrictEqual([
+      1, 2, 123,
+    ]);
+  });
+
+  test("filter_list takes empty list and returns appropriate response", () => {
+    expect(filter_list([])).toStrictEqual([]);
   });
 });
