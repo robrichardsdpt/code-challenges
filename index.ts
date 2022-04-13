@@ -471,3 +471,11 @@ export const filterList = (
 ): Array<string | number> => {
   return l.filter((item) => typeof item === "number");
 };
+
+// Input: 42145 Output: 54421
+// Input: 145263 Output: 654321
+// Input: 123456789 Output: 987654321
+
+// export const descendingOrder = (n: number): number => {
+//   //...
+// };
