@@ -483,23 +483,23 @@ describe("maxSequence tests", () => {
 });
 
 describe("encryptThis tests", () => {
-  test("", () => {
+  test("encryptThis takes a single letter string and returns the appropriate value", () => {
     expect(encryptThis("A")).toEqual("65");
   });
 
-  test("", () => {
+  test("encryptThis takes full string and returns appropriate response", () => {
     expect(encryptThis("A wise old owl lived in an oak")).toEqual(
       "65 119esi 111dl 111lw 108dvei 105n 97n 111ka"
     );
   });
 
-  test("", () => {
+  test("encryptThis takes full string and returns appropriate response", () => {
     expect(encryptThis("The more he saw the less he spoke")).toEqual(
       "84eh 109ero 104e 115wa 116eh 108sse 104e 115eokp"
     );
   });
 
-  test("", () => {
+  test("encryptThis takes empty string and returns appropriate response", () => {
     expect(encryptThis("")).toEqual("");
   });
 });
