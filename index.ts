@@ -476,6 +476,14 @@ export const filterList = (
 // Input: 145263 Output: 654321
 // Input: 123456789 Output: 987654321
 
-// export const descendingOrder = (n: number): number => {
-//   //...
-// };
+export const descendingOrder = (n: number): number => {
+  if (n === null) return null;
+  return parseInt(
+    n
+      .toString()
+      .split("")
+      .map((item) => parseInt(item))
+      .sort((a, b) => b - a)
+      .join("")
+  );
+};
