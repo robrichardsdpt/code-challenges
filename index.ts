@@ -283,8 +283,6 @@ export const fibonacciRecursive = (num: number): number => {
   return fibonacciRecursive(num - 1) + fibonacciRecursive(num - 2);
 };
 
-console.log(fibonacci(5) === fibonacciRecursive(5));
-
 export const chained = (functions: Array<Function>): Function => {
   return (b) => {
     return functions.reduce((b, f: Function) => {
@@ -331,7 +329,6 @@ export const duplicateCount = (text: string): number => {
     charMap[char] = charMap[char] ? charMap[char] + 1 : 1;
   });
   for (const [key, value] of Object.entries(charMap)) {
-    console.log(key, value);
     if (value > 1) {
       duplicates += 1;
     }
@@ -356,8 +353,6 @@ export const likeString = (arr: Array<string>): string => {
   if (arr.length === 3) return `${arr[0]}, ${arr[1]} and ${arr[2]} like this`;
   return `${arr[0]}, ${arr[1]} and ${arr.length - 2} others like this`;
 };
-
-console.log(likeString(["Alex", "Jacob", "Mark", "Max"]));
 
 export const sortMyArrayOfStrings = (
   stringArr: Array<string>
