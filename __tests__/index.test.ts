@@ -23,6 +23,7 @@ import {
   encryptThis,
   filterList,
   descendingOrder,
+  isSquare,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -541,5 +542,27 @@ describe("descendingOrder tests", () => {
 
   test("descendingOrder takes a null value and returns appropriate response", () => {
     expect(descendingOrder(null)).toEqual(null);
+  });
+});
+
+describe("isSquare tests", () => {
+  test("isSquare takes 25 and returns the appropriate value", () => {
+    expect(isSquare(25)).toEqual(true);
+  });
+
+  test("isSquare takes a negative integer and returns appropriate response", () => {
+    expect(isSquare(-1)).toEqual(false);
+  });
+
+  test("isSquare takes 0 and returns appropriate response", () => {
+    expect(isSquare(0)).toEqual(true);
+  });
+
+  test("isSquare takes 4 and returns appropriate response", () => {
+    expect(isSquare(4)).toEqual(true);
+  });
+
+  test("isSquare takes 37 and returns appropriate response", () => {
+    expect(isSquare(37)).toEqual(false);
   });
 });
