@@ -500,3 +500,9 @@ export const DNAStrand = (dna: string): string => {
     })
     .join("");
 };
+
+export const binaryArrayToNumber = (arr: Array<number>): number => {
+  return arr.reduce((acc, val) => {
+    return (acc << 1) | val;
+  });
+};
