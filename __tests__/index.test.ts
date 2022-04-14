@@ -25,6 +25,7 @@ import {
   descendingOrder,
   isSquare,
   DNAStrand,
+  binaryArrayToNumber,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -577,5 +578,20 @@ describe("DNAStrand tests", () => {
   });
   test("DNAStrand receives value and returns appropriate response", () => {
     expect(DNAStrand("GTAT")).toEqual("CATA");
+  });
+});
+
+describe("binaryArrayToNumber tests", () => {
+  test("binaryArrayToNumber receives array and returns appropriate value", () => {
+    expect(binaryArrayToNumber([0])).toEqual(0);
+  });
+  test("binaryArrayToNumber receives array and returns appropriate value", () => {
+    expect(binaryArrayToNumber([0, 1, 0, 1])).toEqual(5);
+  });
+  test("binaryArrayToNumber receives array and returns appropriate value", () => {
+    expect(binaryArrayToNumber([1, 1, 0, 0])).toEqual(12);
+  });
+  test("binaryArrayToNumber receives array and returns appropriate value", () => {
+    expect(binaryArrayToNumber([1, 1, 1, 1])).toEqual(15);
   });
 });
