@@ -27,6 +27,7 @@ import {
   DNAStrand,
   binaryArrayToNumber,
   validatePIN,
+  findAverage,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -627,5 +628,15 @@ describe("validatePIN", function () {
     expect(validatePIN("000000")).toBe(true);
     expect(validatePIN("123456")).toBe(true);
     expect(validatePIN("090909")).toBe(true);
+  });
+});
+describe("findAverage tests", () => {
+  it("Testing for findAverage with values", () => {
+    expect(findAverage([1, 1, 1])).toEqual(1);
+    expect(findAverage([1, 2, 3])).toEqual(2);
+    expect(findAverage([1, 2, 3, 4])).toEqual(2.5);
+  });
+  it("Testing for findAverage with no values", () => {
+    expect(findAverage([])).toEqual(0);
   });
 });
