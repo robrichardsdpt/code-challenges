@@ -594,4 +594,7 @@ describe("binaryArrayToNumber tests", () => {
   test("binaryArrayToNumber receives array and returns appropriate value", () => {
     expect(binaryArrayToNumber([1, 1, 1, 1])).toEqual(15);
   });
+  test("binaryArrayToNumber receives array and returns appropriate value", () => {
+    expect(binaryArrayToNumber([])).toEqual(0);
+  });
 });

@@ -502,6 +502,7 @@ export const DNAStrand = (dna: string): string => {
 };
 
 export const binaryArrayToNumber = (arr: Array<number>): number => {
+  if (arr.length === 0) return 0;
   return arr.reduce((acc, val) => {
     return (acc << 1) | val;
   });
