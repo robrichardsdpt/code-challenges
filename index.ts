@@ -507,3 +507,7 @@ export const binaryArrayToNumber = (arr: Array<number>): number => {
     return (acc << 1) | val;
   });
 };
+
+export const validatePIN = (pin: string): boolean => {
+  return /^[0-9]+$/.test(pin) && (pin.length === 6 || pin.length === 4);
+};
