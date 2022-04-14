@@ -630,6 +630,7 @@ describe("validatePIN", function () {
     expect(validatePIN("090909")).toBe(true);
   });
 });
+
 describe("findAverage tests", () => {
   it("Testing for findAverage with values", () => {
     expect(findAverage([1, 1, 1])).toEqual(1);
