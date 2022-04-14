@@ -488,3 +488,15 @@ export const isSquare = (n: number): boolean => {
 
   return Number.isInteger(Math.sqrt(n));
 };
+
+export const DNAStrand = (dna: string): string => {
+  return dna
+    .split("")
+    .map((item) => {
+      if (item === "A") return "T";
+      if (item === "T") return "A";
+      if (item === "C") return "G";
+      if (item === "G") return "C";
+    })
+    .join("");
+};

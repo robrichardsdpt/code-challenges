@@ -24,6 +24,7 @@ import {
   filterList,
   descendingOrder,
   isSquare,
+  DNAStrand,
 } from "../index";
 
 describe("testing roundToNext5", () => {
