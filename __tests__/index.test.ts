@@ -566,3 +566,15 @@ describe("isSquare tests", () => {
     expect(isSquare(37)).toEqual(false);
   });
 });
+
+describe("DNAStrand tests", () => {
+  test("DNAStrand receives value and returns appropriate response", () => {
+    expect(DNAStrand("AAAA")).toEqual("TTTT");
+  });
+  test("DNAStrand receives value and returns appropriate response", () => {
+    expect(DNAStrand("ATTGC")).toEqual("TAACG");
+  });
+  test("DNAStrand receives value and returns appropriate response", () => {
+    expect(DNAStrand("GTAT")).toEqual("CATA");
+  });
+});
