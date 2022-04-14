@@ -511,3 +511,8 @@ export const binaryArrayToNumber = (arr: Array<number>): number => {
 export const validatePIN = (pin: string): boolean => {
   return /^[0-9]+$/.test(pin) && (pin.length === 6 || pin.length === 4);
 };
+
+export const findAverage = (array: Array<number>): number => {
+  if (array.length === 0) return 0;
+  return array.reduce((acc, item) => acc + item, 0) / array.length;
+};
