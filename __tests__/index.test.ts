@@ -28,6 +28,7 @@ import {
   binaryArrayToNumber,
   validatePIN,
   findAverage,
+  digitize,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -639,5 +640,15 @@ describe("findAverage tests", () => {
   });
   it("Testing for findAverage with no values", () => {
     expect(findAverage([])).toEqual(0);
+  });
+});
+
+describe("digitize tests", () => {
+  it("Testing using digitize tests", () => {
+    expect(digitize(35231)).toStrictEqual([1, 3, 2, 5, 3]);
+    expect(digitize(2468)).toStrictEqual([8, 6, 4, 2]);
+  });
+  it("digitize function works with [0] input", () => {
+    expect(digitize(0)).toStrictEqual([0]);
   });
 });
