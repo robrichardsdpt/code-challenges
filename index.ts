@@ -516,3 +516,11 @@ export const findAverage = (array: Array<number>): number => {
   if (array.length === 0) return 0;
   return array.reduce((acc, item) => acc + item, 0) / array.length;
 };
+
+export const digitize = (n: number): Array<number> => {
+  return n
+    .toString()
+    .split("")
+    .map((item) => parseInt(item))
+    .reverse();
+};
