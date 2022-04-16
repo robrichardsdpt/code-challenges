@@ -653,3 +653,21 @@ describe("digitize tests", () => {
     expect(digitize(0)).toStrictEqual([0]);
   });
 });
+
+describe("evenOrOdd tests", () => {
+  test("evenOrOdd test 0", () => {
+    expect(evenOrOdd(0)).toEqual("Even");
+  });
+  test("evenOrOdd test 1", () => {
+    expect(evenOrOdd(1)).toEqual("Odd");
+  });
+  test("evenOrOdd test 2", () => {
+    expect(evenOrOdd(2)).toEqual("Even");
+  });
+  test("evenOrOdd test 42546348", () => {
+    expect(evenOrOdd(42546348)).toEqual("Even");
+  });
+  test("evenOrOdd test 52546341", () => {
+    expect(evenOrOdd(52546341)).toEqual("Odd");
+  });
+});
