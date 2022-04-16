@@ -30,6 +30,7 @@ import {
   findAverage,
   digitize,
   evenOrOdd,
+  sumTwoSmallestNumbers,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -669,5 +670,29 @@ describe("evenOrOdd tests", () => {
   });
   test("evenOrOdd test 52546341", () => {
     expect(evenOrOdd(52546341)).toEqual("Odd");
+  });
+});
+
+describe("sumTwoSmallestNumbers tests", () => {
+  test("sumTwoSmallestNumbers [5, 8, 12, 19, 22]", () => {
+    expect(sumTwoSmallestNumbers([5, 8, 12, 19, 22])).toEqual(13);
+  });
+  test("sumTwoSmallestNumbers [15, 28, 4, 2, 43]", () => {
+    expect(sumTwoSmallestNumbers([15, 28, 4, 2, 43])).toEqual(6);
+  });
+  test("sumTwoSmallestNumbers [3, 87, 45, 12, 7]", () => {
+    expect(sumTwoSmallestNumbers([3, 87, 45, 12, 7])).toEqual(10);
+  });
+  test("sumTwoSmallestNumbers [23, 71, 33, 82, 1]", () => {
+    expect(sumTwoSmallestNumbers([23, 71, 33, 82, 1])).toEqual(24);
+  });
+  test("sumTwoSmallestNumbers [52, 76, 14, 12, 4]", () => {
+    expect(sumTwoSmallestNumbers([52, 76, 14, 12, 4])).toEqual(16);
+  });
+  test("sumTwoSmallestNumbers []", () => {
+    expect(sumTwoSmallestNumbers([])).toEqual(0);
+  });
+  test("sumTwoSmallestNumbers [1]", () => {
+    expect(sumTwoSmallestNumbers([1])).toEqual(1);
   });
 });
