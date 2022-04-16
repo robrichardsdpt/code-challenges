@@ -29,6 +29,7 @@ import {
   validatePIN,
   findAverage,
   digitize,
+  evenOrOdd,
 } from "../index";
 
 describe("testing roundToNext5", () => {

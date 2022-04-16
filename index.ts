@@ -531,5 +531,16 @@ export const nbYear = (
   aug: number,
   p: number
 ): number => {
-  // your code
+  let yearCounter = 0;
+
+  while (p >= p0) {
+    p0 = p0 + (p0 * percent) / 100 + aug;
+    yearCounter += 1;
+  }
+
+  return yearCounter;
+};
+
+export const evenOrOdd = (num: number): string => {
+  return num % 2 === 0 ? "Even" : "Odd";
 };
