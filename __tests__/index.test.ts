@@ -31,6 +31,7 @@ import {
   digitize,
   evenOrOdd,
   sumTwoSmallestNumbers,
+  findSmallest,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -694,5 +695,18 @@ describe("sumTwoSmallestNumbers tests", () => {
   });
   test("sumTwoSmallestNumbers [1]", () => {
     expect(sumTwoSmallestNumbers([1])).toEqual(1);
+  });
+});
+
+describe("Smallest Integer Tests", () => {
+  test("findSmallest tests with appropriate values", () => {
+    expect(findSmallest([78, 56, 232, 12, 8])).toEqual(8);
+    expect(findSmallest([78, 56, 232, 12, 18])).toEqual(12);
+    expect(findSmallest([78, 56, 232, 412, 228])).toEqual(56);
+    expect(findSmallest([78, 56, 232, 12, 0])).toEqual(0);
+    expect(findSmallest([1, 56, 232, 12, 8])).toEqual(1);
+  });
+  test("findSmallest tests with appropriate values", () => {
+    expect(findSmallest([])).toEqual(0);
   });
 });
