@@ -32,6 +32,7 @@ import {
   evenOrOdd,
   sumTwoSmallestNumbers,
   findSmallest,
+  reverseSeq,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -708,5 +709,20 @@ describe("Smallest Integer Tests", () => {
   });
   test("findSmallest tests with appropriate values", () => {
     expect(findSmallest([])).toEqual(null);
+  });
+});
+
+describe("reverseSequence tests", () => {
+  test("reverseSequence takes 5", () => {
+    expect(reverseSeq(5)).toStrictEqual([5, 4, 3, 2, 1]);
+  });
+
+  test("reverseSequence takes 12", () => {
+    expect(reverseSeq(12)).toStrictEqual([
+      12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1,
+    ]);
+  });
+  test("reverseSequence takes 0", () => {
+    expect(reverseSeq(0)).toStrictEqual([]);
   });
 });
