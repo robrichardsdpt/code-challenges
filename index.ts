@@ -551,3 +551,9 @@ export const sumTwoSmallestNumbers = (numbers: Array<number>): number => {
   numbers.sort((a, b) => a - b);
   return numbers[0] + numbers[1];
 };
+
+export const findSmallest = (args: Array<number>): number => {
+  let min = args[0];
+  args.forEach((num) => (min = Math.min(min, num)));
+  return min;
+};
