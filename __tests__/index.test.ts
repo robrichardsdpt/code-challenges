@@ -707,6 +707,6 @@ describe("Smallest Integer Tests", () => {
     expect(findSmallest([1, 56, 232, 12, 8])).toEqual(1);
   });
   test("findSmallest tests with appropriate values", () => {
-    expect(findSmallest([])).toEqual(0);
+    expect(findSmallest([])).toEqual(null);
   });
 });
