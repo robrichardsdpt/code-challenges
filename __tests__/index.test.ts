@@ -712,17 +712,17 @@ describe("Smallest Integer Tests", () => {
   });
 });
 
-describe("reverseSequence tests", () => {
-  test("reverseSequence takes 5", () => {
+describe("reverseSeq tests", () => {
+  test("reverseSeq takes 5", () => {
     expect(reverseSeq(5)).toStrictEqual([5, 4, 3, 2, 1]);
   });
 
-  test("reverseSequence takes 12", () => {
+  test("reverseSeq takes 12", () => {
     expect(reverseSeq(12)).toStrictEqual([
       12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1,
     ]);
   });
-  test("reverseSequence takes 0", () => {
+  test("reverseSeq takes 0", () => {
     expect(reverseSeq(0)).toStrictEqual([]);
   });
 });
