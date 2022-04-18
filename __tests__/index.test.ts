@@ -33,6 +33,7 @@ import {
   sumTwoSmallestNumbers,
   findSmallest,
   reverseSeq,
+  squareSum,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -724,5 +725,17 @@ describe("reverseSeq tests", () => {
   });
   test("reverseSeq takes 0", () => {
     expect(reverseSeq(0)).toStrictEqual([]);
+  });
+});
+
+describe("squareSum tests", () => {
+  test("squareSum test receives [1, 2]", () => {
+    expect(squareSum([1, 2])).toEqual(5);
+  });
+  test("squareSum test receives []", () => {
+    expect(squareSum([])).toEqual(0);
+  });
+  test("squareSum test receives [0, 3, 4, 5]", () => {
+    expect(squareSum([0, 3, 4, 5])).toEqual(50);
   });
 });
