@@ -561,3 +561,7 @@ export const reverseSeq = (n: number): Array<number> => {
     .fill(0)
     .map((e, i) => n - i);
 };
+
+export const squareSum = (numbers: Array<number>): number => {
+  return numbers.reduce((accum, item) => accum + item ** 2, 0);
+};
