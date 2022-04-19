@@ -565,3 +565,7 @@ export const reverseSeq = (n: number): Array<number> => {
 export const squareSum = (numbers: Array<number>): number => {
   return numbers.reduce((accum, item) => accum + item ** 2, 0);
 };
+
+export const reverseString = (str: string): string => {
+  return str.split("").reverse().join("");
+};
