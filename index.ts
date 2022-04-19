@@ -569,3 +569,15 @@ export const squareSum = (numbers: Array<number>): number => {
 export const reverseString = (str: string): string => {
   return str.split("").reverse().join("");
 };
+
+export const XO = (str: string): boolean => {
+  let x = 0;
+  let o = 0;
+
+  str.split("").forEach((char) => {
+    if (char.toLowerCase() === "x") x += 1;
+    if (char.toLowerCase() === "o") o += 1;
+  });
+
+  return x === o;
+};
