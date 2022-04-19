@@ -34,6 +34,7 @@ import {
   findSmallest,
   reverseSeq,
   squareSum,
+  reverseString,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -737,5 +738,14 @@ describe("squareSum tests", () => {
   });
   test("squareSum test receives [0, 3, 4, 5]", () => {
     expect(squareSum([0, 3, 4, 5])).toEqual(50);
+  });
+});
+
+describe("reverseString tests", () => {
+  it("Testing for reverseString tests", () => {
+    expect(reverseString("world")).toEqual("dlrow");
+    expect(reverseString("hello")).toEqual("olleh");
+    expect(reverseString(reverseString(""))).toEqual("");
+    expect(reverseString(reverseString("h"))).toEqual("h");
   });
 });
