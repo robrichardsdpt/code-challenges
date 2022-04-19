@@ -35,6 +35,7 @@ import {
   reverseSeq,
   squareSum,
   reverseString,
+  XO,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -747,5 +748,15 @@ describe("reverseString tests", () => {
     expect(reverseString("hello")).toEqual("olleh");
     expect(reverseString(reverseString(""))).toEqual("");
     expect(reverseString(reverseString("h"))).toEqual("h");
+  });
+});
+
+describe("XO Tests", () => {
+  it("XO test", () => {
+    expect(XO("xo")).toEqual(true);
+    expect(XO("xxOo")).toEqual(true);
+    expect(XO("xxxm")).toEqual(false);
+    expect(XO("Oo")).toEqual(false);
+    expect(XO("ooom")).toEqual(false);
   });
 });
