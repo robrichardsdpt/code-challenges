@@ -581,3 +581,10 @@ export const XO = (str: string): boolean => {
 
   return x === o;
 };
+
+export const reverseWords = (str: string): string => {
+  return str
+    .split(" ")
+    .map((item) => [...item].reverse().join(""))
+    .join(" ");
+};
