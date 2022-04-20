@@ -36,6 +36,7 @@ import {
   squareSum,
   reverseString,
   XO,
+  reverseWords,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -758,5 +759,19 @@ describe("XO Tests", () => {
     expect(XO("xxxm")).toEqual(false);
     expect(XO("Oo")).toEqual(false);
     expect(XO("ooom")).toEqual(false);
+  });
+});
+
+describe("reverseWords tests", () => {
+  test('reverseWords receives "The quick brown fox jumps over the lazy dog."', () => {
+    expect(
+      reverseWords("The quick brown fox jumps over the lazy dog.")
+    ).toEqual("ehT kciuq nworb xof spmuj revo eht yzal .god");
+  });
+  test('reverseWords receives "a b c d"', () => {
+    expect(reverseWords("a b c d")).toEqual("a b c d");
+  });
+  test('reverseWords receives ""', () => {
+    expect(reverseWords("")).toEqual("");
   });
 });
