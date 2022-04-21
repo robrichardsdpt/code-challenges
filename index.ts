@@ -589,6 +589,15 @@ export const reverseWords = (str: string): string => {
     .join(" ");
 };
 
-export const countPositivesSumNegatives = (input:Array<number>) :Array<number> => {
-  return ?;
-}
+export const countPositivesSumNegatives = (
+  input: Array<number>
+): Array<number> => {
+  let sumOfNegatives = 0;
+  let positiveNumCount = 0;
+
+  input.forEach((item) => {
+    item <= 0 ? (sumOfNegatives += item) : (positiveNumCount += 1);
+  });
+
+  return [positiveNumCount, sumOfNegatives];
+};
