@@ -785,4 +785,16 @@ describe("countPositivesSumNegatives tests", () => {
       ])
     ).toStrictEqual([10, -65]);
   });
+
+  test("countPositivesSumNegatives takes []", () => {
+    expect(countPositivesSumNegatives([])).toStrictEqual([]);
+  });
+
+  test("countPositivesSumNegatives takes null", () => {
+    expect(countPositivesSumNegatives(null)).toStrictEqual([]);
+  });
+
+  test("countPositivesSumNegatives takes [0]", () => {
+    expect(countPositivesSumNegatives([0])).toStrictEqual([0, 0]);
+  });
 });
