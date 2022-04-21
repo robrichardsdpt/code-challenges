@@ -37,6 +37,7 @@ import {
   reverseString,
   XO,
   reverseWords,
+  countPositivesSumNegatives,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -773,5 +774,15 @@ describe("reverseWords tests", () => {
   });
   test('reverseWords receives ""', () => {
     expect(reverseWords("")).toEqual("");
+  });
+});
+
+describe("countPositivesSumNegatives tests", () => {
+  test("countPositivesSumNegatives takes [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15,]", () => {
+    expect(
+      countPositivesSumNegatives([
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15,
+      ])
+    ).toStrictEqual([10, -65]);
   });
 });
