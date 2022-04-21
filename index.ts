@@ -592,12 +592,13 @@ export const reverseWords = (str: string): string => {
 export const countPositivesSumNegatives = (
   input: Array<number>
 ): Array<number> => {
-  let sumOfNegatives = 0;
-  let positiveNumCount = 0;
-
-  input.forEach((item) => {
-    item <= 0 ? (sumOfNegatives += item) : (positiveNumCount += 1);
-  });
-
-  return [positiveNumCount, sumOfNegatives];
+  return input && input.length
+    ? input.reduce(
+        function (p, c, i, s) {
+          c <= 0 ? (p[1] += c) : (p[0] += 1);
+          return p;
+        },
+        [0, 0]
+      )
+    : [];
 };
