@@ -38,6 +38,7 @@ import {
   XO,
   reverseWords,
   countPositivesSumNegatives,
+  isIsogram,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -796,5 +797,18 @@ describe("countPositivesSumNegatives tests", () => {
 
   test("countPositivesSumNegatives takes [0]", () => {
     expect(countPositivesSumNegatives([0])).toStrictEqual([0, 0]);
+  });
+});
+
+describe("isIsogram tests", () => {
+  test("isIsogram ", () => {
+    expect(isIsogram("Dermatoglyphics")).toBe(true);
+    expect(isIsogram("isogram")).toBe(true);
+    expect(isIsogram("moose")).toBe(false);
+    expect(isIsogram("isIsogram")).toBe(false);
+    expect(isIsogram("aba")).toBe(false);
+    expect(isIsogram("moOse")).toBe(false);
+    expect(isIsogram("thumbscrewjapingly")).toBe(true);
+    expect(isIsogram("")).toBe(true);
   });
 });
