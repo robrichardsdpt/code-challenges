@@ -801,14 +801,28 @@ describe("countPositivesSumNegatives tests", () => {
 });
 
 describe("isIsogram tests", () => {
-  test("isIsogram ", () => {
+  test("isIsogram takes 'Dermatoglyphics'", () => {
     expect(isIsogram("Dermatoglyphics")).toBe(true);
+  });
+  test("isIsogram takes 'isogram'", () => {
     expect(isIsogram("isogram")).toBe(true);
+  });
+  test("isIsogram takes 'moose'", () => {
     expect(isIsogram("moose")).toBe(false);
+  });
+  test("isIsogram takes 'isIsogram'", () => {
     expect(isIsogram("isIsogram")).toBe(false);
+  });
+  test("isIsogram takes 'aba'", () => {
     expect(isIsogram("aba")).toBe(false);
+  });
+  test("isIsogram takes 'moOse'", () => {
     expect(isIsogram("moOse")).toBe(false);
+  });
+  test("isIsogram takes 'thumbscrewjapingly'", () => {
     expect(isIsogram("thumbscrewjapingly")).toBe(true);
+  });
+  test("isIsogram takes ''", () => {
     expect(isIsogram("")).toBe(true);
   });
 });
