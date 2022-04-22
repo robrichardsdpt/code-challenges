@@ -606,3 +606,15 @@ export const countPositivesSumNegatives = (
 export const isIsogram = (str: string): boolean => {
   return new Set(str.toLowerCase()).size == str.length;
 };
+
+export const betterThanAverage = (
+  classPoints: Array<number>,
+  yourPoints: number
+): boolean => {
+  return (
+    Math.max(
+      classPoints.reduce((p, c) => p + c, 0) / classPoints.length,
+      yourPoints
+    ) === yourPoints
+  );
+};
