@@ -41,6 +41,7 @@ import {
   isIsogram,
   betterThanAverage,
   removeFirstAndLastChar,
+  sumOfArrayWithinRange,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -889,5 +890,27 @@ describe("removeFirstAndLastChar tests", () => {
   });
   test("removeFirstAndLastChar receives ''", () => {
     expect(removeFirstAndLastChar("")).toBe("");
+  });
+});
+
+describe("sumOfArrayWithinRange tests", () => {
+  test("sumOfArrayWithinRange takes 1,3", () => {
+    expect(sumOfArrayWithinRange(1, 3)).toBe(6);
+  });
+
+  test("sumOfArrayWithinRange takes 9,11", () => {
+    expect(sumOfArrayWithinRange(9, 11)).toBe(30);
+  });
+
+  test("sumOfArrayWithinRange takes 1,3", () => {
+    expect(sumOfArrayWithinRange(-3, 3)).toBe(0);
+  });
+
+  test("sumOfArrayWithinRange takes 1,3", () => {
+    expect(sumOfArrayWithinRange(-3, -1)).toBe(-6);
+  });
+
+  test("sumOfArrayWithinRange takes 1,3", () => {
+    expect(sumOfArrayWithinRange(-3, -3)).toBe(-3);
   });
 });
