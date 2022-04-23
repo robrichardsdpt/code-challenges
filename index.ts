@@ -620,5 +620,5 @@ export const betterThanAverage = (
 };
 
 export const removeFirstAndLastChar = (str: string) => {
-  return str.length < 2 ? str : str.substring(1, str.length - 1);
+  return str.length <= 2 ? str : str.substring(1, str.length - 1);
 };

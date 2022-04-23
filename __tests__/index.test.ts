@@ -40,6 +40,7 @@ import {
   countPositivesSumNegatives,
   isIsogram,
   betterThanAverage,
+  removeFirstAndLastChar,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -855,5 +856,38 @@ describe("betterThanAverage Tests", function () {
     expect(betterThanAverage([29, 55, 74, 60, 11, 90, 67, 28], 21)).toEqual(
       false
     );
+  });
+});
+
+describe("removeFirstAndLastChar tests", () => {
+  test("removeFirstAndLastChar receives eloquent", () => {
+    expect(removeFirstAndLastChar("eloquent")).toBe("loquen");
+  });
+
+  test("removeFirstAndLastChar receives country", () => {
+    expect(removeFirstAndLastChar("country")).toBe("ountr");
+  });
+
+  test("removeFirstAndLastChar receives person", () => {
+    expect(removeFirstAndLastChar("person")).toBe("erso");
+  });
+
+  test("removeFirstAndLastChar receives place", () => {
+    expect(removeFirstAndLastChar("place")).toBe("lac");
+  });
+
+  test("removeFirstAndLastChar receives ooopsss", () => {
+    expect(removeFirstAndLastChar("ooopsss")).toBe("oopss");
+  });
+
+  test("removeFirstAndLastChar receives hi", () => {
+    expect(removeFirstAndLastChar("hi")).toBe("hi");
+  });
+
+  test("removeFirstAndLastChar receives i", () => {
+    expect(removeFirstAndLastChar("i")).toBe("i");
+  });
+  test("removeFirstAndLastChar receives ''", () => {
+    expect(removeFirstAndLastChar("")).toBe("");
   });
 });
