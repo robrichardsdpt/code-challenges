@@ -42,6 +42,7 @@ import {
   betterThanAverage,
   removeFirstAndLastChar,
   sumOfArrayWithinRange,
+  findShort,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -912,5 +913,19 @@ describe("sumOfArrayWithinRange tests", () => {
 
   test("sumOfArrayWithinRange takes 1,3", () => {
     expect(sumOfArrayWithinRange(-3, -3)).toBe(-3);
+  });
+});
+
+describe("findShort tests", () => {
+  test("findShort takes 'walking the dog to the park'", () => {
+    expect(findShort("walking the dog to the park")).toBe(2);
+  });
+
+  test("findShort takes 'be home at three'", () => {
+    expect(findShort("be home at three")).toBe(2);
+  });
+
+  test("findShort takes 'The one I want'", () => {
+    expect(findShort("The one I want")).toBe(1);
   });
 });
