@@ -630,3 +630,9 @@ export const sumOfArrayWithinRange = (start: number, end: number): number => {
     0
   );
 };
+
+export const findShort = (s: string): number => {
+  return s
+    .split(" ")
+    .reduce((min, word) => Math.min(min, word.length), Infinity);
+};
