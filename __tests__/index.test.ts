@@ -44,6 +44,7 @@ import {
   sumOfArrayWithinRange,
   findShort,
   areYouPlayingBanjo,
+  squareDigits,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -946,5 +947,19 @@ describe("areYouPlayingBanjo", () => {
   });
   test("areYouPlayingBanjo receives rolf", () => {
     expect(areYouPlayingBanjo("rolf")).toEqual("rolf plays banjo");
+  });
+});
+
+describe("squareDigits test", () => {
+  test("squareDigits(3212) should equal 9414", () => {
+    expect(squareDigits(3212)).toEqual(9414);
+  });
+
+  test("squareDigits(2112) should equal 4114", () => {
+    expect(squareDigits(2112)).toEqual(4114);
+  });
+
+  test("squareDigits(0) should equal 0", () => {
+    expect(squareDigits(0)).toEqual(0);
   });
 });
