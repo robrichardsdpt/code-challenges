@@ -636,3 +636,7 @@ export const findShort = (s: string): number => {
     .split(" ")
     .reduce((min, word) => Math.min(min, word.length), Infinity);
 };
+
+export const areYouPlayingBanjo = (name: string): string => {
+  return name + (/^r/i.test(name) ? " plays " : " does not play ") + "banjo";
+};
