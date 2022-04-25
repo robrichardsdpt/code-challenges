@@ -640,3 +640,12 @@ export const findShort = (s: string): number => {
 export const areYouPlayingBanjo = (name: string): string => {
   return name + (/^r/i.test(name) ? " plays " : " does not play ") + "banjo";
 };
+
+export const squareDigits = (num: number): number => {
+  return Number(
+    String(num)
+      .split("")
+      .map((item) => Number(item) ** 2)
+      .join("")
+  );
+};
