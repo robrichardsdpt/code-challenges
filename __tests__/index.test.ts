@@ -43,6 +43,7 @@ import {
   removeFirstAndLastChar,
   sumOfArrayWithinRange,
   findShort,
+  areYouPlayingBanjo,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -927,5 +928,23 @@ describe("findShort tests", () => {
 
   test("findShort takes 'The one I want'", () => {
     expect(findShort("The one I want")).toBe(1);
+  });
+});
+
+describe("areYouPlayingBanjo", () => {
+  test("areYouPlayingBanjo receives Adam", () => {
+    expect(areYouPlayingBanjo("Adam")).toEqual("Adam does not play banjo");
+  });
+  test("areYouPlayingBanjo receives Paul", () => {
+    expect(areYouPlayingBanjo("Paul")).toEqual("Paul does not play banjo");
+  });
+  test("areYouPlayingBanjo receives Ringo", () => {
+    expect(areYouPlayingBanjo("Ringo")).toEqual("Ringo plays banjo");
+  });
+  test("areYouPlayingBanjo receives bravo", () => {
+    expect(areYouPlayingBanjo("bravo")).toEqual("bravo does not play banjo");
+  });
+  test("areYouPlayingBanjo receives rolf", () => {
+    expect(areYouPlayingBanjo("rolf")).toEqual("rolf plays banjo");
   });
 });
