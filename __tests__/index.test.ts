@@ -45,6 +45,7 @@ import {
   findShort,
   areYouPlayingBanjo,
   squareDigits,
+  countSheep,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -961,5 +962,42 @@ describe("squareDigits test", () => {
 
   test("squareDigits(0) should equal 0", () => {
     expect(squareDigits(0)).toEqual(0);
+  });
+});
+
+describe("countSheep tests", () => {
+  test("countSheep receives full array", () => {
+    expect(
+      countSheep([
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        true,
+        true,
+      ])
+    ).toEqual(17);
+  });
+
+  test("countSheep([]) should equal 0", () => {
+    expect(countSheep([])).toEqual(0);
   });
 });

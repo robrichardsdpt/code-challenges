@@ -649,3 +649,7 @@ export const squareDigits = (num: number): number => {
       .join("")
   );
 };
+
+export const countSheep = (arrayOfSheep: Array<boolean>): number => {
+  return arrayOfSheep.filter((item) => item === true).length;
+};
