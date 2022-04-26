@@ -675,3 +675,8 @@ export const minMax = (arr: Array<number>): Array<number> => {
 export const cockroachSpeed = (s: number): number => {
   return Math.floor(s * 27.778);
 };
+
+export const sumOfTwoSmallestPositiveNumbers = (arr: Array<number>): number => {
+  const newArray = arr.filter((item) => item >= 0).sort((a, b) => a - b);
+  return newArray[0] + newArray[1];
+};
