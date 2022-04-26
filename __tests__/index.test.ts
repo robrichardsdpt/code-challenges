@@ -1084,7 +1084,7 @@ describe("", () => {
       sumOfTwoSmallestPositiveNumbers([-12, -1, -2, -6, -5, -3, -4, -7])
     ).toEqual(0);
   });
-  test("sumOfTwoSmallestPositiveNumbers receives [-12, -1, -2, -6, -5, -3, -4, -7]", () => {
+  test("sumOfTwoSmallestPositiveNumbers receives [-12, -1, -2, 66, -5, -3, -4, -7]", () => {
     expect(
       sumOfTwoSmallestPositiveNumbers([-12, -1, -2, 66, -5, -3, -4, -7])
     ).toEqual(66);
