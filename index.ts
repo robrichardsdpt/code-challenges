@@ -678,5 +678,7 @@ export const cockroachSpeed = (s: number): number => {
 
 export const sumOfTwoSmallestPositiveNumbers = (arr: Array<number>): number => {
   const newArray = arr.filter((item) => item >= 0).sort((a, b) => a - b);
+  if (newArray.length === 0) return 0;
+  if (newArray.length === 1) return newArray[0];
   return newArray[0] + newArray[1];
 };
