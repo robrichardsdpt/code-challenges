@@ -48,6 +48,7 @@ import {
   countSheep,
   zeroFuel,
   lovefunc,
+  minMax,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -1031,5 +1032,20 @@ describe("lovefunc tests", () => {
   });
   test("lovefunc receives 0, 0", () => {
     expect(lovefunc(0, 0)).toEqual(false);
+  });
+});
+
+describe("minMax tests", () => {
+  test("minMax receives 1, 4", () => {
+    expect(minMax([1, 4])).toStrictEqual([1, 4]);
+  });
+  test("minMax receives 2334454, 5", () => {
+    expect(minMax([2334454, 5])).toStrictEqual([5, 2334454]);
+  });
+  test("minMax receives 5", () => {
+    expect(minMax([5])).toStrictEqual([5, 5]);
+  });
+  test("minMax receives []", () => {
+    expect(minMax([])).toStrictEqual([]);
   });
 });

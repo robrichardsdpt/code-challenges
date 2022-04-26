@@ -667,6 +667,7 @@ export const lovefunc = (flower1: number, flower2: number): boolean => {
 };
 
 export const minMax = (arr: Array<number>): Array<number> => {
+  if (arr.length === 0) return [];
   arr.sort((a, b) => a - b);
   return [arr[0], arr[arr.length - 1]]; // fix me!
 };
