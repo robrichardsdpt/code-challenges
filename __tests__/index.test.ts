@@ -50,6 +50,7 @@ import {
   lovefunc,
   minMax,
   cockroachSpeed,
+  sumOfTwoSmallestPositiveNumbers,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -1060,5 +1061,32 @@ describe("cockroachSpeed tests", () => {
   });
   test("cockroachSpeed receives 0", () => {
     expect(cockroachSpeed(0)).toEqual(0);
+  });
+});
+
+describe("", () => {
+  test("sumOfTwoSmallestPositiveNumbers receives []", () => {
+    expect(sumOfTwoSmallestPositiveNumbers([])).toEqual(0);
+  });
+  test("sumOfTwoSmallestPositiveNumbers receives [1]", () => {
+    expect(sumOfTwoSmallestPositiveNumbers([1])).toEqual(1);
+  });
+  test("sumOfTwoSmallestPositiveNumbers receives [-1]", () => {
+    expect(sumOfTwoSmallestPositiveNumbers([-1])).toEqual(0);
+  });
+  test("sumOfTwoSmallestPositiveNumbers receives [12, 1, -2, 6, 5, -3, 4, 7]", () => {
+    expect(
+      sumOfTwoSmallestPositiveNumbers([12, 1, -2, 6, 5, -3, 4, 7])
+    ).toEqual(5);
+  });
+  test("sumOfTwoSmallestPositiveNumbers receives [-12, -1, -2, -6, -5, -3, -4, -7]", () => {
+    expect(
+      sumOfTwoSmallestPositiveNumbers([-12, -1, -2, -6, -5, -3, -4, -7])
+    ).toEqual(0);
+  });
+  test("sumOfTwoSmallestPositiveNumbers receives [-12, -1, -2, -6, -5, -3, -4, -7]", () => {
+    expect(
+      sumOfTwoSmallestPositiveNumbers([-12, -1, -2, 66, -5, -3, -4, -7])
+    ).toEqual(66);
   });
 });
