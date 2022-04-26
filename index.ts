@@ -653,3 +653,11 @@ export const squareDigits = (num: number): number => {
 export const countSheep = (arrayOfSheep: Array<boolean>): number => {
   return arrayOfSheep.filter((item) => item === true).length;
 };
+
+export const zeroFuel = (
+  distanceToPump: number,
+  mpg: number,
+  fuelLeft: number
+): boolean => {
+  return distanceToPump <= mpg * fuelLeft;
+};
