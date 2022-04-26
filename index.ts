@@ -665,3 +665,8 @@ export const zeroFuel = (
 export const lovefunc = (flower1: number, flower2: number): boolean => {
   return flower1 % 2 !== flower2 % 2;
 };
+
+export const minMax = (arr: Array<number>): Array<number> => {
+  arr.sort((a, b) => a - b);
+  return [arr[0], arr[arr.length - 1]]; // fix me!
+};
