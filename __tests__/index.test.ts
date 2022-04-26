@@ -46,6 +46,7 @@ import {
   areYouPlayingBanjo,
   squareDigits,
   countSheep,
+  zeroFuel,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -999,5 +1000,20 @@ describe("countSheep tests", () => {
 
   test("countSheep([]) should equal 0", () => {
     expect(countSheep([])).toEqual(0);
+  });
+});
+
+describe("zeroFuel tests", () => {
+  test("zeroFuel receives", () => {
+    expect(zeroFuel(50, 25, 2)).toEqual(true);
+  });
+  test("zeroFuel receives", () => {
+    expect(zeroFuel(100, 50, 1)).toEqual(false);
+  });
+  test("zeroFuel receives", () => {
+    expect(zeroFuel(60, 30, 3)).toEqual(true);
+  });
+  test("zeroFuel receives", () => {
+    expect(zeroFuel(70, 25, 1)).toEqual(false);
   });
 });
