@@ -49,6 +49,7 @@ import {
   zeroFuel,
   lovefunc,
   minMax,
+  cockroachSpeed,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -1047,5 +1048,17 @@ describe("minMax tests", () => {
   });
   test("minMax receives []", () => {
     expect(minMax([])).toStrictEqual([]);
+  });
+});
+
+describe("cockroachSpeed tests", () => {
+  test("cockroachSpeed receives 1.08", () => {
+    expect(cockroachSpeed(1.08)).toEqual(30);
+  });
+  test("cockroachSpeed receives 1.09", () => {
+    expect(cockroachSpeed(1.09)).toEqual(30);
+  });
+  test("cockroachSpeed receives 0", () => {
+    expect(cockroachSpeed(0)).toEqual(0);
   });
 });
