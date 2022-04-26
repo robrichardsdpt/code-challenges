@@ -47,6 +47,7 @@ import {
   squareDigits,
   countSheep,
   zeroFuel,
+  lovefunc,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -1004,16 +1005,31 @@ describe("countSheep tests", () => {
 });
 
 describe("zeroFuel tests", () => {
-  test("zeroFuel receives", () => {
+  test("zeroFuel receives 50, 25, 2)", () => {
     expect(zeroFuel(50, 25, 2)).toEqual(true);
   });
-  test("zeroFuel receives", () => {
+  test("zeroFuel receives 100, 50, 1)", () => {
     expect(zeroFuel(100, 50, 1)).toEqual(false);
   });
-  test("zeroFuel receives", () => {
+  test("zeroFuel receives 60, 30, 3", () => {
     expect(zeroFuel(60, 30, 3)).toEqual(true);
   });
-  test("zeroFuel receives", () => {
+  test("zeroFuel receives 70, 25, 1", () => {
     expect(zeroFuel(70, 25, 1)).toEqual(false);
+  });
+});
+
+describe("lovefunc tests", () => {
+  test("lovefunc receives 1, 4", () => {
+    expect(lovefunc(1, 4)).toEqual(true);
+  });
+  test("lovefunc receives 2, 2", () => {
+    expect(lovefunc(2, 2)).toEqual(false);
+  });
+  test("lovefunc receives 0, 1", () => {
+    expect(lovefunc(0, 1)).toEqual(true);
+  });
+  test("lovefunc receives 0, 0", () => {
+    expect(lovefunc(0, 0)).toEqual(false);
   });
 });
