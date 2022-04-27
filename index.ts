@@ -682,3 +682,12 @@ export const sumOfTwoSmallestPositiveNumbers = (arr: Array<number>): number => {
   if (newArray.length === 1) return newArray[0];
   return newArray[0] + newArray[1];
 };
+
+export const countBy = (x: number, n: number): Array<number> => {
+  if (n === 0) return [];
+  let z = [];
+  for (let i = 1; i <= n; i++) {
+    z.push(i * x);
+  }
+  return z;
+};
