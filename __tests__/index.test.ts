@@ -1093,10 +1093,25 @@ describe("sumOfTwoSmallestPositiveNumbers tests", () => {
 });
 
 describe("countBy tests", () => {
-  expect(countBy(1, 10)).toStrictEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-  expect(countBy(2, 5)).toStrictEqual([2, 4, 6, 8, 10]);
-  expect(countBy(3, 7)).toStrictEqual([3, 6, 9, 12, 15, 18, 21]);
-  expect(countBy(50, 5)).toStrictEqual([50, 100, 150, 200, 250]);
-  expect(countBy(100, 6)).toStrictEqual([100, 200, 300, 400, 500, 600]);
-  expect(countBy(100, 0)).toStrictEqual([]);
+  test("countBy receives (1, 10)", () => {
+    expect(countBy(1, 10)).toStrictEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  });
+  test("countBy receives (2, 5)", () => {
+    expect(countBy(2, 5)).toStrictEqual([2, 4, 6, 8, 10]);
+  });
+  test("countBy receives (3, 7)", () => {
+    expect(countBy(3, 7)).toStrictEqual([3, 6, 9, 12, 15, 18, 21]);
+  });
+
+  test("countBy receives (50, 5)", () => {
+    expect(countBy(50, 5)).toStrictEqual([50, 100, 150, 200, 250]);
+  });
+
+  test("countBy receives (100, 6)", () => {
+    expect(countBy(100, 6)).toStrictEqual([100, 200, 300, 400, 500, 600]);
+  });
+
+  test("countBy receives (100, 0)", () => {
+    expect(countBy(100, 0)).toStrictEqual([]);
+  });
 });
