@@ -51,6 +51,7 @@ import {
   minMax,
   cockroachSpeed,
   sumOfTwoSmallestPositiveNumbers,
+  countBy,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -1064,7 +1065,7 @@ describe("cockroachSpeed tests", () => {
   });
 });
 
-describe("", () => {
+describe("sumOfTwoSmallestPositiveNumbers tests", () => {
   test("sumOfTwoSmallestPositiveNumbers receives []", () => {
     expect(sumOfTwoSmallestPositiveNumbers([])).toEqual(0);
   });
@@ -1089,4 +1090,13 @@ describe("", () => {
       sumOfTwoSmallestPositiveNumbers([-12, -1, -2, 66, -5, -3, -4, -7])
     ).toEqual(66);
   });
+});
+
+describe("countBy tests", () => {
+  expect(countBy(1, 10)).toStrictEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  expect(countBy(2, 5)).toStrictEqual([2, 4, 6, 8, 10]);
+  expect(countBy(3, 7)).toStrictEqual([3, 6, 9, 12, 15, 18, 21]);
+  expect(countBy(50, 5)).toStrictEqual([50, 100, 150, 200, 250]);
+  expect(countBy(100, 6)).toStrictEqual([100, 200, 300, 400, 500, 600]);
+  expect(countBy(100, 0)).toStrictEqual([]);
 });
