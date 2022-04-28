@@ -23,11 +23,10 @@ export const removeUrlAnchor = (url: string): string => {
 };
 
 export const findCapitalIndexArray = (word: string): Array<number> => {
-  const indexArray: Array<number> = [];
-  [...word].forEach((e, i) => {
-    if (/[A-Z]/.test(e)) indexArray.push(i);
-  });
-  return indexArray;
+  return [...word].reduce(
+    (acc, el, i) => (/[A-Z]/.test(el) ? [...acc, i] : acc),
+    []
+  );
 };
 
 export const isPalindrome = (number: number): boolean => {
