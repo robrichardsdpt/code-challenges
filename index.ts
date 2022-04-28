@@ -734,3 +734,14 @@ export const abbrevName = (name: string): string => {
     .map((item) => item[0].toUpperCase())
     .join(".");
 };
+
+export const expandedForm = (num: number): string => {
+  return String(num)
+    .split("")
+    .map(
+      (item, index, array) =>
+        +item > 0 && `${item}${"0".repeat(array.length - 1 - index)}`
+    )
+    .filter((item) => item)
+    .join(" + ");
+};
