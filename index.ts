@@ -691,3 +691,11 @@ export const countBy = (x: number, n: number): Array<number> => {
   }
   return z;
 };
+
+export const sortDigitString = (str: string): string => {
+  return str
+    .split("")
+    .map((char) => +char)
+    .sort((a, b) => a - b)
+    .join("");
+};
