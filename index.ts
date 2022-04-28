@@ -10,14 +10,12 @@ export const sortByLength = (array: Array<string>): Array<string> => {
   return array.sort((a: string, b: string) => a.length - b.length);
 };
 
-export const reverseLetter = (str: string): string => {
-  let reversedString: Array<string> = [];
-  const strArray = str.split("");
-  strArray.forEach((char) => {
-    if (/[a-zA-Z]/.test(char)) reversedString.unshift(char);
-  });
-  return reversedString.join("");
-};
+export const reverseLetter = (str: string): string =>
+  str
+    .split("")
+    .filter((char) => /[a-zA-Z]/.test(char))
+    .reverse()
+    .join("");
 
 export const removeUrlAnchor = (url: string): string => {
   const index: number = url.indexOf("#");
