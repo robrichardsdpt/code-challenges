@@ -56,6 +56,7 @@ import {
   doubleChar,
   alphabetPosition,
   getGrade,
+  abbrevName,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -1207,5 +1208,20 @@ describe("getGrades test", () => {
     expect(getGrade(48, 55, 52)).toBe("F");
     expect(getGrade(58, 59, 60)).toBe("F");
     expect(getGrade(0, 0, 0)).toBe("F");
+  });
+});
+
+describe("abbrevName tests", () => {
+  it("abbrevName tests", () => {
+    expect(abbrevName("Sam Harris")).toBe("S.H");
+    expect(abbrevName("Patrick Feenan")).toBe("P.F");
+    expect(abbrevName("Evan Cole")).toBe("E.C");
+    expect(abbrevName("P Favuzzi")).toBe("P.F");
+    expect(abbrevName("David Mendieta")).toBe("D.M");
+
+    expect(abbrevName("george clooney")).toBe("G.C");
+    expect(abbrevName("marky mark")).toBe("M.M");
+    expect(abbrevName("eliza doolittle")).toBe("E.D");
+    expect(abbrevName("reese witherspoon")).toBe("R.W");
   });
 });
