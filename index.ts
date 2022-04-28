@@ -1,6 +1,5 @@
 export const sumDigits = (number: number): number =>
-  Math.abs(number)
-    .toString()
+  String(Math.abs(number))
     .split("")
     .map((char) => +char)
     .reduce((acc, item) => acc + item, 0);
