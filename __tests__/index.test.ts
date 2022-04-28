@@ -52,6 +52,7 @@ import {
   cockroachSpeed,
   sumOfTwoSmallestPositiveNumbers,
   countBy,
+  sortDigitString,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -1113,5 +1114,14 @@ describe("countBy tests", () => {
 
   test("countBy receives (100, 0)", () => {
     expect(countBy(100, 0)).toStrictEqual([]);
+  });
+});
+
+describe("sortDigitString tests", () => {
+  test('sortDigitString takes "524631"', () => {
+    expect(sortDigitString("524631")).toBe("123456");
+  });
+  test('sortDigitString takes ""', () => {
+    expect(sortDigitString("")).toBe("");
   });
 });
