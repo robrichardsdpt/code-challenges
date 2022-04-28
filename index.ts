@@ -699,3 +699,7 @@ export const sortDigitString = (str: string): string => {
     .sort((a, b) => a - b)
     .join("");
 };
+
+export const doubleChar = (str: string): string => {
+  return [...str].map((item) => item.repeat(2)).join("");
+};
