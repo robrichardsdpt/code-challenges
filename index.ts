@@ -1,17 +1,9 @@
-const _getAbsolute = (digit: number): number => {
-  return Math.abs(digit);
-};
-
 export const sumDigits = (number: number): number => {
-  let total: number = 0;
-  _getAbsolute(number)
+  return Math.abs(number)
     .toString()
     .split("")
-    .forEach((char: string) => {
-      let digit = parseInt(char);
-      total += digit;
-    });
-  return total;
+    .map((char) => +char)
+    .reduce((acc, item) => acc + item, 0);
 };
 
 export const roundToNext5 = (n: number): number => Math.ceil(n / 5) * 5;
