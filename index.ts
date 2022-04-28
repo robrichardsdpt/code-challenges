@@ -22,12 +22,8 @@ export const removeUrlAnchor = (url: string): string => {
   return index === -1 ? url : url.slice(0, index);
 };
 
-export const findCapitalIndexArray = (word: string): Array<number> => {
-  return [...word].reduce(
-    (acc, el, i) => (/[A-Z]/.test(el) ? [...acc, i] : acc),
-    []
-  );
-};
+export const findCapitalIndexArray = (word: string): Array<number> =>
+  [...word].reduce((acc, el, i) => (/[A-Z]/.test(el) ? [...acc, i] : acc), []);
 
 export const isPalindrome = (number: number): boolean => {
   const numString = number.toString();
