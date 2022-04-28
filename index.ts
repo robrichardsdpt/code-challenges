@@ -727,3 +727,10 @@ export const getGrade = (...scores: Array<number>): string => {
       return "F";
   }
 };
+
+export const abbrevName = (name: string): string => {
+  return name
+    .split(" ")
+    .map((item) => item[0].toUpperCase())
+    .join(".");
+};
