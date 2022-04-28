@@ -53,6 +53,7 @@ import {
   sumOfTwoSmallestPositiveNumbers,
   countBy,
   sortDigitString,
+  doubleChar,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -1123,5 +1124,15 @@ describe("sortDigitString tests", () => {
   });
   test('sortDigitString takes ""', () => {
     expect(sortDigitString("")).toBe("");
+  });
+});
+describe("doubleChar tests", () => {
+  test("doubleChar examples", () => {
+    expect(doubleChar("abcd")).toBe("aabbccdd");
+    expect(doubleChar("Adidas")).toBe("AAddiiddaass");
+    expect(doubleChar("1337")).toBe("11333377");
+    expect(doubleChar("illuminati")).toBe("iilllluummiinnaattii");
+    expect(doubleChar("123456")).toBe("112233445566");
+    expect(doubleChar("%^&*(")).toBe("%%^^&&**((");
   });
 });
