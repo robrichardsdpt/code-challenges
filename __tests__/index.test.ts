@@ -57,6 +57,7 @@ import {
   alphabetPosition,
   getGrade,
   abbrevName,
+  expandedForm,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -1223,5 +1224,24 @@ describe("abbrevName tests", () => {
     expect(abbrevName("marky mark")).toBe("M.M");
     expect(abbrevName("eliza doolittle")).toBe("E.D");
     expect(abbrevName("reese witherspoon")).toBe("R.W");
+  });
+});
+
+describe("expandedForm tests", function () {
+  it("Zeros", function () {
+    expect(expandedForm(420370022)).toBe(
+      "400000000 + 20000000 + 300000 + 70000 + 20 + 2"
+    );
+    expect(expandedForm(70304)).toBe("70000 + 300 + 4");
+    expect(expandedForm(9000000)).toBe("9000000");
+  });
+
+  it("Big Numbers", function () {
+    expect(expandedForm(92093403034573)).toBe(
+      "90000000000000 + 2000000000000 + 90000000000 + 3000000000 + 400000000 + 3000000 + 30000 + 4000 + 500 + 70 + 3"
+    );
+    expect(expandedForm(2096039485293)).toBe(
+      "2000000000000 + 90000000000 + 6000000000 + 30000000 + 9000000 + 400000 + 80000 + 5000 + 200 + 90 + 3"
+    );
   });
 });
