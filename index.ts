@@ -711,3 +711,17 @@ export const alphabetPosition = (text: string): string => {
     .filter((a) => a >= 0)
     .join(" ");
 };
+
+export const getGrade = (...scores: Array<number>): string => {
+  let average =
+    [...scores].reduce((acc, item) => acc + item, 0) / scores.length;
+  return average >= 90
+    ? "A"
+    : average >= 80
+    ? "B"
+    : average >= 70
+    ? "C"
+    : average >= 60
+    ? "D"
+    : "F";
+};
