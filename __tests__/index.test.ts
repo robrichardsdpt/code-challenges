@@ -1152,12 +1152,12 @@ function ap(text) {
     .join(" ");
 }
 
-function randomChar() {
+const randomChar = (): string => {
   let chars =
       "abcdefghijklmnopqrstuvwxyz1234567890-=!@#$%^&*()_+[];,./{}:|<>? ",
     rand = Math.floor(Math.random() * chars.length);
   return chars[rand];
-}
+};
 
 describe("Replace with alphabet position", () => {
   it("Fixed tests:", () => {
