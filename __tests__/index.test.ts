@@ -1126,6 +1126,7 @@ describe("sortDigitString tests", () => {
     expect(sortDigitString("")).toBe("");
   });
 });
+
 describe("doubleChar tests", () => {
   test("doubleChar examples", () => {
     expect(doubleChar("abcd")).toBe("aabbccdd");
