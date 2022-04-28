@@ -54,6 +54,7 @@ import {
   countBy,
   sortDigitString,
   doubleChar,
+  alphabetPosition,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -1136,4 +1137,44 @@ describe("doubleChar tests", () => {
     expect(doubleChar("123456")).toBe("112233445566");
     expect(doubleChar("%^&*(")).toBe("%%^^&&**((");
   });
+});
+
+function ap(text) {
+  return text
+    .toLowerCase()
+    .split("")
+    .filter(function (l) {
+      return /[a-z]/.test(l);
+    })
+    .map(function (l) {
+      return l.charCodeAt() - 96;
+    })
+    .join(" ");
+}
+
+function randomChar() {
+  let chars =
+      "abcdefghijklmnopqrstuvwxyz1234567890-=!@#$%^&*()_+[];,./{}:|<>? ",
+    rand = Math.floor(Math.random() * chars.length);
+  return chars[rand];
+}
+
+describe("Replace with alphabet position", () => {
+  it("Fixed tests:", () => {
+    for (let i = 65; i <= 122; i++) {
+      let letter = String.fromCharCode(i);
+      expect(alphabetPosition(letter)).toBe(ap(letter));
+    }
+    expect(alphabetPosition("-.-'")).toBe("");
+  });
+});
+
+describe("Randomly generated tests:", () => {
+  for (let i = 0; i < 50; i++) {
+    let x = "";
+    for (let j = 0; j < 8; j++) {
+      x += randomChar();
+    }
+    it(`Testing "${x}"`, () => expect(alphabetPosition(x)).toBe(ap(x)));
+  }
 });

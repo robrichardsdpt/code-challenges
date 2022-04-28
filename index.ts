@@ -704,10 +704,10 @@ export const doubleChar = (str: string): string => {
   return [...str].map((item) => item.repeat(2)).join("");
 };
 
-function alphabetPosition(text) {
+export const alphabetPosition = (text: string): string => {
   return [...text]
     .filter((item) => /[a-z]/.test(item.toLowerCase()))
     .map((a) => parseInt(a, 36) - 9)
     .filter((a) => a >= 0)
     .join(" ");
-}
+};
