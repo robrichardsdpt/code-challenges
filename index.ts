@@ -1,10 +1,9 @@
-export const sumDigits = (number: number): number => {
-  return Math.abs(number)
+export const sumDigits = (number: number): number =>
+  Math.abs(number)
     .toString()
     .split("")
     .map((char) => +char)
     .reduce((acc, item) => acc + item, 0);
-};
 
 export const roundToNext5 = (n: number): number => Math.ceil(n / 5) * 5;
 
