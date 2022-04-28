@@ -713,15 +713,17 @@ export const alphabetPosition = (text: string): string => {
 };
 
 export const getGrade = (...scores: Array<number>): string => {
-  let average =
-    [...scores].reduce((acc, item) => acc + item, 0) / scores.length;
-  return average >= 90
-    ? "A"
-    : average >= 80
-    ? "B"
-    : average >= 70
-    ? "C"
-    : average >= 60
-    ? "D"
-    : "F";
+  let avg = [...scores].reduce((acc, item) => acc + item, 0) / scores.length;
+  switch (true) {
+    case avg >= 90:
+      return "A";
+    case avg >= 80:
+      return "B";
+    case avg >= 70:
+      return "C";
+    case avg >= 60:
+      return "D";
+    default:
+      return "F";
+  }
 };
