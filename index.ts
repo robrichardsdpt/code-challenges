@@ -633,9 +633,8 @@ export const squareDigits = (num: number): number => {
   );
 };
 
-export const countSheep = (arrayOfSheep: Array<boolean>): number => {
-  return arrayOfSheep.filter((item) => item === true).length;
-};
+export const countSheep = (arrayOfSheep: Array<boolean>): number =>
+  arrayOfSheep.filter((item) => item === true).length;
 
 export const zeroFuel = (
   distanceToPump: number,
