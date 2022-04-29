@@ -586,9 +586,8 @@ export const countPositivesSumNegatives = (
     : [];
 };
 
-export const isIsogram = (str: string): boolean => {
-  return new Set(str.toLowerCase()).size == str.length;
-};
+export const isIsogram = (str: string): boolean =>
+  new Set(str.toLowerCase()).size == str.length;
 
 export const betterThanAverage = (
   classPoints: Array<number>,
