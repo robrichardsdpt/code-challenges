@@ -728,3 +728,9 @@ export const expandedForm = (num: number): string => {
     .filter((item) => item)
     .join(" + ");
 };
+
+function accum(s) {
+  return [...s]
+    .map((elem, index) => elem.toUpperCase() + elem.toLowerCase().repeat(index))
+    .join("-");
+}
