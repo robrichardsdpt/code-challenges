@@ -641,9 +641,7 @@ export const zeroFuel = (
   distanceToPump: number,
   mpg: number,
   fuelLeft: number
-): boolean => {
-  return distanceToPump <= mpg * fuelLeft;
-};
+): boolean => distanceToPump <= mpg * fuelLeft;
 
 export const lovefunc = (flower1: number, flower2: number): boolean => {
   return flower1 % 2 !== flower2 % 2;
