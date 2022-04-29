@@ -58,6 +58,7 @@ import {
   getGrade,
   abbrevName,
   expandedForm,
+  accum,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -1242,6 +1243,71 @@ describe("expandedForm tests", function () {
     );
     expect(expandedForm(2096039485293)).toBe(
       "2000000000000 + 90000000000 + 6000000000 + 30000000 + 9000000 + 400000 + 80000 + 5000 + 200 + 90 + 3"
+    );
+  });
+});
+
+describe("accum", function () {
+  it("Basic tests", function () {
+    expect(accum("ZpglnRxqenU")).toBe(
+      "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu"
+    );
+    expect(accum("NyffsGeyylB")).toBe(
+      "N-Yy-Fff-Ffff-Sssss-Gggggg-Eeeeeee-Yyyyyyyy-Yyyyyyyyy-Llllllllll-Bbbbbbbbbbb"
+    );
+    expect(accum("MjtkuBovqrU")).toBe(
+      "M-Jj-Ttt-Kkkk-Uuuuu-Bbbbbb-Ooooooo-Vvvvvvvv-Qqqqqqqqq-Rrrrrrrrrr-Uuuuuuuuuuu"
+    );
+    expect(accum("EvidjUnokmM")).toBe(
+      "E-Vv-Iii-Dddd-Jjjjj-Uuuuuu-Nnnnnnn-Oooooooo-Kkkkkkkkk-Mmmmmmmmmm-Mmmmmmmmmmm"
+    );
+    expect(accum("HbideVbxncC")).toBe(
+      "H-Bb-Iii-Dddd-Eeeee-Vvvvvv-Bbbbbbb-Xxxxxxxx-Nnnnnnnnn-Cccccccccc-Ccccccccccc"
+    );
+    expect(accum("VwhvtHtrxfE")).toBe(
+      "V-Ww-Hhh-Vvvv-Ttttt-Hhhhhh-Ttttttt-Rrrrrrrr-Xxxxxxxxx-Ffffffffff-Eeeeeeeeeee"
+    );
+    expect(accum("KurgiKmkphY")).toBe(
+      "K-Uu-Rrr-Gggg-Iiiii-Kkkkkk-Mmmmmmm-Kkkkkkkk-Ppppppppp-Hhhhhhhhhh-Yyyyyyyyyyy"
+    );
+    expect(accum("NctlfBlnmfH")).toBe(
+      "N-Cc-Ttt-Llll-Fffff-Bbbbbb-Lllllll-Nnnnnnnn-Mmmmmmmmm-Ffffffffff-Hhhhhhhhhhh"
+    );
+    expect(accum("WegunHvbdmV")).toBe(
+      "W-Ee-Ggg-Uuuu-Nnnnn-Hhhhhh-Vvvvvvv-Bbbbbbbb-Ddddddddd-Mmmmmmmmmm-Vvvvvvvvvvv"
+    );
+    expect(accum("VoywwSpqidE")).toBe(
+      "V-Oo-Yyy-Wwww-Wwwww-Ssssss-Ppppppp-Qqqqqqqq-Iiiiiiiii-Dddddddddd-Eeeeeeeeeee"
+    );
+    expect(accum("VbaixFpxdcO")).toBe(
+      "V-Bb-Aaa-Iiii-Xxxxx-Ffffff-Ppppppp-Xxxxxxxx-Ddddddddd-Cccccccccc-Ooooooooooo"
+    );
+    expect(accum("OlyqvYwkuzF")).toBe(
+      "O-Ll-Yyy-Qqqq-Vvvvv-Yyyyyy-Wwwwwww-Kkkkkkkk-Uuuuuuuuu-Zzzzzzzzzz-Fffffffffff"
+    );
+    expect(accum("JrhfdMtchiH")).toBe(
+      "J-Rr-Hhh-Ffff-Ddddd-Mmmmmm-Ttttttt-Cccccccc-Hhhhhhhhh-Iiiiiiiiii-Hhhhhhhhhhh"
+    );
+    expect(accum("JiwpcSwslvW")).toBe(
+      "J-Ii-Www-Pppp-Ccccc-Ssssss-Wwwwwww-Ssssssss-Lllllllll-Vvvvvvvvvv-Wwwwwwwwwww"
+    );
+    expect(accum("EagpiEvmabJ")).toBe(
+      "E-Aa-Ggg-Pppp-Iiiii-Eeeeee-Vvvvvvv-Mmmmmmmm-Aaaaaaaaa-Bbbbbbbbbb-Jjjjjjjjjjj"
+    );
+    expect(accum("RznlcEmuxxP")).toBe(
+      "R-Zz-Nnn-Llll-Ccccc-Eeeeee-Mmmmmmm-Uuuuuuuu-Xxxxxxxxx-Xxxxxxxxxx-Ppppppppppp"
+    );
+    expect(accum("OrggaExarzP")).toBe(
+      "O-Rr-Ggg-Gggg-Aaaaa-Eeeeee-Xxxxxxx-Aaaaaaaa-Rrrrrrrrr-Zzzzzzzzzz-Ppppppppppp"
+    );
+    expect(accum("DriraMtedfB")).toBe(
+      "D-Rr-Iii-Rrrr-Aaaaa-Mmmmmm-Ttttttt-Eeeeeeee-Ddddddddd-Ffffffffff-Bbbbbbbbbbb"
+    );
+    expect(accum("BjxseRxgtjT")).toBe(
+      "B-Jj-Xxx-Ssss-Eeeee-Rrrrrr-Xxxxxxx-Gggggggg-Ttttttttt-Jjjjjjjjjj-Ttttttttttt"
+    );
+    expect(accum("EquhxOswchE")).toBe(
+      "E-Qq-Uuu-Hhhh-Xxxxx-Oooooo-Sssssss-Wwwwwwww-Ccccccccc-Hhhhhhhhhh-Eeeeeeeeeee"
     );
   });
 });
