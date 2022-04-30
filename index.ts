@@ -598,24 +598,19 @@ export const sumOfArrayWithinRange = (start: number, end: number): number => {
   );
 };
 
-export const findShort = (s: string): number => {
-  return s
-    .split(" ")
-    .reduce((min, word) => Math.min(min, word.length), Infinity);
-};
+export const findShort = (s: string): number =>
+  s.split(" ").reduce((min, word) => Math.min(min, word.length), Infinity);
 
-export const areYouPlayingBanjo = (name: string): string => {
-  return name + (/^r/i.test(name) ? " plays " : " does not play ") + "banjo";
-};
+export const areYouPlayingBanjo = (name: string): string =>
+  name + (/^r/i.test(name) ? " plays " : " does not play ") + "banjo";
 
-export const squareDigits = (num: number): number => {
-  return Number(
+export const squareDigits = (num: number): number =>
+  Number(
     String(num)
       .split("")
       .map((item) => Number(item) ** 2)
       .join("")
   );
-};
 
 export const countSheep = (arrayOfSheep: Array<boolean>): number =>
   arrayOfSheep.filter((item) => item === true).length;
@@ -626,9 +621,8 @@ export const zeroFuel = (
   fuelLeft: number
 ): boolean => distanceToPump <= mpg * fuelLeft;
 
-export const lovefunc = (flower1: number, flower2: number): boolean => {
-  return flower1 % 2 !== flower2 % 2;
-};
+export const lovefunc = (flower1: number, flower2: number): boolean =>
+  flower1 % 2 !== flower2 % 2;
 
 export const minMax = (arr: Array<number>): Array<number> => {
   if (arr.length === 0) return [];
@@ -636,9 +630,7 @@ export const minMax = (arr: Array<number>): Array<number> => {
   return [arr[0], arr[arr.length - 1]]; // fix me!
 };
 
-export const cockroachSpeed = (s: number): number => {
-  return Math.floor(s * 27.778);
-};
+export const cockroachSpeed = (s: number): number => Math.floor(s * 27.778);
 
 export const sumOfTwoSmallestPositiveNumbers = (arr: Array<number>): number => {
   const newArray = arr.filter((item) => item >= 0).sort((a, b) => a - b);
@@ -656,25 +648,22 @@ export const countBy = (x: number, n: number): Array<number> => {
   return z;
 };
 
-export const sortDigitString = (str: string): string => {
-  return str
+export const sortDigitString = (str: string): string =>
+  str
     .split("")
     .map((char) => +char)
     .sort((a, b) => a - b)
     .join("");
-};
 
-export const doubleChar = (str: string): string => {
-  return [...str].map((item) => item.repeat(2)).join("");
-};
+export const doubleChar = (str: string): string =>
+  [...str].map((item) => item.repeat(2)).join("");
 
-export const alphabetPosition = (text: string): string => {
-  return [...text]
+export const alphabetPosition = (text: string): string =>
+  [...text]
     .filter((item) => /[a-z]/.test(item.toLowerCase()))
     .map((a) => parseInt(a, 36) - 9)
     .filter((a) => a >= 0)
     .join(" ");
-};
 
 export const getGrade = (...scores: Array<number>): string => {
   let avg = [...scores].reduce((acc, item) => acc + item, 0) / scores.length;
@@ -692,15 +681,14 @@ export const getGrade = (...scores: Array<number>): string => {
   }
 };
 
-export const abbrevName = (name: string): string => {
-  return name
+export const abbrevName = (name: string): string =>
+  name
     .split(" ")
     .map((item) => item[0].toUpperCase())
     .join(".");
-};
 
-export const expandedForm = (num: number): string => {
-  return String(num)
+export const expandedForm = (num: number): string =>
+  String(num)
     .split("")
     .map(
       (item, index, array) =>
@@ -708,7 +696,6 @@ export const expandedForm = (num: number): string => {
     )
     .filter((item) => item)
     .join(" + ");
-};
 
 export const accum = (s: string): string =>
   [...s]
