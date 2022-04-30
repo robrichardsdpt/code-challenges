@@ -591,12 +591,11 @@ export const removeFirstAndLastChar = (str: string) => {
 };
 
 // start must be the start of the range, end must be the end of the range
-export const sumOfArrayWithinRange = (start: number, end: number): number => {
-  return Array.from({ length: end + 1 - start }, (_, i) => start + i).reduce(
+export const sumOfArrayWithinRange = (start: number, end: number): number =>
+  Array.from({ length: end + 1 - start }, (_, i) => start + i).reduce(
     (acc, current) => acc + current,
     0
   );
-};
 
 export const findShort = (s: string): number =>
   s.split(" ").reduce((min, word) => Math.min(min, word.length), Infinity);
