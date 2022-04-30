@@ -728,3 +728,12 @@ export const accum = (s: string): string =>
   [...s]
     .map((elem, index) => elem.toUpperCase() + elem.toLowerCase().repeat(index))
     .join("-");
+
+export const bmi = (w: number, h: number, bmi = w / h / h): string =>
+  bmi <= 18.5
+    ? "Underweight"
+    : bmi <= 25
+    ? "Normal"
+    : bmi <= 30
+    ? "Overweight"
+    : "Obese";
