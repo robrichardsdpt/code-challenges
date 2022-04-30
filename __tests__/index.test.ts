@@ -1,3 +1,4 @@
+import { convertToObject } from "typescript";
 import {
   removeUrlAnchor,
   sumDigits,
@@ -59,6 +60,7 @@ import {
   abbrevName,
   expandedForm,
   accum,
+  bmi,
 } from "../index";
 
 describe("testing roundToNext5", () => {
@@ -1309,5 +1311,14 @@ describe("accum", function () {
     expect(accum("EquhxOswchE")).toBe(
       "E-Qq-Uuu-Hhhh-Xxxxx-Oooooo-Sssssss-Wwwwwwww-Ccccccccc-Hhhhhhhhhh-Eeeeeeeeeee"
     );
+  });
+});
+
+describe("bmi tests", () => {
+  it("test", () => {
+    expect(bmi(50, 1.8)).toEqual("Underweight");
+    expect(bmi(80, 1.8)).toEqual("Normal");
+    expect(bmi(90, 1.8)).toEqual("Overweight");
+    expect(bmi(110, 1.8)).toEqual("Obese");
   });
 });
