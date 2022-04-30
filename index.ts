@@ -737,3 +737,7 @@ export const bmi = (w: number, h: number, bmi = w / h / h): string =>
     : bmi <= 30
     ? "Overweight"
     : "Obese";
+
+export const getVowelCount = (str: string): number => {
+  return [...str].filter((item) => /[aeiou]/.test(item)).length;
+};
