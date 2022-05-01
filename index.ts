@@ -60,22 +60,17 @@ export const letterEncrypt = (letter: string): string => {
   }
 };
 
-export const negateOddNumbers = (arr: Array<number>): Array<number> => {
-  return arr.map((num) => (num % 2 != 0 ? -num : num));
-};
+export const negateOddNumbers = (arr: Array<number>): Array<number> =>
+  arr.map((num) => (num % 2 != 0 ? -num : num));
 
 export const returnOnlyEvenPositiveNumbers = (
   arr: Array<number>
-): Array<number> => {
-  return arr.filter((num) => num % 2 === 0 && num >= 0);
-};
+): Array<number> => arr.filter((num) => num % 2 === 0 && num >= 0);
 
 export const arrayValuesSmallEnough = (
   array: Array<number>,
   limit: number
-): boolean => {
-  return array.filter((item) => item > limit).length === 0;
-};
+): boolean => array.filter((item) => item > limit).length === 0;
 
 export const returnUpperOrLowerCase = (s: string): string => {
   let lowerCaseCounter = 0,
