@@ -713,7 +713,7 @@ export const bmi = (w: number, h: number, bmi = w / h / h): string =>
 export const getVowelCount = (str: string): number =>
   [...str].filter((item) => /[aeiou]/.test(item)).length;
 
-function toCamelCase(str: string): string {
+export const toCamelCase = (str: string): string => {
   return str.includes("-")
     ? str
         .split("-")
@@ -729,4 +729,4 @@ function toCamelCase(str: string): string {
           return item;
         })
         .join("");
-}
+};
