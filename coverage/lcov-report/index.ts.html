@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">74.85% </span>
+                <span class="strong">75.29% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>378/505</span>
+                <span class='fraction'>387/514</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">71.94% </span>
+                <span class="strong">72.72% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>100/139</span>
+                <span class='fraction'>104/143</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.83% </span>
+                <span class="strong">83.21% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>111/134</span>
+                <span class='fraction'>114/137</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">69.58% </span>
+                <span class="strong">70.08% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>254/365</span>
+                <span class='fraction'>260/371</span>
             </div>
         
             
@@ -777,7 +777,25 @@
 <a name='L712'></a><a href='#L712'>712</a>
 <a name='L713'></a><a href='#L713'>713</a>
 <a name='L714'></a><a href='#L714'>714</a>
-<a name='L715'></a><a href='#L715'>715</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L715'></a><a href='#L715'>715</a>
+<a name='L716'></a><a href='#L716'>716</a>
+<a name='L717'></a><a href='#L717'>717</a>
+<a name='L718'></a><a href='#L718'>718</a>
+<a name='L719'></a><a href='#L719'>719</a>
+<a name='L720'></a><a href='#L720'>720</a>
+<a name='L721'></a><a href='#L721'>721</a>
+<a name='L722'></a><a href='#L722'>722</a>
+<a name='L723'></a><a href='#L723'>723</a>
+<a name='L724'></a><a href='#L724'>724</a>
+<a name='L725'></a><a href='#L725'>725</a>
+<a name='L726'></a><a href='#L726'>726</a>
+<a name='L727'></a><a href='#L727'>727</a>
+<a name='L728'></a><a href='#L728'>728</a>
+<a name='L729'></a><a href='#L729'>729</a>
+<a name='L730'></a><a href='#L730'>730</a>
+<a name='L731'></a><a href='#L731'>731</a>
+<a name='L732'></a><a href='#L732'>732</a>
+<a name='L733'></a><a href='#L733'>733</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
@@ -1491,6 +1509,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">992x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const sumDigits = (number: number): number =&gt;
   String(Math.abs(number))
     .split("")
@@ -2205,6 +2241,24 @@ export const bmi = (w: number, h: number, bmi = w / h / h): string =&gt;
 &nbsp;
 export const getVowelCount = (str: string): number =&gt;
   [...str].filter((item) =&gt; /[aeiou]/.test(item)).length;
+&nbsp;
+export const toCamelCase = (str: string): string =&gt; {
+  return str.includes("-")
+    ? str
+        .split("-")
+        .map((item, index) =&gt; {
+          if (index &gt; 0) return item.replace(item[0], item[0].toUpperCase());
+          return item;
+        })
+        .join("")
+    : str
+        .split("_")
+        .map((item, index) =&gt; {
+          if (index &gt; 0) return item.replace(item[0], item[0].toUpperCase());
+          return item;
+        })
+        .join("");
+};
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -2212,7 +2266,7 @@ export const getVowelCount = (str: string): number =&gt;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sat Apr 30 2022 07:02:35 GMT-0400 (Eastern Daylight Time)
+                at Sun May 01 2022 10:14:42 GMT-0400 (Eastern Daylight Time)
             </div>
         <script src="prettify.js"></script>
         <script>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1651316555239" clover="3.2.0">
-  <project timestamp="1651316555239" name="All files">
-    <metrics statements="638" coveredstatements="522" conditionals="212" coveredconditionals="170" methods="172" coveredmethods="149" elements="1022" coveredelements="841" complexity="0" loc="638" ncloc="638" packages="1" files="7" classes="7"/>
+<coverage generated="1651414482106" clover="3.2.0">
+  <project timestamp="1651414482106" name="All files">
+    <metrics statements="644" coveredstatements="528" conditionals="216" coveredconditionals="174" methods="175" coveredmethods="152" elements="1035" coveredelements="854" complexity="0" loc="644" ncloc="644" packages="1" files="7" classes="7"/>
     <file name="date.ts" path="/Users/robrichards/practice/date.ts">
       <metrics statements="40" coveredstatements="40" conditionals="17" coveredconditionals="17" methods="7" coveredmethods="7"/>
       <line num="2" count="1" type="stmt"/>
@@ -142,7 +142,7 @@
       <line num="173" count="6" type="stmt"/>
     </file>
     <file name="index.ts" path="/Users/robrichards/practice/index.ts">
-      <metrics statements="365" coveredstatements="254" conditionals="139" coveredconditionals="100" methods="134" coveredmethods="111"/>
+      <metrics statements="371" coveredstatements="260" conditionals="143" coveredconditionals="104" methods="137" coveredmethods="114"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="3" type="stmt"/>
       <line num="4" count="7" type="stmt"/>
@@ -508,6 +508,12 @@
       <line num="705" count="4" type="cond" truecount="2" falsecount="0"/>
       <line num="713" count="1" type="stmt"/>
       <line num="714" count="992" type="stmt"/>
+      <line num="716" count="1" type="stmt"/>
+      <line num="717" count="8" type="cond" truecount="2" falsecount="0"/>
+      <line num="721" count="17" type="cond" truecount="1" falsecount="0"/>
+      <line num="722" count="5" type="stmt"/>
+      <line num="728" count="7" type="cond" truecount="1" falsecount="0"/>
+      <line num="729" count="3" type="stmt"/>
     </file>
     <file name="linkedList.ts" path="/Users/robrichards/practice/linkedList.ts">
       <metrics statements="93" coveredstatements="89" conditionals="15" coveredconditionals="13" methods="10" coveredmethods="10"/>
