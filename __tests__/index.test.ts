@@ -1,4 +1,5 @@
 import {
+  autocomplete,
   removeUrlAnchor,
   sumDigits,
   sortByLength,
@@ -64,6 +65,18 @@ import {
   fibonacci,
   toCamelCase,
 } from "../index";
+
+describe("testing autocomplete", () => {
+  test("autocomplete", () => {
+    expect(autocomplete("hel", ["hi", "hello", "howdy"])).toStrictEqual([
+      "hello",
+    ]);
+    expect(
+      autocomplete("he", ["hi", "hello", "howdy", "helicopter"])
+    ).toStrictEqual(["hello", "helicopter"]);
+    expect(autocomplete("hr", ["hi", "hello", "howdy"])).toStrictEqual([]);
+  });
+});
 
 describe("testing roundToNext5", () => {
   test("roundToNext5 takes positive number and returns appropriate value", () => {

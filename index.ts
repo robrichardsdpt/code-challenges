@@ -180,8 +180,7 @@ export const autocomplete = (
   input: string,
   dictionary: Array<string>
 ): Array<string> => {
-  const inputRegEx = new RegExp(input);
-  return dictionary.filter((item) => inputRegEx.test(item)).slice(0, 5);
+  return dictionary.filter((item) => new RegExp(input).test(item)).slice(0, 5);
 };
 
 export const highestRank = (arr: Array<number>): number => {
