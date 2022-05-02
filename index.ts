@@ -316,13 +316,10 @@ export const likeString = (arr: Array<string>): string => {
   return `${arr[0]}, ${arr[1]} and ${arr.length - 2} others like this`;
 };
 
-export const sortMyArrayOfStrings = (
-  stringArr: Array<string>
-): Array<string> => {
-  return stringArr.sort((a, b) => {
+export const sortMyArrayOfStrings = (stringArr: Array<string>): Array<string> =>
+  stringArr.sort((a, b) => {
     if (a.toLowerCase() < b.toLowerCase()) return -1;
   });
-};
 
 export const isIntArray = (arr: Array<number>): boolean => {
   if (!arr) return false;
