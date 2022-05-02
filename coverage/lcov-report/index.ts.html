@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75.82% </span>
+                <span class="strong">75.73% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>389/513</span>
+                <span class='fraction'>387/511</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.72% </span>
+                <span class="strong">72.91% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>104/143</span>
+                <span class='fraction'>105/144</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">70.54% </span>
+                <span class="strong">70.46% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>261/370</span>
+                <span class='fraction'>260/369</span>
             </div>
         
             
@@ -782,13 +782,7 @@
 <a name='L717'></a><a href='#L717'>717</a>
 <a name='L718'></a><a href='#L718'>718</a>
 <a name='L719'></a><a href='#L719'>719</a>
-<a name='L720'></a><a href='#L720'>720</a>
-<a name='L721'></a><a href='#L721'>721</a>
-<a name='L722'></a><a href='#L722'>722</a>
-<a name='L723'></a><a href='#L723'>723</a>
-<a name='L724'></a><a href='#L724'>724</a>
-<a name='L725'></a><a href='#L725'>725</a>
-<a name='L726'></a><a href='#L726'>726</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L720'></a><a href='#L720'>720</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
@@ -1107,17 +1101,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1149,7 +1138,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">24x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1443,8 +1431,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">109x</span>
 <span class="cline-any cline-yes">462x</span>
-<span class="cline-any cline-yes">221x</span>
-<span class="cline-any cline-yes">221x</span>
+<span class="cline-any cline-yes">202x</span>
+<span class="cline-any cline-yes">202x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -1831,18 +1819,13 @@ export const likeString = <span class="fstat-no" title="function not covered" >(
 <span class="cstat-no" title="statement not covered" >  return `${arr[0]}, ${arr[1]} and ${arr.length - 2} others like this`;</span>
 };
 &nbsp;
-export const sortMyArrayOfStrings = (
-  stringArr: Array&lt;string&gt;
-): Array&lt;string&gt; =&gt; {
-  return stringArr.sort((a, b) =&gt; {
+export const sortMyArrayOfStrings = (stringArr: Array&lt;string&gt;): Array&lt;string&gt; =&gt;
+  stringArr.sort((a, b) =&gt; {
     if (a.toLowerCase() &lt; b.toLowerCase()) return -1;
   });
-};
 &nbsp;
-export const isIntArray = (arr: Array&lt;number&gt;): boolean =&gt; {
-  if (!arr) return false;
-  return arr.every(Number.isInteger);
-};
+export const isIntArray = (arr: Array&lt;number&gt;): boolean =&gt;
+  !arr ? false : arr.every(Number.isInteger);
 &nbsp;
 export const uniqueInOrder = (
   iterable: Array&lt;number | string&gt;
@@ -1872,9 +1855,8 @@ export const uniqueInOrder = (
 &nbsp;
 export const uniqueInOrderFilter = (
   iterable: Array&lt;number | string&gt;
-): Array&lt;number | string&gt; =&gt; {
-  return [...iterable].filter((a, i) =&gt; a !== iterable[i - 1]);
-};
+): Array&lt;number | string&gt; =&gt;
+  [...iterable].filter((a, i) =&gt; a !== iterable[i - 1]);
 &nbsp;
 export type DevObject = {
   firstName: string;
@@ -2245,7 +2227,7 @@ export const toCamelCase = (str: string): string =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sun May 01 2022 10:25:32 GMT-0400 (Eastern Daylight Time)
+                at Mon May 02 2022 10:08:07 GMT-0400 (Eastern Daylight Time)
             </div>
         <script src="prettify.js"></script>
         <script>
