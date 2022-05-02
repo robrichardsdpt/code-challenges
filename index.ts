@@ -417,11 +417,8 @@ export const encryptThis = (text: string): string => {
     .join(" ");
 };
 
-export const filterList = (
-  l: Array<string | number>
-): Array<string | number> => {
-  return l.filter((item) => typeof item === "number");
-};
+export const filterList = (l: Array<string | number>): Array<string | number> =>
+  l.filter((item) => typeof item === "number");
 
 // Input: 42145 Output: 54421
 // Input: 145263 Output: 654321
