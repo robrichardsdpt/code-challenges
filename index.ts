@@ -321,10 +321,8 @@ export const sortMyArrayOfStrings = (stringArr: Array<string>): Array<string> =>
     if (a.toLowerCase() < b.toLowerCase()) return -1;
   });
 
-export const isIntArray = (arr: Array<number>): boolean => {
-  if (!arr) return false;
-  return arr.every(Number.isInteger);
-};
+export const isIntArray = (arr: Array<number>): boolean =>
+  !arr ? false : arr.every(Number.isInteger);
 
 export const uniqueInOrder = (
   iterable: Array<number | string>
