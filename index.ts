@@ -697,8 +697,8 @@ export const bmi = (w: number, h: number, bmi = w / h / h): string =>
 export const getVowelCount = (str: string): number =>
   [...str].filter((item) => /[aeiou]/.test(item)).length;
 
-export const toCamelCase = (str: string): string => {
-  return str.includes("-")
+export const toCamelCase = (str: string): string =>
+  str.includes("-")
     ? str
         .split("-")
         .map((item, index) => {
@@ -713,7 +713,6 @@ export const toCamelCase = (str: string): string => {
           return item;
         })
         .join("");
-};
 
 export const count = (str: string): Object =>
   [...str].reduce((pre, val) => ((pre[val] = -~pre[val]), pre), {});
