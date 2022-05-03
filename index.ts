@@ -714,3 +714,6 @@ export const toCamelCase = (str: string): string => {
         })
         .join("");
 };
+
+export const count = (str: string): Object =>
+  [...str].reduce((pre, val) => ((pre[val] = -~pre[val]), pre), {});
