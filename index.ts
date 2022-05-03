@@ -607,11 +607,8 @@ export const zeroFuel = (
 export const lovefunc = (flower1: number, flower2: number): boolean =>
   flower1 % 2 !== flower2 % 2;
 
-export const minMax = (arr: Array<number>): Array<number> => {
-  if (arr.length === 0) return [];
-  arr.sort((a, b) => a - b);
-  return [arr[0], arr[arr.length - 1]]; // fix me!
-};
+export const minMax = (arr: Array<number>): Array<number> =>
+  arr.length === 0 ? [] : [Math.min(...arr), Math.max(...arr)];
 
 export const cockroachSpeed = (s: number): number => Math.floor(s * 27.778);
 
