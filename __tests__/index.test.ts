@@ -65,6 +65,7 @@ import {
   fibonacci,
   toCamelCase,
   quarterOfYear,
+  areaOrPerimeter,
 } from "../index";
 
 describe("testing autocomplete", () => {
@@ -1403,5 +1404,20 @@ describe("quarterOfYearTests", () => {
   });
   test(`Month ${11} = quarter 4`, function () {
     expect(quarterOfYear(11)).toBe(4);
+  });
+});
+
+describe("areaOrPerimeter tests", () => {
+  test("areaOrPerimeter receives 3,3", () => {
+    expect(areaOrPerimeter(3, 3)).toBe(9);
+  });
+  test("areaOrPerimeter receives 5,3", () => {
+    expect(areaOrPerimeter(5, 3)).toBe(16);
+  });
+  test("areaOrPerimeter receives 0,0", () => {
+    expect(areaOrPerimeter(0, 0)).toBe(0);
+  });
+  test("areaOrPerimeter receives 0,5", () => {
+    expect(areaOrPerimeter(0, 5)).toBe(0);
   });
 });
