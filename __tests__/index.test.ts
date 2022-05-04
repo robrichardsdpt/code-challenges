@@ -64,6 +64,7 @@ import {
   getVowelCount,
   fibonacci,
   toCamelCase,
+  quarterOfYear,
 } from "../index";
 
 describe("testing autocomplete", () => {
@@ -1390,5 +1391,17 @@ describe("toCamelCasentests", () => {
     expect(toCamelCase("A-B-C")).toBe("ABC");
     expect(toCamelCase("I-am-a-programmer")).toBe("IAmAProgrammer");
     expect(toCamelCase("i-am-a-programmer")).toBe("iAmAProgrammer");
+  });
+});
+
+describe("quarterOfYearTests", () => {
+  test(`Month ${3} = quarter 1`, function () {
+    expect(quarterOfYear(3)).toBe(1);
+  });
+  test(`Month ${8} = quarter 3`, function () {
+    expect(quarterOfYear(8)).toBe(3);
+  });
+  test(`Month ${11} = quarter 4`, function () {
+    expect(quarterOfYear(11)).toBe(4);
   });
 });
