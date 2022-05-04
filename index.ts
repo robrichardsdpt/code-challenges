@@ -718,3 +718,9 @@ export const quarterOfYear = (month: number): number => Math.ceil(month / 3);
 
 export const areaOrPerimeter = (l: number, w: number): number =>
   [l, w].includes(0) ? 0 : l === w ? l * w : 2 * (l + w);
+
+export const points = (games: Array<string>): number =>
+  games.reduce((output, current) => {
+    return (output +=
+      current[0] > current[2] ? 3 : current[0] === current[2] ? 1 : 0);
+  }, 0);
