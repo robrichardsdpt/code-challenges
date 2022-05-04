@@ -66,6 +66,7 @@ import {
   toCamelCase,
   quarterOfYear,
   areaOrPerimeter,
+  points,
 } from "../index";
 
 describe("testing autocomplete", () => {
@@ -1419,5 +1420,88 @@ describe("areaOrPerimeter tests", () => {
   });
   test("areaOrPerimeter receives 0,5", () => {
     expect(areaOrPerimeter(0, 5)).toBe(0);
+  });
+});
+
+describe("Basic tests", function () {
+  test("Testing for points(['1:0','2:0','3:0','4:0','2:1','3:1','4:1','3:2','4:2','4:3'])", function () {
+    expect(
+      points([
+        "1:0",
+        "2:0",
+        "3:0",
+        "4:0",
+        "2:1",
+        "3:1",
+        "4:1",
+        "3:2",
+        "4:2",
+        "4:3",
+      ])
+    ).toBe(30);
+  });
+  test("Testing for points(['1:1','2:2','3:3','4:4','2:2','3:3','4:4','3:3','4:4','4:4'])", function () {
+    expect(
+      points([
+        "1:1",
+        "2:2",
+        "3:3",
+        "4:4",
+        "2:2",
+        "3:3",
+        "4:4",
+        "3:3",
+        "4:4",
+        "4:4",
+      ])
+    ).toBe(10);
+  });
+  test("Testing for points(['0:1','0:2','0:3','0:4','1:2','1:3','1:4','2:3','2:4','3:4'])", function () {
+    expect(
+      points([
+        "0:1",
+        "0:2",
+        "0:3",
+        "0:4",
+        "1:2",
+        "1:3",
+        "1:4",
+        "2:3",
+        "2:4",
+        "3:4",
+      ])
+    ).toBe(0);
+  });
+  test("Testing for points(['1:0','2:0','3:0','4:0','2:1','1:3','1:4','2:3','2:4','3:4'])", function () {
+    expect(
+      points([
+        "1:0",
+        "2:0",
+        "3:0",
+        "4:0",
+        "2:1",
+        "1:3",
+        "1:4",
+        "2:3",
+        "2:4",
+        "3:4",
+      ])
+    ).toBe(15);
+  });
+  test("Testing for points(['1:0','2:0','3:0','4:4','2:2','3:3','1:4','2:3','2:4','3:4'])", function () {
+    expect(
+      points([
+        "1:0",
+        "2:0",
+        "3:0",
+        "4:4",
+        "2:2",
+        "3:3",
+        "1:4",
+        "2:3",
+        "2:4",
+        "3:4",
+      ])
+    ).toBe(12);
   });
 });
