@@ -714,4 +714,7 @@ export const toCamelCase = (str: string): string =>
 export const count = (str: string): Object =>
   [...str].reduce((pre, val) => ((pre[val] = -~pre[val]), pre), {});
 
-export const quarterOfYear = (month) => Math.ceil(month / 3);
+export const quarterOfYear = (month: number): number => Math.ceil(month / 3);
+
+export const areaOrPerimeter = (l: number, w: number): number =>
+  l === w ? l * w : 2 * (l + w);
