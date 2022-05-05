@@ -570,9 +570,8 @@ export const betterThanAverage = (
   );
 };
 
-export const removeFirstAndLastChar = (str: string) => {
-  return str.length <= 2 ? str : str.substring(1, str.length - 1);
-};
+export const removeFirstAndLastChar = (str: string) =>
+  str.length <= 2 ? str : str.substring(1, str.length - 1);
 
 // start must be the start of the range, end must be the end of the range
 export const sumOfArrayWithinRange = (start: number, end: number): number =>
