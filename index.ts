@@ -723,3 +723,9 @@ export const points = (games: Array<string>): number =>
     return (output +=
       current[0] > current[2] ? 3 : current[0] === current[2] ? 1 : 0);
   }, 0);
+
+export const findDifference = (a: Array<number>, b: Array<number>): number =>
+  Math.abs(
+    a.reduce((accum, item) => accum * item, 1) -
+      b.reduce((accum, item) => accum * item, 1)
+  );
