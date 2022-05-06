@@ -298,9 +298,8 @@ export const duplicateCount = (text: string): number => {
   return duplicates;
 };
 
-export const roundToNextHalf = (num: number): number => {
-  return Math.round(num / 0.5) * 0.5;
-};
+export const roundToNextHalf = (num: number): number =>
+  Math.round(num / 0.5) * 0.5;
 
 // []                                -->  "no one likes this"
 // ["Peter"]                         -->  "Peter likes this"
