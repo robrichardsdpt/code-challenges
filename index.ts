@@ -179,9 +179,8 @@ export const indexWhereNeedleIsInHaystack = (
 export const autocomplete = (
   input: string,
   dictionary: Array<string>
-): Array<string> => {
-  return dictionary.filter((item) => new RegExp(input).test(item)).slice(0, 5);
-};
+): Array<string> =>
+  dictionary.filter((item) => new RegExp(input).test(item)).slice(0, 5);
 
 export const highestRank = (arr: Array<number>): number => {
   const map = {};
