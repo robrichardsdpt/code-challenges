@@ -6,9 +6,8 @@ export const sumDigits = (number: number): number =>
 
 export const roundToNext5 = (n: number): number => Math.ceil(n / 5) * 5;
 
-export const sortByLength = (array: Array<string>): Array<string> => {
-  return array.sort((a: string, b: string) => a.length - b.length);
-};
+export const sortByLength = (array: Array<string>): Array<string> =>
+  array.sort((a: string, b: string) => a.length - b.length);
 
 export const reverseLetter = (str: string): string =>
   str
