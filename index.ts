@@ -730,3 +730,10 @@ export const findDifference = (a: Array<number>, b: Array<number>): number =>
 export const problem = (x) => {
   return typeof x === "string" ? "Error" : x * 50 + 6;
 };
+
+export const fakeBin = (x) => {
+  return x
+    .split("")
+    .map((item) => (+item < 5 ? 0 : 1))
+    .join("");
+};
