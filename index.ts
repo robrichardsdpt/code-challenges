@@ -726,3 +726,7 @@ export const findDifference = (a: Array<number>, b: Array<number>): number =>
     a.reduce((accum, item) => accum * item, 1) -
       b.reduce((accum, item) => accum * item, 1)
   );
+
+export const problem = (x) => {
+  return typeof x === "string" ? "Error" : x * 50 + 6;
+};
