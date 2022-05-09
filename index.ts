@@ -727,13 +727,12 @@ export const findDifference = (a: Array<number>, b: Array<number>): number =>
       b.reduce((accum, item) => accum * item, 1)
   );
 
-export const problem = (x) => {
+export const problem = (x: number | string): number | string => {
   return typeof x === "string" ? "Error" : x * 50 + 6;
 };
 
-export const fakeBin = (x) => {
-  return x
+export const fakeBin = (x: string): string =>
+  x
     .split("")
     .map((item) => (+item < 5 ? 0 : 1))
     .join("");
-};
