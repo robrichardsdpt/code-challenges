@@ -744,3 +744,21 @@ export const convertNumberToStringWithCommas = (num: number): string =>
 
 export const convertStringWithCommasToNumber = (str: string): number =>
   +str.replace(/,/g, "");
+
+const convertDateToDesiredLocaleString = (days: number): string => {
+  let now = new Date();
+  return new Date(now.setDate(now.getDate() + days)).toLocaleString([], {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  });
+};
+
+export const theWeekAWeekFromNow = () => {
+  return {
+    start: convertDateToDesiredLocaleString(7),
+    end: convertDateToDesiredLocaleString(14),
+  };
+};
+
+console.log(theWeekAWeekFromNow());
