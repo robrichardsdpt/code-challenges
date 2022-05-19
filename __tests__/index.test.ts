@@ -69,6 +69,7 @@ import {
   points,
   findDifference,
   convertNumberToStringWithCommas,
+  convertStringWithCommasToNumber,
 } from "../index";
 
 describe("testing autocomplete", () => {
@@ -1530,5 +1531,20 @@ describe("convertNumberToStringWithCommas", () => {
   });
   it("converts -100000000 to -100,000,000", () => {
     expect(convertNumberToStringWithCommas(-100000000)).toEqual("-100,000,000");
+  });
+});
+
+describe("convertStringWithCommasToNumber", () => {
+  it("converts 10000 from 10,000", () => {
+    expect(convertStringWithCommasToNumber("10,000")).toEqual(10000);
+  });
+  it("converts 100000000 from 100,000,000", () => {
+    expect(convertStringWithCommasToNumber("100,000,000")).toEqual(100000000);
+  });
+  it("converts 0 to 0", () => {
+    expect(convertStringWithCommasToNumber("0")).toEqual(0);
+  });
+  it("converts -100000000 from -100,000,000", () => {
+    expect(convertStringWithCommasToNumber("-100,000,000")).toEqual(-100000000);
   });
 });

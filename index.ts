@@ -739,3 +739,6 @@ export const fakeBin = (x: string): string =>
 
 export const convertNumberToStringWithCommas = (num: number): string =>
   num.toLocaleString("en-US");
+
+export const convertStringWithCommasToNumber = (str: string): number =>
+  +str.replace(/,/g, "");
