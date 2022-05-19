@@ -737,6 +737,8 @@ export const fakeBin = (x: string): string =>
     .map((item) => (+item < 5 ? 0 : 1))
     .join("");
 
+// the two conversion functions below assume that the input limits input to numbers and
+// commas
 export const convertNumberToStringWithCommas = (num: number): string =>
   num.toLocaleString("en-US");
 

@@ -1529,8 +1529,10 @@ describe("convertNumberToStringWithCommas", () => {
   it("converts 0 to 0", () => {
     expect(convertNumberToStringWithCommas(0)).toEqual("0");
   });
-  it("converts -100000000 to -100,000,000", () => {
-    expect(convertNumberToStringWithCommas(-100000000)).toEqual("-100,000,000");
+  it("converts -100000000.23 to -100,000,000.23", () => {
+    expect(convertNumberToStringWithCommas(-100000000.23)).toEqual(
+      "-100,000,000.23"
+    );
   });
 });
 
@@ -1546,5 +1548,10 @@ describe("convertStringWithCommasToNumber", () => {
   });
   it("converts -100000000 from -100,000,000", () => {
     expect(convertStringWithCommasToNumber("-100,000,000")).toEqual(-100000000);
+  });
+  it("converts -100000000.23 from -100,000,000.23", () => {
+    expect(convertStringWithCommasToNumber("-100,000,000.23")).toEqual(
+      -100000000.23
+    );
   });
 });
