@@ -68,6 +68,7 @@ import {
   areaOrPerimeter,
   points,
   findDifference,
+  convertNumberToStringWithCommas,
 } from "../index";
 
 describe("testing autocomplete", () => {
@@ -1514,5 +1515,20 @@ describe("findDifference Tests", function () {
     expect(findDifference([11, 2, 5], [1, 10, 8])).toBe(30);
     expect(findDifference([4, 4, 7], [3, 9, 3])).toBe(31);
     expect(findDifference([15, 20, 25], [10, 30, 25])).toBe(0);
+  });
+});
+
+describe("convertNumberToStringWithCommas", () => {
+  it("converts 10000 to 10,000", () => {
+    expect(convertNumberToStringWithCommas(10000)).toEqual("10,000");
+  });
+  it("converts 100000000 to 100,000,000", () => {
+    expect(convertNumberToStringWithCommas(100000000)).toEqual("100,000,000");
+  });
+  it("converts 0 to 0", () => {
+    expect(convertNumberToStringWithCommas(0)).toEqual("0");
+  });
+  it("converts -100000000 to -100,000,000", () => {
+    expect(convertNumberToStringWithCommas(-100000000)).toEqual("-100,000,000");
   });
 });
