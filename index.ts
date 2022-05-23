@@ -761,4 +761,7 @@ export const theWeekAWeekFromNow = () => {
   };
 };
 
+export const isNotTheWeekend = (date: Date) => [0, 6].includes(date.getDay());
+
 console.log(theWeekAWeekFromNow());
+console.log(isNotTheWeekend(new Date()));
