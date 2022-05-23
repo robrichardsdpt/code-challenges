@@ -761,7 +761,25 @@ export const theWeekAWeekFromNow = () => {
   };
 };
 
-export const isNotTheWeekend = (date: Date) => [0, 6].includes(date.getDay());
+export const isTheWeekend = (date: Date) => [0, 6].includes(date.getDay());
+
+export const getNext7BusinessDays = () => {
+  let resultArr = [];
+  let day = new Date();
+  while (resultArr.length < 7) {
+    if (!isTheWeekend(day))
+      resultArr.push(
+        day.toLocaleString([], {
+          year: "numeric",
+          month: "numeric",
+          day: "numeric",
+        })
+      );
+    day = new Date(day.setDate(day.getDate() + 1));
+  }
+  return resultArr;
+};
 
 console.log(theWeekAWeekFromNow());
-console.log(isNotTheWeekend(new Date()));
+console.log(isTheWeekend(new Date()));
+console.log(getNext7BusinessDays());
