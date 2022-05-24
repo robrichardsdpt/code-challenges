@@ -754,16 +754,17 @@ const convertDateToDesiredLocaleString = (days: number): string => {
   });
 };
 
-export const theWeekAWeekFromNow = () => {
+export const theWeekAWeekFromNow = (): Record<string, string> => {
   return {
     start: convertDateToDesiredLocaleString(7),
     end: convertDateToDesiredLocaleString(14),
   };
 };
 
-export const isTheWeekend = (date: Date) => [0, 6].includes(date.getDay());
+export const isTheWeekend = (date: Date): boolean =>
+  [0, 6].includes(date.getDay());
 
-export const getNext7BusinessDays = () => {
+export const getNext7BusinessDays = (): string[] => {
   let resultArr = [];
   let day = new Date();
   while (resultArr.length < 7) {
