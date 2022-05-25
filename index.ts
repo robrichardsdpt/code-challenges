@@ -781,6 +781,17 @@ export const getNext7BusinessDays = (): string[] => {
   return resultArr;
 };
 
+const curriedFunction =
+  (text: string) =>
+  (anotherText: string): string => {
+    return `${text} ${anotherText}`;
+  };
+
 console.log(theWeekAWeekFromNow());
 console.log(isTheWeekend(new Date()));
 console.log(getNext7BusinessDays());
+
+console.log(curriedFunction("text")("message"));
+const hello = curriedFunction("Hello");
+console.log(hello);
+console.log(hello("friend"));
