@@ -11,9 +11,9 @@ type PowerliftingBig3AndTotal = {
 };
 
 export const getPercentOfTotal = (weight: number, total: number): number =>
-  Math.round((weight / total) * 100 * 10) / 10;
+  Math.round((weight / total) * 100 * 100) / 100;
 
-export const getPercentageOfTotal = (
+export const getPercentageOfTotalObj = (
   oneRMObj: PowerliftingBig3AndTotal
 ): PowerliftingBig3AndTotal => {
   const { squat, bench, deadlift, total } = oneRMObj;
