@@ -26,3 +26,11 @@ describe("getPercentOfTotal tests", () => {
     expect(getPercentOfTotal(2.666, 100)).toBe(2.67);
   });
 });
+
+describe("getPercentageOfTotalObj tests", () => {
+  it("receives valid object and returns valid object of percentages", () => {
+    expect(
+      getPercentageOfTotalObj({ squat: 2, bench: 1, deadlift: 3, total: 6 })
+    ).toStrictEqual({ squat: 33.33, bench: 16.67, deadlift: 50, total: 6 });
+  });
+});
