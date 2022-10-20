@@ -70,6 +70,7 @@ import {
   findDifference,
   convertNumberToStringWithCommas,
   convertStringWithCommasToNumber,
+  letterCount,
 } from "../index";
 
 describe("testing autocomplete", () => {
@@ -1553,5 +1554,17 @@ describe("convertStringWithCommasToNumber", () => {
     expect(convertStringWithCommasToNumber("-100,000,000.23")).toEqual(
       -100000000.23
     );
+  });
+});
+
+describe("letterCount", () => {
+  it("properly counts the number of letters in a string", () => {
+    expect(letterCount("hello", "l")).toEqual(2);
+    expect(letterCount("hello", "e")).toEqual(1);
+    expect(letterCount("", "l")).toEqual(0);
+    expect(letterCount("hello", "h")).toEqual(1);
+  });
+  it("properly prompts the user for error", () => {
+    expect(letterCount("hello", "ll")).toEqual("please enter only one letter");
   });
 });

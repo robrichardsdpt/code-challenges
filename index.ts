@@ -816,9 +816,7 @@ const hello = curriedFunction("Hello");
 console.log(hello);
 console.log(hello("friend"));
 
-const letterCount = (word: string, letter: string): number =>
-  word.split("").filter((char) => char === letter).length;
-
-console.log("hello and l", letterCount("hello", "l"));
-console.log("hello and e", letterCount("hello", "e"));
-console.log('"" and l', letterCount("", "l"));
+export const letterCount = (word: string, letter: string): string | number =>
+  letter.length > 1
+    ? "please enter only one letter"
+    : word.split("").filter((char) => char === letter).length;
