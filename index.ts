@@ -1,3 +1,5 @@
+import { mockJson } from "./mocks/mockJson";
+
 export const sumDigits = (number: number): number =>
   String(Math.abs(number))
     .split("")
@@ -842,3 +844,20 @@ export const pointGenerator = (games: Array<string>): number | string =>
   }, 0);
 
 //convertJsonToCsv
+const convertJsonToCsv = (input) => {
+  const items = input.items;
+  const replacer = (key, value: string) => (value === null ? "" : value); // specify how you want to handle null values here
+  const header = Object.keys(items[0]);
+  const csv = [
+    header.join(","), // header row first
+    ...items.map((row: string) =>
+      header
+        .map((fieldName) => JSON.stringify(row[fieldName], replacer))
+        .join(",")
+    ),
+  ].join("\r\n");
+
+  console.log(csv);
+};
+
+convertJsonToCsv(mockJson);
