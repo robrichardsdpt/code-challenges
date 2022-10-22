@@ -840,3 +840,5 @@ export const pointGenerator = (games: Array<string>): number | string =>
       ? previousValue + 1
       : previousValue + 0;
   }, 0);
+
+//convertJsonToCsv
