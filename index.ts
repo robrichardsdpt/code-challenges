@@ -820,3 +820,15 @@ export const letterCount = (word: string, letter: string): string | number =>
   letter.length > 1
     ? "please enter only one letter"
     : word.split("").filter((char) => char === letter).length;
+
+export const pointGenerator = (games: Array<string>): number =>
+  games.reduce((previousValue, currentGame) => {
+    const currentGameArray = currentGame.split(":");
+    return Number(currentGameArray[0]) > Number(currentGameArray[1])
+      ? previousValue + 2
+      : currentGameArray[0] === currentGameArray[1]
+      ? previousValue + 1
+      : previousValue + 0;
+  }, 0);
+
+console.log(pointGenerator(["3:1", "2:2", "1:2", "4:2"]));
