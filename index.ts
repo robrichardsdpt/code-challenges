@@ -821,14 +821,22 @@ export const letterCount = (word: string, letter: string): string | number =>
     ? "please enter only one letter"
     : word.split("").filter((char) => char === letter).length;
 
-export const pointGenerator = (games: Array<string>): number =>
+export const pointGenerator = (games: Array<string>): number | string =>
   games.reduce((previousValue, currentGame) => {
     const currentGameArray = currentGame.split(":");
-    return Number(currentGameArray[0]) > Number(currentGameArray[1])
+    if (
+      ![
+        /[0-9]/.test(currentGameArray[0]),
+        /[0-9]/.test(currentGameArray[1]),
+      ].every((item) => item === true)
+    ) {
+      return "please enter only numbers";
+    }
+    return typeof previousValue === "string" && /^p/.test(previousValue)
+      ? previousValue
+      : Number(currentGameArray[0]) > Number(currentGameArray[1])
       ? previousValue + 2
       : currentGameArray[0] === currentGameArray[1]
       ? previousValue + 1
       : previousValue + 0;
   }, 0);
-
-console.log(pointGenerator(["3:1", "2:2", "1:2", "4:2"]));

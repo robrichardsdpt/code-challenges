@@ -71,6 +71,7 @@ import {
   convertNumberToStringWithCommas,
   convertStringWithCommasToNumber,
   letterCount,
+  pointGenerator,
 } from "../index";
 
 describe("testing autocomplete", () => {
@@ -1568,3 +1569,22 @@ describe("letterCount", () => {
     expect(letterCount("hello", "ll")).toEqual("please enter only one letter");
   });
 });
+
+describe("letterCount", () => {
+  it("properly counts the number of points in a string", () => {
+    expect(pointGenerator(["3:1", "2:2", "1:2", "4:2"])).toEqual(5);
+    expect(pointGenerator(["3:1", "12:1", "1:0", "4:2"])).toEqual(8);
+    expect(pointGenerator(["0:1", "0:2", "1:2", "4:5"])).toEqual(0);
+    expect(pointGenerator(["3:5", "2:2", "1:2", "0:2"])).toEqual(1);
+  });
+  it("properly prompts the user for error", () => {
+    expect(pointGenerator(["3:a", "2:2", "1:2", "4:2"])).toEqual(
+      "please enter only numbers"
+    );
+    expect(pointGenerator(["3:6", "2:*", "1:2", "4:2"])).toEqual(
+      "please enter only numbers"
+    );
+  });
+});
+
+console.log();
