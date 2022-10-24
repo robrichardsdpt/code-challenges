@@ -844,7 +844,7 @@ export const pointGenerator = (games: Array<string>): number | string =>
   }, 0);
 
 //convertJsonToCsv
-const convertJsonToCsv = (input) => {
+const convertJsonToCsv = (input): string => {
   const items = input.items;
   const replacer = (key: string, value: string) =>
     value === null ? "" : value; // specify how you want to handle null values here
@@ -858,7 +858,7 @@ const convertJsonToCsv = (input) => {
     ),
   ].join("\r\n");
 
-  console.log(csv);
+  return csv;
 };
 
-convertJsonToCsv(mockJson);
+console.log(convertJsonToCsv(mockJson));
