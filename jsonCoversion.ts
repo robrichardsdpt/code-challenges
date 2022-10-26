@@ -1,6 +1,3 @@
-import { mockJson } from "./mocks/mockJson";
-
-//convertJsonToCsv
 export const convertJsonToCsv = (input): string => {
   const items = input.items;
   const replacer = (key: string, value: string) =>
@@ -17,5 +14,3 @@ export const convertJsonToCsv = (input): string => {
 
   return csv;
 };
-
-console.log(convertJsonToCsv(mockJson));
