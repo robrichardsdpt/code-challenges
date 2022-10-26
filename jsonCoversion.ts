@@ -2,7 +2,7 @@ const replacer = (key: string, value: string) => (value === null ? "" : value); 
 
 export const convertJsonToCsv = (input): string => {
   const items = input.items;
-
+  if (!items || items.length === 0) return "";
   const header = Object.keys(items[0]);
   const csv = [
     header.join(","), // header row first
