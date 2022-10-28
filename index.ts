@@ -802,19 +802,6 @@ const memoizedAdd = () => {
     }
   };
 };
-// returned function from memoizedAdd
-const newAdd = memoizedAdd();
-console.log(newAdd(9)); // calculated
-console.log(newAdd(9)); // cached
-
-console.log(theWeekAWeekFromNow());
-console.log(isTheWeekend(new Date()));
-console.log(getNext7BusinessDays());
-
-console.log(curriedFunction("text")("message"));
-const hello = curriedFunction("Hello");
-console.log(hello);
-console.log(hello("friend"));
 
 export const letterCount = (word: string, letter: string): string | number =>
   letter.length > 1
@@ -840,3 +827,26 @@ export const pointGenerator = (games: Array<string>): number | string =>
       ? previousValue + 1
       : previousValue + 0;
   }, 0);
+
+function isItAPhoneNum(str: string): string {
+  const numString = str.replace(/\D/g, "");
+  console.log(numString);
+  return numString.startsWith("1") && numString.length === 8
+    ? numString
+    : "Not a US phone number";
+}
+
+// TODO:temporary console logs until testing/mocks are created.
+// returned function from memoizedAdd
+const newAdd = memoizedAdd();
+console.log(newAdd(9)); // calculated
+console.log(newAdd(9)); // cached
+
+console.log(theWeekAWeekFromNow());
+console.log(isTheWeekend(new Date()));
+console.log(getNext7BusinessDays());
+
+console.log(curriedFunction("text")("message"));
+const hello = curriedFunction("Hello");
+console.log(hello);
+console.log(hello("friend"));
