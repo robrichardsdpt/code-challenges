@@ -828,13 +828,12 @@ export const pointGenerator = (games: Array<string>): number | string =>
       : previousValue + 0;
   }, 0);
 
-function isItAPhoneNum(str: string): string {
+export const isItAPhoneNum = (str: string): string => {
   const numString = str.replace(/\D/g, "");
-  console.log(numString);
   return numString.startsWith("1") && numString.length === 8
     ? numString
     : "Not a US phone number";
-}
+};
 
 // TODO:temporary console logs until testing/mocks are created.
 // returned function from memoizedAdd

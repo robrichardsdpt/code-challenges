@@ -72,6 +72,7 @@ import {
   convertStringWithCommasToNumber,
   letterCount,
   pointGenerator,
+  isItAPhoneNum,
 } from "../index";
 
 describe("testing autocomplete", () => {
@@ -1587,4 +1588,23 @@ describe("letterCount", () => {
   });
 });
 
-console.log();
+describe("isItAPhoneNum", () => {
+  it("returns phone number if is phone number", () => {
+    expect(isItAPhoneNum("/!11a23s45d67t")).toEqual("11234567");
+  });
+  it("returns appropriate string if not phone number because it does not start with 0", () => {
+    expect(isItAPhoneNum("/!01a23s45d67t")).toEqual("Not a US phone number");
+  });
+  it("returns appropriate string if not phone number because it is too short", () => {
+    expect(isItAPhoneNum("/!1a23s45d67t")).toEqual("Not a US phone number");
+  });
+  it("returns appropriate string if not phone number because it is too long", () => {
+    expect(isItAPhoneNum("1/!1a23s45d67t8")).toEqual("Not a US phone number");
+  });
+  it("returns appropriate string if not phone number because it is all letters", () => {
+    expect(isItAPhoneNum("robertrichards")).toEqual("Not a US phone number");
+  });
+  it("returns appropriate string if not phone number because it is all special characters", () => {
+    expect(isItAPhoneNum("/!#$%^&*()*^%$#")).toEqual("Not a US phone number");
+  });
+});
