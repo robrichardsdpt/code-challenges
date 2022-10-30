@@ -835,6 +835,11 @@ export const isItAPhoneNum = (str: string): string => {
     : "Not a US phone number";
 };
 
+export const isImageFile = (inputFileStr: string): boolean =>
+  /([a-zA-Z0-9\s_\\.\-\(\):])+(.jpg|.jpeg|.gif|.webp|.png|.svg|.tiff)$/.test(
+    inputFileStr
+  );
+
 // TODO:temporary console logs until testing/mocks are created.
 // returned function from memoizedAdd
 const newAdd = memoizedAdd();
