@@ -836,7 +836,7 @@ export const isItAPhoneNum = (str: string): string => {
 };
 
 export const isImageFile = (inputFileStr: string): boolean =>
-  /([a-zA-Z0-9\s_\\.\-\(\):])+(.jpg|.jpeg|.gif|.webp|.png|.svg|.tiff)$/.test(
+  /([a-zA-Z0-9\s_\\.\-\(\):])\.(jpg|jpeg|gif|webp|png|svg|tiff)$/i.test(
     inputFileStr
   );
 

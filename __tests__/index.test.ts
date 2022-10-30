@@ -73,6 +73,7 @@ import {
   letterCount,
   pointGenerator,
   isItAPhoneNum,
+  isImageFile,
 } from "../index";
 
 describe("testing autocomplete", () => {
@@ -1606,5 +1607,35 @@ describe("isItAPhoneNum", () => {
   });
   it("returns appropriate string if not phone number because it is all special characters", () => {
     expect(isItAPhoneNum("/!#$%^&*()*^%$#")).toEqual("Not a US phone number");
+  });
+});
+
+describe("isImageFile", () => {
+  it("returns true for jpg file", () => {
+    expect(isImageFile("rob.jpg")).toEqual(true);
+  });
+  it("returns true for jpeg file", () => {
+    expect(isImageFile("rob1.jpeg")).toEqual(true);
+  });
+  it("returns true for gif file", () => {
+    expect(isImageFile("2rob.gif")).toEqual(true);
+  });
+  it("returns true for tiff file", () => {
+    expect(isImageFile("r3o-b.tiff")).toEqual(true);
+  });
+  it("returns true for png file", () => {
+    expect(isImageFile("r3o-b.png")).toEqual(true);
+  });
+  it("returns true for svg file", () => {
+    expect(isImageFile("r3o-b.svg")).toEqual(true);
+  });
+  it("returns false for pdf file", () => {
+    expect(isImageFile("r3o-b.pdf")).toEqual(false);
+  });
+  it("returns false for file with no extension", () => {
+    expect(isImageFile("r3o-bjpg")).toBeFalsy();
+  });
+  it("returns false for file with no name", () => {
+    expect(isImageFile(".jpg")).toEqual(false);
   });
 });
